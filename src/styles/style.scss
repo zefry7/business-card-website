@@ -1,0 +1,63 @@
+@import "../../public/font/fonts";
+@import "./mixins/null-style";
+@import "./mixins/adaptive";
+@import "../content/import-scss";
+
+:root {
+    --bg-black: #101010;
+    --bg-black-grey-1: #181818;
+    --bg-black-grey-2: #222222;
+    --text-grey: #838383;
+    --text-white: #f8f8f8;
+    --text-orange: #FF9340;
+}
+
+* {
+    font-family: 'Montserrat';
+}
+
+img {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+    height: auto;
+    min-width: 375px;
+    background-color: var(--bg-black);
+}
+
+html {
+    scrollbar-gutter: stable;
+}
+
+body {
+    background-color: var(--bg-main);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 150%;
+    @include adap(font-size, 48, 40, 32);
+}
+
+p, a, li {
+    @include adap(font-size, 16);
+    line-height: 150%;
+}
+
+.scroll-lock {
+    overflow: hidden;
+}
+
+.padding-block {
+    @include adap(padding-right, 120, 30);
+    @include adap(padding-left, 120, 30);
+}
+
+.search {
+    display: block;
+}
+
+.no-search {
+    display: none;
+}
