@@ -4,7 +4,6 @@ import "./styles/style.css"
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { data } from "./data";
 import MainPage from './content/Main/MainPage';
-import Layout from './content/Layout/Layout';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
@@ -16,19 +15,17 @@ if (url.length <= 2) {
   window.location.href += "/"
 }
 
-export const UserContext = createContext()
+export const DataContext = createContext()
 
 root.render(
   <Provider store={store}>
-    <UserContext.Provider value={data}>
+    <DataContext.Provider value={data}>
       <BrowserRouter basename={`${url[1]}/`}>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<MainPage />} />
-          </Route>
+          <Route path="/" element={<MainPage />} />
         </Routes>
       </BrowserRouter >
-    </UserContext.Provider>
+    </DataContext.Provider>
   </Provider>
 );
 

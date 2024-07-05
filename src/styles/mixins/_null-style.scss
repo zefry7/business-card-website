@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     border: 0;
+    -webkit-tap-highlight-color: transparent;
   }
   
   *, *:before, *:after {
@@ -51,11 +52,12 @@
   a, a:visited {
     text-decoration: none;
     color: initial;
+    cursor: pointer;
   }
   
   a:hover {
     text-decoration: none;
-    color: initial;
+    color: currentColor;
   }
   
   ul li {
@@ -74,4 +76,15 @@
 
   p {
     cursor: default;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  select { 
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    appearance: none;
   }

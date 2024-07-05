@@ -1,6 +1,7 @@
 @import "../../public/font/fonts";
 @import "./mixins/null-style";
 @import "./mixins/adaptive";
+@import "./mixins/animation";
 @import "../content/import-scss";
 
 :root {
@@ -9,7 +10,7 @@
     --bg-black-grey-2: #222222;
     --text-grey: #838383;
     --text-white: #f8f8f8;
-    --text-orange: #FF9340;
+    --text-orange: #f39200;
 }
 
 * {
@@ -50,8 +51,8 @@ p, a, li {
 }
 
 .padding-block {
-    @include adap(padding-right, 120, 30);
-    @include adap(padding-left, 120, 30);
+    @include adap(padding-right, 80, 80, 80, 40, 20);
+    @include adap(padding-left, 80, 80, 80, 40, 20);
 }
 
 .search {
@@ -60,4 +61,10 @@ p, a, li {
 
 .no-search {
     display: none;
+}
+
+.move-block {
+    position: sticky;
+    top: 0;
+    left: 0;
 }
