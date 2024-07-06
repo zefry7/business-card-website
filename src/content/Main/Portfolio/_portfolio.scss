@@ -6,11 +6,12 @@
     &__content {
         @extend .padding-block;
         padding-top: 50px;
-        padding-bottom: 50px;
+        padding-bottom: 120px;
     }
     &__title {
         text-transform: uppercase;
         color: var(--text-white);
+        text-align: center;
     }
     &__filter {
         margin-bottom: 20px;
@@ -67,13 +68,14 @@
             }
         }
         &-img {
-            
+            overflow: hidden;
+            border-top-left-radius: 17px;
+            border-top-right-radius: 17px;
             img {
-                border-top-left-radius: 17px;
-                border-top-right-radius: 17px;
                 width: 100%;
                 height: auto;
                 opacity: 0.9;
+                animation: img-scale 20s linear infinite;
             }
         }
         &-info {

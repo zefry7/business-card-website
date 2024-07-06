@@ -1,0 +1,37 @@
+.about {
+    &__wrapper {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+    &__content {
+        @extend .padding-block;
+        padding-top: 100px;
+        padding-bottom: 50px;
+        height: 100dvh;
+    }
+    &__title {
+        margin-bottom: 160px;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--text-white);
+    }
+    &__info {
+        margin: 0 auto;
+        margin-bottom: 120px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        width: 1000px;
+    }
+    &__img {
+        height: 280px;
+        min-width: 280px;
+        border: 2px solid var(--text-grey);
+        border-radius: 25%;
+        animation: move-border 7s linear infinite;
+    }
+    &__text {
+        font-size: 20px;
+        color: var(--text-grey);
+    }
+}
