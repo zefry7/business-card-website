@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Montserrat";
   src: url("../../public/font/Montserrat-Regular.eot");
@@ -575,13 +576,13 @@ select {
 .contact__content {
   padding-top: 100px;
   padding-bottom: 50px;
-  height: 100dvh;
+  min-height: 110dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .contact__title {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   text-transform: uppercase;
   text-align: center;
   color: var(--bg-main);
@@ -595,12 +596,58 @@ select {
   gap: 20px;
   flex-direction: column;
 }
-.contact__form-name {
-  height: 40px;
-  padding-left: 15px;
+.contact__form input, .contact__form textarea {
+  font-size: 20px;
+  border: 1px solid var(--text-grey);
+  border-radius: 10px;
+}
+.contact__form-name, .contact__form-email {
+  height: -moz-max-content;
+  height: max-content;
+  padding: 15px;
 }
 .contact__form-submit {
   height: 40px;
+}
+.contact__form-description {
+  resize: none;
+  padding: 15px;
+  height: 250px;
+}
+.contact__form textarea::-moz-placeholder, .contact__form input::-moz-placeholder {
+  font-size: 16px;
+}
+.contact__form textarea::placeholder, .contact__form input::placeholder {
+  font-size: 16px;
+}
+.contact__form-submit {
+  height: 60px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: var(--text-white);
+  background-color: var(--bg-black);
+  transition: transform 0.2s linear;
+  text-transform: uppercase;
+  position: relative;
+}
+.contact__form-submit:active {
+  transform: translateY(5px);
+}
+.contact__form-submit::before {
+  content: "*Неправильно указана почта ";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 20px;
+  width: -moz-max-content;
+  width: max-content;
+  color: red;
+  text-transform: capitalize;
+  font-size: 14px;
+  display: none;
+}
+.contact__form-error::before {
+  display: inline-block;
 }
 
 .footer {

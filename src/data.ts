@@ -39,5 +39,27 @@ export const data = {
                 }
             }
         ]
+    },
+    contact: {
+        title: "",
+        description: "",
+        name: {
+            type: "text",
+            name: "name",
+            placeholder: "Ваше имя..."
+        },
+        email: {
+            type: "email",
+            name: "email",
+            placeholder: "Ваш email..."
+        }
+        ,
+        textarea: {
+            name: "description",
+            placeholder: "Ваше сообщение..."
+        },
+        button: {
+            text: "Отправить"
+        }
     }
 }
