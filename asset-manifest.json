@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/business-card-website/static/css/main.8506aa31.css",
-    "main.js": "/business-card-website/static/js/main.ee527240.js",
+    "main.css": "/business-card-website/static/css/main.6e705209.css",
+    "main.js": "/business-card-website/static/js/main.79ba8d12.js",
     "static/media/Montserrat-Bold.eot": "/business-card-website/static/media/Montserrat-Bold.bea823a1a24bcdf65760.eot",
     "static/media/Montserrat-Bold.ttf": "/business-card-website/static/media/Montserrat-Bold.09aa44bfee794bd5211e.ttf",
     "static/media/Montserrat-Medium.eot": "/business-card-website/static/media/Montserrat-Medium.e65378b57457fa7fd4b6.eot",
@@ -14,12 +14,16 @@
     "static/media/Montserrat-Bold.woff2": "/business-card-website/static/media/Montserrat-Bold.6aab475a7e27a6f02aed.woff2",
     "static/media/Montserrat-Medium.woff2": "/business-card-website/static/media/Montserrat-Medium.e1c5f6afb157b4dce636.woff2",
     "static/media/Montserrat-Regular.woff2": "/business-card-website/static/media/Montserrat-Regular.df7b9b6f89ccf3a354d3.woff2",
+    "static/media/double-arrow-bottom.svg": "/business-card-website/static/media/double-arrow-bottom.e7064cce2c14818e35f1.svg",
+    "static/media/double-arrow-bottom_active.svg": "/business-card-website/static/media/double-arrow-bottom_active.a91dfcd85afb0af172a5.svg",
+    "static/media/circle.svg": "/business-card-website/static/media/circle.799e64771c460124714f.svg",
     "index.html": "/business-card-website/index.html",
-    "main.8506aa31.css.map": "/business-card-website/static/css/main.8506aa31.css.map",
-    "main.ee527240.js.map": "/business-card-website/static/js/main.ee527240.js.map"
+    "static/media/plus.svg": "/business-card-website/static/media/plus.3fe72e524148431abacb.svg",
+    "main.6e705209.css.map": "/business-card-website/static/css/main.6e705209.css.map",
+    "main.79ba8d12.js.map": "/business-card-website/static/js/main.79ba8d12.js.map"
   },
   "entrypoints": [
-    "static/css/main.8506aa31.css",
-    "static/js/main.ee527240.js"
+    "static/css/main.6e705209.css",
+    "static/js/main.79ba8d12.js"
   ]
 }
