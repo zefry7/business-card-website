@@ -26,7 +26,6 @@ img {
 #root {
     height: auto;
     min-width: 320px;
-    overflow-x: hidden;
 }
 
 html {
@@ -71,6 +70,7 @@ header,
 section { 
     z-index: 2;
     background-color: var(--bg-black);
+    overflow-x: hidden;
 }
 
 .show-block {

@@ -17,7 +17,7 @@
         align-items: center;
     }
     &__title {
-        font-size: 150px;
+        @include adap(font-size, 150, 150, 150, 100, 40);
         color: rgba(255, 255, 255, 0.05);
         text-transform: uppercase;
         font-family: 'Raleway', sans-serif;
@@ -43,8 +43,8 @@
         bottom: 10px;
         left: 50%;
         transform: translateX(-50%);
-        height: 100px;
-        width: 120px;
+        @include adap(height, 100, 100, 100, 80, 80);
+        @include adap(width, 100, 100, 100, 80, 80);
         background: url("./img/double-arrow-bottom.svg") center/ 40px 40px no-repeat;
         border: 2px solid var(--bg-black-grey-2);
         border-radius: 30%;

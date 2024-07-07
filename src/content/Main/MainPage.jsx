@@ -27,15 +27,15 @@ function MainPage() {
 
     return <>
         <div className="move-block-wrapper">
-            {/* <Intro /> */}
+            <Intro />
             <div className="move-block">
                 <Header />
                 <About />
             </div>
         </div>
         <Skills />
-        {/* <Portfolio /> */}
-        {/* <div className="bottom-block">
+        {/* <Portfolio />
+        <div className="bottom-block">
             <Contact />
         </div>
         <Footer /> */}
