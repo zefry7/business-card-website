@@ -644,6 +644,7 @@ select {
   z-index: 100;
   background-color: var(--bg-black);
   border-bottom: 2px solid var(--bg-black-grey-2);
+  position: absolute;
 }
 .intro__wrapper {
   height: 100%;
@@ -1035,10 +1036,6 @@ html {
   scrollbar-gutter: stable;
 }
 
-body {
-  background-color: var(--bg-main);
-}
-
 .scroll-lock {
   overflow: hidden;
 }
@@ -1113,15 +1110,7 @@ body {
 }
 
 .move-block-wrapper {
-  height: calc(400dvh + 350px + 110dvh);
-}
-
-.top-block {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10;
+  height: calc(200dvh + 200px);
 }
 
 .move-block {
@@ -1139,6 +1128,7 @@ body {
 footer,
 header,
 section {
+  z-index: 2;
   background-color: var(--bg-black);
 }
 

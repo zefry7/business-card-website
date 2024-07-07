@@ -21,26 +21,25 @@ function MainPage() {
     }, [])
 
     useEffect(() => {
-        if(scrollY > window.innerHeight - 100)
+        if (scrollY > window.innerHeight - 100)
             showBlock()
     }, [scrollY])
 
     return <>
         <div className="move-block-wrapper">
-            {/* <div className="top-block">
-                <Intro />
-            </div> */}
+            <Intro />
             <div className="move-block">
-                {/* <Header /> */}
+                <Header />
                 <About />
-                <Skills />
-                {/* <Portfolio />
-                <div className="bottom-block">
-                    <Contact />
-                </div>
-                <Footer /> */}
             </div>
         </div>
+        <Skills />
+        {/* <Portfolio /> */}
+        <div className="bottom-block">
+            <Contact />
+        </div>
+        <Footer />
+
     </>
 }
 

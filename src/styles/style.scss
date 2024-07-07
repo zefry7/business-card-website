@@ -32,7 +32,7 @@ html {
 }
 
 body {
-    background-color: var(--bg-main);
+    
 }
 
 .scroll-lock {
@@ -53,15 +53,7 @@ body {
 }
 
 .move-block-wrapper {
-    height: calc(100dvh * 4 + 350px + 110dvh);
-}
-
-.top-block{
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 10;
+    height: calc(100dvh * 2 + 200px);
 }
 
 .move-block {
@@ -78,6 +70,7 @@ body {
 footer,
 header,
 section { 
+    z-index: 2;
     background-color: var(--bg-black);
 }
 
