@@ -8,6 +8,7 @@
     --bg-black: #101010;
     --bg-black-grey-1: #181818;
     --bg-black-grey-2: #222222;
+    --bg-black-grey-3: #4e4e4e;
     --text-grey: #838383;
     --text-white: #f8f8f8;
     --text-orange: #f39200;
@@ -24,16 +25,14 @@ img {
 
 #root {
     height: auto;
-    min-width: 375px;
+    min-width: 320px;
+    overflow-x: hidden;
 }
 
 html {
     scrollbar-gutter: stable;
 }
 
-body {
-    
-}
 
 .scroll-lock {
     overflow: hidden;

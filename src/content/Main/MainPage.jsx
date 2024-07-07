@@ -27,7 +27,7 @@ function MainPage() {
 
     return <>
         <div className="move-block-wrapper">
-            <Intro />
+            {/* <Intro /> */}
             <div className="move-block">
                 <Header />
                 <About />
@@ -35,10 +35,10 @@ function MainPage() {
         </div>
         <Skills />
         {/* <Portfolio /> */}
-        <div className="bottom-block">
+        {/* <div className="bottom-block">
             <Contact />
         </div>
-        <Footer />
+        <Footer /> */}
 
     </>
 }
