@@ -5,33 +5,56 @@
     }
     &__content {
         @extend .padding-block;
-        padding-top: 100px;
+        @include adap(padding-top, 100, 100, 100, 70, 40);
         padding-bottom: 50px;
-        height: 100dvh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     &__title {
-        margin-bottom: 160px;
+        @include adap(margin-bottom, 120, 120, 120, 100, 80);
+        font-size: 40px;
         text-transform: uppercase;
         text-align: center;
         color: var(--text-white);
     }
     &__info {
         margin: 0 auto;
-        margin-bottom: 120px;
         display: flex;
         align-items: center;
         gap: 40px;
-        width: 1000px;
+        max-width: 1000px;
     }
     &__img {
-        height: 280px;
-        min-width: 280px;
+        @include adap(height, 280, 280, 280, 240, 200);
+        @include adap(min-width, 280, 280, 280, 240, 200);
         border: 2px solid var(--text-grey);
         border-radius: 25%;
         animation: move-border 7s linear infinite;
+        background-color: var(--bg-black-grey-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            max-width: 80%;
+            height: 80%;
+        }
     }
     &__text {
-        font-size: 20px;
+        line-height: 130%;
+        @include adap(font-size, 20, 20, 20, 18, 18);
         color: var(--text-grey);
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        &__info {
+            flex-direction: column;
+        }
+        &__text {
+            text-align: center;
+        }
     }
 }

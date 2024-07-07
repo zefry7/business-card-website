@@ -35,16 +35,6 @@ body {
     background-color: var(--bg-main);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    line-height: 150%;
-    @include adap(font-size, 48, 40, 32);
-}
-
-p, a, li {
-    @include adap(font-size, 16);
-    line-height: 150%;
-}
-
 .scroll-lock {
     overflow: hidden;
 }
@@ -60,6 +50,18 @@ p, a, li {
 
 .no-search {
     display: none;
+}
+
+.move-block-wrapper {
+    height: calc(100dvh * 4 + 350px + 110dvh);
+}
+
+.top-block{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 .move-block {
@@ -78,3 +80,46 @@ header,
 section { 
     background-color: var(--bg-black);
 }
+
+.show-block {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all 0.3s ease-in;
+}
+
+.move-left {
+    opacity: 0;
+    transform: translateX(-30%);
+}
+
+.move-right {
+    opacity: 0;
+    transform: translateX(30%);
+}
+
+h2 {
+    line-height: 130%;
+    width: max-content;
+    position: relative;
+    &::before {
+        content: "";
+        width: 25px;
+        height: 25px;
+        border-left: 3px solid var(--text-white);
+        border-bottom: 3px solid var(--text-white);
+        position: absolute;
+        bottom: -5px;
+        left: -15px;
+    }
+    &::after {
+        content: "";
+        width: 25px;
+        height: 25px;
+        border-right: 3px solid var(--text-white);
+        border-top: 3px solid var(--text-white);
+        position: absolute;
+        top: -5px;
+        right: -15px;
+    }
+}
+

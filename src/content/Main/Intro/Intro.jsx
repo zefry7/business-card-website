@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { useCallback, useEffect } from "react"
 
 export default function Intro() {
 
@@ -14,7 +14,7 @@ export default function Intro() {
     return <section className="intro">
         <div className="intro__wrapper">
             <div className="intro__content">
-                <h2 className="intro__title">Frontend</h2>
+                <h1 className="intro__title">Frontend</h1>
                 <div className="intro__arrow" onClick={moveBottom}></div>
             </div>
         </div>

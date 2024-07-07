@@ -5,43 +5,44 @@
     }
     &__content {
         @extend .padding-block;
-        padding-top: 100px;
+        @include adap(padding-top, 100, 100, 100, 70, 40);
         padding-bottom: 50px;
-        height: 100dvh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center
     }
     &__title {
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        color: var(--text-white);
-        text-align: center;
+        @extend .about__title;
+        margin-bottom: 60px;
     }
     &__list {
         margin: 0 auto;
-        max-width: 100%;
-        width: max-content;
+        max-width: 1000px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
     &__item {
         display: flex;
         &::before {
             content: "";
             display: inline-block;
-            height: 40px;
-            min-width: 40px;
-            margin-right: 10px;
+            @include adap(height, 40, 40, 40, 30, 30);
+            @include adap(min-width, 40, 40, 40, 30, 30);
+            @include adap(margin-right, 8, 8, 8, 5, 5);
             position: relative;
-            top: -5px;
+            @include adap(top, -9, -9, -9, -5, -5);
             background: url("./img/plus.svg") center/ 100% 100% no-repeat;
         }
         span {
-            font-size: 24px;
+            @include adap(font-size, 24, 24, 24, 22, 22);
             color: var(--text-orange);
         }
 
         &-text {
-            font-size: 20px;
+            line-height: 130%;
+            @include adap(font-size, 20, 20, 20, 18, 18);
             color: var(--text-grey);
         }
     }
