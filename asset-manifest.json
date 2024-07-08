@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/business-card-website/static/css/main.88fb30dc.css",
-    "main.js": "/business-card-website/static/js/main.9bc11085.js",
+    "main.css": "/business-card-website/static/css/main.a76a6a51.css",
+    "main.js": "/business-card-website/static/js/main.c32c73aa.js",
     "static/media/Montserrat-Bold.eot": "/business-card-website/static/media/Montserrat-Bold.bea823a1a24bcdf65760.eot",
     "static/media/Montserrat-Bold.ttf": "/business-card-website/static/media/Montserrat-Bold.09aa44bfee794bd5211e.ttf",
     "static/media/Montserrat-Medium.eot": "/business-card-website/static/media/Montserrat-Medium.e65378b57457fa7fd4b6.eot",
@@ -19,11 +19,11 @@
     "static/media/circle.svg": "/business-card-website/static/media/circle.799e64771c460124714f.svg",
     "index.html": "/business-card-website/index.html",
     "static/media/plus.svg": "/business-card-website/static/media/plus.3fe72e524148431abacb.svg",
-    "main.88fb30dc.css.map": "/business-card-website/static/css/main.88fb30dc.css.map",
-    "main.9bc11085.js.map": "/business-card-website/static/js/main.9bc11085.js.map"
+    "main.a76a6a51.css.map": "/business-card-website/static/css/main.a76a6a51.css.map",
+    "main.c32c73aa.js.map": "/business-card-website/static/js/main.c32c73aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.88fb30dc.css",
-    "static/js/main.9bc11085.js"
+    "static/css/main.a76a6a51.css",
+    "static/js/main.c32c73aa.js"
   ]
 }
