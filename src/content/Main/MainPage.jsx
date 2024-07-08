@@ -17,7 +17,21 @@ function MainPage() {
         window.addEventListener("scroll", () => {
             dispath({ type: "scrollY", value: window.scrollY })
         })
+        
+        function addVarRoot() {
+            const root = document.querySelector(":root");
+            const a = document.getElementsByClassName("about")[0].clientHeight
 
+            root.style.setProperty('--d', `calc(100dvh + 150px + ${a}px)`);
+        }
+
+        window.addEventListener("load", () => {
+            addVarRoot()
+        })
+
+        window.addEventListener("resize", () => {
+            addVarRoot()
+        })
     }, [])
 
     useEffect(() => {

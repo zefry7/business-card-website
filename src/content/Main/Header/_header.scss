@@ -22,7 +22,8 @@
     &__link {
         @include adap(font-size, 20, 20, 20, 22, 32);
         text-transform: uppercase;
-        line-height: 150%;
+        line-height: 130%;
+        text-align: center;
         color: var(--text-white);
         transition: color 0.3s linear;
         cursor: pointer;
@@ -96,6 +97,9 @@
                 padding: 100px 20px;
                 flex-direction: column;
                 overflow: scroll;
+            }
+            &__link {
+                @include adap(font-size, 32);
             }
         }
     }

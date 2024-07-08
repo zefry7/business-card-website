@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { DataContext } from "../../..";
 
 function Header() {
@@ -19,6 +19,20 @@ function Header() {
             document.body.classList.toggle("scroll-lock")
             document.getElementById("root").classList.toggle("scroll-lock")
         }, timer)
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            if(window.innerWidth > 768) {
+                const burgerContent = document.getElementsByClassName("header__burger-content")[0]
+                const buttonBurger = document.getElementsByClassName("header__button-burger")[0]
+
+                burgerContent.classList.remove("header__burger-content_active")
+                buttonBurger.classList.remove("header__button-burger_active")
+                document.body.classList.remove("scroll-lock")
+                document.getElementById("root").classList.remove("scroll-lock")
+            }
+        })
     }, [])
 
     return <header className="header">

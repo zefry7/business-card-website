@@ -50,7 +50,7 @@ html {
 }
 
 .move-block-wrapper {
-    height: calc(100svh + 100lvh + 200px);
+    height: var(--d);
 }
 
 .move-block {
@@ -61,7 +61,7 @@ html {
 }
 .bottom-block {
     position: sticky;
-    bottom: 0;
+    bottom: calc((-1) * calc(900px - 100vh));
     z-index: 0;
 }
 
