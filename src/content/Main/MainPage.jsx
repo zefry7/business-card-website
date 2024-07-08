@@ -35,9 +35,9 @@ function MainPage() {
         </div>
         <Skills />
         {/* <Portfolio /> */}
-        {/* <div className="bottom-block">
+        <div className="bottom-block">
             <Contact />
-        </div> */}
+        </div>
         <Footer />
 
     </>

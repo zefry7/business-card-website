@@ -52,14 +52,14 @@ export default function Contact() {
     return <section className="contact">
         <div className="contact__wrapper">
             <div className="contact__content">
-                <h2 className="contact__title">Контакты</h2>
-                <p className="contact__description"></p>
+                <h2 className="contact__title">{data?.title}</h2>
+                <p className="contact__description">{data?.description}</p>
                 <div className="contact__wrapper-form">
                     <form className="contact__form" onSubmit={onSubmit} >
                         <input type={data?.name?.type} name={data?.name?.name} className="contact__form-name" placeholder={data?.name?.placeholder} onChange={changeInputName} required/>
                         <input type={data?.email?.type} name={data?.email?.name} className="contact__form-email" placeholder={data?.email?.placeholder} required />
                         <textarea name={data?.textarea?.name} className="contact__form-description" placeholder={data?.textarea?.placeholder} required></textarea>
-                        <button type="submit" className="contact__form-submit" ref={buttonSubmit}>Отправить</button>
+                        <button type="submit" className="contact__form-submit" ref={buttonSubmit}>{data?.button?.text}</button>
                     </form>
                 </div>
             </div>

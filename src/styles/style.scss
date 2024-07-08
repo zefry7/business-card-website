@@ -11,7 +11,7 @@
     --bg-black-grey-3: #4e4e4e;
     --text-grey: #838383;
     --text-white: #f8f8f8;
-    --text-orange: #f39200;
+    --text-orange: #f39200da;
 }
 
 * {
@@ -57,12 +57,12 @@ html {
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
 }
 .bottom-block {
     position: sticky;
     bottom: 0;
-    z-index: -1;
+    z-index: 0;
 }
 
 footer,

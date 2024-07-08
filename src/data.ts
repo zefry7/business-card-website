@@ -41,8 +41,8 @@ export const data = {
         ]
     },
     contact: {
-        title: "",
-        description: "",
+        title: "Контакты",
+        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non tempore atque, consectetur blanditiis mollitia nihil.",
         name: {
             type: "text",
             name: "name",
