@@ -34,11 +34,11 @@ function MainPage() {
             </div>
         </div>
         <Skills />
-        {/* <Portfolio />
-        <div className="bottom-block">
+        {/* <Portfolio /> */}
+        {/* <div className="bottom-block">
             <Contact />
-        </div>
-        <Footer /> */}
+        </div> */}
+        <Footer />
 
     </>
 }

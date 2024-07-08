@@ -1,4 +1,6 @@
 .skills {
+    min-height: 100vh;
+    height: 100%;
     &__wrapper {
         max-width: 1440px;
         margin: 0 auto;
@@ -7,7 +9,6 @@
         @extend .padding-block;
         @include adap(padding-top, 100, 100, 100, 70, 40);
         padding-bottom: 50px;
-        min-height: 100dvh;
         display: flex;
         flex-direction: column;
         align-items: center

@@ -3,7 +3,7 @@ export default function showBlock() {
 
     const options = {
         rootMargin: "0px 0px -200px 0px",
-        threshold: 0.3
+        threshold: 0.2
     }
 
     const observer = new IntersectionObserver((entries) => {

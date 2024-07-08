@@ -32,7 +32,6 @@ html {
     scrollbar-gutter: stable;
 }
 
-
 .scroll-lock {
     overflow: hidden;
 }
@@ -51,13 +50,14 @@ html {
 }
 
 .move-block-wrapper {
-    height: calc(100dvh * 2 + 200px);
+    height: calc(100svh + 100lvh + 200px);
 }
 
 .move-block {
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 .bottom-block {
     position: sticky;
