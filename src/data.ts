@@ -2,7 +2,6 @@ export const data = {
     header: {
         logo: "",
         nav: [
-            "Главная",
             "О себе",
             "Навыки",
             "Портфолио",
@@ -12,30 +11,42 @@ export const data = {
     portfolio: {
         items: [
             {
-                name: "",
-                tags: [],
-                description: "",
+                id: "1",
+                name: "Chef kitchen",
+                tags: ["sass", "react", "redux"],
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
                 img: {
-                    src: "",
-                    alt: ""
+                    src: "./img/Portfolio/food-delivery-screen.png",
+                    alt: "Обложка сайта из портфолио"
                 }
             },
+        ],
+        details: [
             {
-                name: "",
-                tags: [],
-                description: "",
+                name: "Chef kitchen",
+                tags: ["sass", "react", "redux"],
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
                 img: {
-                    src: "",
-                    alt: ""
-                }
-            },
-            {
-                name: "",
-                tags: [],
-                description: "",
-                img: {
-                    src: "",
-                    alt: ""
+                    src: "./img/Portfolio/food-delivery-screen.png",
+                    alt: "Обложка сайта из портфолио"
+                },
+                list: [ 
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации"
+                ],
+                link: {
+                    text: "Открыть сайт",
+                    url: "https://zefry7.github.io/food-delivery/"
                 }
             }
         ]

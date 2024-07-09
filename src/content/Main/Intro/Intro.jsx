@@ -11,6 +11,12 @@ export default function Intro() {
         })
     }, [])
 
+    useEffect(() => {
+        const root = document.querySelector(":root");
+        const a = document.getElementsByClassName("about")[0].clientHeight
+        root.style.setProperty('--d', `calc(100lvh + 120px + ${a}px)`);
+    }, [])
+
     return <section className="intro">
         <div className="intro__wrapper">
             <div className="intro__content">

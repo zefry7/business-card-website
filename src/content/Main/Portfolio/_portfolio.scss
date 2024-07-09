@@ -1,4 +1,6 @@
 .portfolio {
+    position: relative;
+    z-index: 1;
     &__wrapper {
         max-width: 1440px;
         margin: 0 auto;
@@ -7,27 +9,45 @@
         @extend .padding-block;
         padding-top: 50px;
         padding-bottom: 120px;
-        height: 100dvh;
+        min-height: 100dvh;
     }
     &__title {
-        text-transform: uppercase;
-        color: var(--text-white);
-        text-align: center;
+        @extend .about__title;
+        margin: 0 auto;
+        margin-bottom: 60px;
     }
     &__filter {
         margin-bottom: 20px;
         &-title {
             font-size: 20px;
             color: var(--text-grey);
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
         &-list {
             display: flex;
             gap: 10px;
         }
         &-tag {
-            @extend .portfolio__item-tag;
+            width: max-content;
+            text-transform: uppercase;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            font-weight: 500;
+            background-color: var(--bg-black-grey-2);
+            color: var(--text-grey);
+            cursor: pointer;
             position: relative;
+            padding: 8px 12px;
+            cursor: pointer;
+            &:hover {
+                border-color: var(--text-orange);
+                color: var(--text-orange);
+            }
+            &_active {
+                color: var(--bg-black);
+                border-color: var(--text-orange); 
+                background-color: var(--text-orange);
+            }
             span {
                 font-size: 18px;
             }
@@ -52,7 +72,7 @@
         padding-top: 30px;
         display: grid;
         grid-template: auto / repeat(2, minmax(auto, 620px));
-        gap: 40px;
+        @include adap(gap, 40, 40, 40, 30, 15);
         border-top: 2px solid var(--bg-black-grey-2);
     }
     &__item {
@@ -69,26 +89,40 @@
             }
         }
         &-img {
+            flex: 50%;
             overflow: hidden;
             border-top-left-radius: 17px;
             border-top-right-radius: 17px;
+            position: relative;
             img {
                 width: 100%;
                 height: auto;
                 opacity: 0.9;
                 animation: img-scale 20s linear infinite;
             }
+            &::before {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0) 40%);
+            }
         }
         &-info {
             flex: 50%;
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            @include adap(padding, 20, 20, 20, 20, 10);
         }
         &-title {
-            margin-bottom: 10px;
-            font-size: 36px;
+            font-weight: 700;
+            @include adap(margin-bottom, 10, 10, 10, 10, 5);
+            @include adap(font-size, 32, 32, 32, 32, 24);
             color: var(--text-white);
+            text-transform: uppercase;
         }
         &-text {
             margin-top: auto;
@@ -99,23 +133,21 @@
             margin-bottom: 20px;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            @include adap(gap, 10, 10, 10, 10, 6);
         }
         &-tag {
-            padding: 8px 16px;
-            font-size: 16px;
+            @include adap(padding-top, 8, 8, 8, 8, 6);
+            @include adap(padding-bottom, 8, 8, 8, 8, 6);
+            @include adap(padding-left, 12, 12, 12, 12, 8);
+            @include adap(padding-right, 12, 12, 12, 12, 8);
+            @include adap(font-size, 14, 14, 14, 14, 12);
             width: max-content;
             text-transform: uppercase;
-            border-radius: 17px;
+            border-radius: 12px;
             border: 2px solid transparent;
             font-weight: 500;
             background-color: var(--bg-black-grey-2);
             color: var(--text-grey);
-            cursor: pointer;
-            &:hover {
-                border-color: var(--text-orange);
-                color: var(--text-orange);
-            }
             &_active {
                 color: var(--bg-black);
                 border-color: var(--text-orange); 
@@ -157,10 +189,171 @@
         max-width: 1440px;
         width: 100%;
         margin: 0 auto;
-        padding: 30px;
+        padding: 60px 120px;
         border-radius: 17px;
         &_active {
             display: block;
+        }
+
+        &-img {
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 17px;
+            img {
+                max-width: 100%;
+                height: 100%;
+                animation: img-scale 20s linear infinite;
+            }
+        }
+        &-info {
+            display: flex;
+            gap: 20px;
+        }
+        &-text {
+            flex: 40%;
+        }
+        &-title {
+            font-weight: 700;
+            @include adap(margin-bottom, 10, 10, 10, 10, 5);
+            @include adap(font-size, 32, 32, 32, 32, 24);
+            color: var(--text-white);
+            text-transform: uppercase;
+        }   
+
+        &-row-tag {
+            @extend .portfolio__item-tag-row;
+            margin-bottom: 10px;
+        }
+
+        &-tag {
+            @extend .portfolio__item-tag;
+            background-color: var(--bg-black);
+        }
+
+        &-description {
+            margin-top: auto;
+            margin-bottom: 20px;
+            color: var(--text-grey);
+        }
+
+        &-link {
+            display: inline-block;
+            width: 90%;
+            font-size: 18px;
+            color: var(--text-white);
+            padding: 16px;
+            text-align: center;
+            border-radius: 12px;
+            background-color: var(--bg-black);
+            text-transform: uppercase;
+            transition: transform 0.3s linear;
+            &:hover {
+                color: var(--text-white);
+            }
+
+            &:active {
+                transform: translateY(5px);
+            }
+        }
+
+        &-list {
+            flex: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+            line-height: 130%;
+            @include adap(font-size, 20, 20, 20, 18, 18);
+            color: var(--text-grey);
+            &::before {
+                content: "";
+                display: inline-block;
+                @include adap(height, 40, 40, 40, 30, 30);
+                @include adap(min-width, 40, 40, 40, 30, 30);
+                @include adap(margin-right, 8, 8, 8, 5, 5);
+                background: url("./img/plus.svg") center/ 100% 100% no-repeat;
+            }
+        }
+
+        &-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid var(--text-grey);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            span {
+                position: relative;
+                display: inline-block;
+                height: 3px;
+                width: 100%;
+                background-color: var(--text-grey);
+                transition: all 0.1s linear;
+            }
+
+            & span:nth-child(1) {
+                top: 50%;
+                transform: rotateZ(45deg) translateY(-50%);
+            }
+            & span:nth-child(2) {
+                top: -50%;
+                transform: rotateZ(-45deg) translateY(50%);
+            }
+        }
+    }
+}
+
+@media (max-width: 940px) {
+    .portfolio {
+        &__list {
+            grid-template: auto / auto;
+        }
+        &__item {
+            &-content {
+                overflow: hidden;
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0) 50%);
+                }
+            }
+            &-img { 
+                border-radius: 17px;
+            }
+            &-info {
+                border-radius: 17px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                justify-content: flex-end;
+                z-index: 1;
+            }
+            &-tag-row {
+                margin-bottom: 0;
+            }
+            &-text { 
+                display: none;
+            }
+            &-more {
+                display: none;
+            }
         }
     }
 }

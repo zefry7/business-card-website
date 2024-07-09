@@ -14,7 +14,7 @@
     }
     &__title {
         @include adap(margin-bottom, 120, 120, 120, 100, 80);
-        font-size: 40px;
+        @include adap(font-size, 40, 40, 40, 40, 32);
         text-transform: uppercase;
         text-align: center;
         color: var(--text-white);

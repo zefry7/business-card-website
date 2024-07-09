@@ -1,22 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { moveToSection } from "../../../styles/mixins/functionality";
+import { DataContext } from "../../..";
+
 
 function Portfolio() {
+    const data = useContext(DataContext)?.portfolio
     const dispatch = useDispatch()
     const listTag = useSelector(state => state?.portfolioReducer?.listTag)
 
     const openBlockDetail = (e) => {
-        const idBlock = e.target.getAttribute("data-detail-id");
-        const blockDetail = document.getElementById(idBlock);
+        const idBlock = e.currentTarget.getAttribute("data-detail-id");
+        const blockDetail = document.getElementById(`detail-${idBlock}`);
         document.body.classList.add("scroll-lock");
         blockDetail.classList.add("portfolio__detail_active");
     }
 
     const removeClassBlockDetail = (e) => {
-        const wrapper = e.currentTarget
-        document.body.classList.remove("scroll-lock");
-        wrapper.classList.remove("portfolio__detail_active")
+        const wrapper = document.getElementsByClassName("portfolio__wrapper-detail")[0]
+        if (e.target.classList.contains("portfolio__wrapper-detail") || e.currentTarget.classList.contains("portfolio__detail-close")) {
+            document.body.classList.remove("scroll-lock");
+            wrapper.classList.remove("portfolio__detail_active")
+        }
     }
 
     const addTagInFilter = (e) => {
@@ -71,15 +75,14 @@ function Portfolio() {
         item.addEventListener("mousemove", (e) => {
             const l = item.getBoundingClientRect().left
             const w = item.clientWidth
-            console.log(e.clientX - l, w/2);
-            if (e.clientX - l > w / 2)
+            if (e.clientX - l <= w / 2)
                 item.style.transform = "rotateY(1.5deg)"
             else
                 item.style.transform = "rotateY(-1.5deg)"
         })
         item.addEventListener("mouseout", (e) => {
             item.removeAttribute("style")
-        }) 
+        })
     }
 
 
@@ -111,60 +114,66 @@ function Portfolio() {
                     </div>
                 </div>
                 <div className="portfolio__list">
-                    <article className="portfolio__item">
-                        <div className="portfolio__item-content">
-                            <div className="portfolio__item-img">
-                                <img src="./img/Portfolio/food-delivery-screen.png" alt="" />
-                            </div>
-                            <div className="portfolio__item-info">
-                                <h3 className="portfolio__item-title">Доставка еды</h3>
-                                <div className="portfolio__item-tag-row">
-                                    <div className="portfolio__item-tag" data-tag="HTML">
-                                        <span>HTML</span>
-                                    </div>
-                                    <div className="portfolio__item-tag" data-tag="SASS">
-                                        <span>SASS</span>
-                                    </div>
-                                    <div className="portfolio__item-tag">
-                                        <span>React</span>
-                                    </div>
-                                    <div className="portfolio__item-tag">
-                                        <span>Redux</span>
-                                    </div>
+                    {data?.items?.map((v) => (
+                        <article className="portfolio__item" key={v?.id} data-detail-id={v?.id} onClick={(e) => { openBlockDetail(e) }}>
+                            <div className="portfolio__item-content">
+                                <div className="portfolio__item-img">
+                                    <img src={v?.img?.src} alt={v?.img?.alt} />
                                 </div>
-                                <p className="portfolio__item-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.
-                                </p>
-                                <p className="portfolio__item-more" data-detail-id="detail-1" onClick={(e) => { openBlockDetail(e) }}>
-                                    Подробнее
-                                </p>
-                            </div>
-                            <div className="portfolio__wrapper-detail" id="detail-1" onClick={(e) => removeClassBlockDetail(e)}>
-                                <div className="portfolio__detail">
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
-                                    <h3 className="portfolio__item-title">Заголовок</h3>
+                                <div className="portfolio__item-info">
+                                    <h3 className="portfolio__item-title">{v?.name}</h3>
+                                    <div className="portfolio__item-tag-row">
+                                        {v?.tags?.map((tag, i) => (
+                                            <div className="portfolio__item-tag" key={i} data-tag="tag">
+                                                <span>{tag}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <p className="portfolio__item-text">
+                                        {v?.description}
+                                    </p>
                                 </div>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+                {data?.details?.map((v, i) => (
+                    <div className="portfolio__wrapper-detail" id="detail-1" key={i} onClick={(e) => removeClassBlockDetail(e)}>
+                        <div className="portfolio__detail">
+                            <div className="portfolio__detail-img">
+                                <img src={v?.img?.src} alt={v?.img?.alt} />
+                            </div>
+
+                            <div className="portfolio__detail-info">
+                                <div className="portfolio__detail-text">
+                                    <h3 className="portfolio__detail-title">{v?.name}</h3>
+                                    <ul className="portfolio__detail-row-tag">
+                                        {v?.tags?.map((tag, i) => (
+                                            <li className="portfolio__detail-tag" key={i}>
+                                                {tag}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <p className="portfolio__detail-description">{v?.description}</p>
+                                    <a className="portfolio__detail-link" href={v?.link?.url} target="_blank">{v?.link?.text}</a>
+                                </div>
+                                <ul className="portfolio__detail-list">
+                                    {v?.list?.map((item, key) => (
+                                        <li className="portfolio__detail-item" key={key}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="portfolio__detail-close" onClick={(e) => removeClassBlockDetail(e)}>
+                                <span></span>
+                                <span></span>
                             </div>
                         </div>
-                    </article>
-                </div>
+                    </div>
+                ))}
+
             </div>
         </div>
-    </section>
+    </section >
 }
 
 export default Portfolio;
