@@ -47,7 +47,7 @@ function Header() {
                         ))}
                     </nav>
                 </div>
-                <button className="header__button-burger" onClick={(e) => clickBurgerMenu(e)}>
+                <button className="header__button-burger" onClick={(e) => clickBurgerMenu(e)} aria-label="Кнопка для меню">
                     <span></span>
                     <span></span>
                     <span></span>

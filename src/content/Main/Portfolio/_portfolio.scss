@@ -34,7 +34,7 @@
             border: 2px solid transparent;
             font-weight: 500;
             background-color: var(--bg-black-grey-2);
-            color: var(--text-grey);
+            color: var(--text-grey-2);
             cursor: pointer;
             position: relative;
             padding: 8px 12px;
@@ -147,7 +147,7 @@
             border: 2px solid transparent;
             font-weight: 500;
             background-color: var(--bg-black-grey-2);
-            color: var(--text-grey);
+            color: var(--text-grey-2);
             &_active {
                 color: var(--bg-black);
                 border-color: var(--text-orange); 
