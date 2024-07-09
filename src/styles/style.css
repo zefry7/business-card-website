@@ -613,7 +613,7 @@ select {
   }
 }
 .skills__title {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 .skills__list {
   margin: 0 auto;
@@ -982,7 +982,7 @@ select {
 }
 .portfolio__title {
   margin: 0 auto;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 .portfolio__filter {
   margin-bottom: 20px;
@@ -2160,7 +2160,7 @@ html {
 
 .bottom-block {
   position: sticky;
-  bottom: calc(-1 * (900px - 100vh));
+  bottom: calc(-1 * (100vh - 900px) - 200px);
   z-index: 0;
 }
 
