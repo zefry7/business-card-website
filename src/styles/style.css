@@ -2161,7 +2161,7 @@ html {
 
 .bottom-block {
   position: sticky;
-  bottom: calc(-1 * (100vh - 900px) - 200px);
+  bottom: calc(-1 * abs(900px - 100dvh) - 200px);
   z-index: 0;
 }
 

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../../public/font/fonts";
 @import "./mixins/null-style";
 @import "./mixins/adaptive";
@@ -62,7 +64,7 @@ html {
 }
 .bottom-block {
     position: sticky;
-    bottom: calc((-1) * calc(100vh - 900px) - 200px);
+    bottom: calc((-1) * abs(calc(900px - 100dvh)) - 200px);
     z-index: 0;
 }
 
