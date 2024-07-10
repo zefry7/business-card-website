@@ -96,7 +96,7 @@ function Portfolio() {
         ttt()
     }, [])
 
-    return <section className="portfolio">
+    return <section className="portfolio" id="portfolio">
         <div className="portfolio__wrapper">
             <div className="portfolio__content">
                 <h2 className="portfolio__title">

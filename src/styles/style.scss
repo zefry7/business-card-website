@@ -64,7 +64,7 @@ html {
 }
 .bottom-block {
     position: sticky;
-    bottom: calc((-1) * min(calc(900px - 100vh), calc(100vh - 100px)) - 200px);
+    bottom: calc((-1) * max(calc(900px - 100vh), calc(100vh - 900px)));
     z-index: 0;
 }
 

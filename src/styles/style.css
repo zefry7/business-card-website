@@ -207,6 +207,7 @@ select {
   text-align: center;
   color: var(--text-white);
   transition: color 0.3s linear;
+  background-color: inherit;
   cursor: pointer;
 }
 @media (min-width: 1440px) {
@@ -291,7 +292,7 @@ select {
   .header .header__burger-content {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -120%;
     z-index: 4;
     height: 100%;
     transition: right 0.2s linear;
@@ -1572,7 +1573,7 @@ select {
   width: 100%;
   margin: 0 auto;
   padding: 70px 120px;
-  border-radius: 17px;
+  border-radius: 34px;
 }
 @media (min-width: 1440px) {
   .portfolio__detail {
@@ -1752,37 +1753,8 @@ select {
   flex: 60%;
 }
 .portfolio__detail-label {
+  margin-bottom: 10px;
   color: var(--text-grey);
-}
-@media (min-width: 1440px) {
-  .portfolio__detail-label {
-    margin-bottom: 10px;
-  }
-}
-@media screen and (max-width: 1439px) and (min-width: 1280px) {
-  .portfolio__detail-label {
-    margin-bottom: calc(10px + 0 * (100vw - 1280px) / (1440 - 1280));
-  }
-}
-@media screen and (max-width: 1279px) and (min-width: 1024px) {
-  .portfolio__detail-label {
-    margin-bottom: calc(10px + 0 * (100vw - 1024px) / (1280 - 1024));
-  }
-}
-@media screen and (max-width: 1023px) and (min-width: 768px) {
-  .portfolio__detail-label {
-    margin-bottom: calc(10px + 0 * (100vw - 768px) / (1024 - 768));
-  }
-}
-@media screen and (max-width: 767px) and (min-width: 320px) {
-  .portfolio__detail-label {
-    margin-bottom: calc(5px + 5 * (100vw - 320px) / (768 - 320));
-  }
-}
-@media (max-width: 320px) {
-  .portfolio__detail-label {
-    margin-bottom: 5px;
-  }
 }
 @media (min-width: 1440px) {
   .portfolio__detail-label {
@@ -2151,6 +2123,9 @@ select {
   .portfolio__wrapper-detail {
     padding: 0;
   }
+  .portfolio__detail {
+    border-radius: 0px;
+  }
 }
 .contact {
   background-color: var(--text-white);
@@ -2478,7 +2453,7 @@ html {
 
 .bottom-block {
   position: sticky;
-  bottom: calc(-1 * min(900px - 100vh, 100vh - 100px) - 200px);
+  bottom: calc(-1 * max(900px - 100vh, 100vh - 900px));
   z-index: 0;
 }
 

@@ -1,24 +1,28 @@
 import React, { useCallback, useContext, useEffect } from "react";
 import { DataContext } from "../../..";
+import { moveToSection } from "../../../styles/script/functionality";
 
 function Header() {
     const data = useContext(DataContext)?.header
 
     const clickBurgerMenu = useCallback((e) => {
-        const burgerContent = document.getElementsByClassName("header__burger-content")[0]
-        let timer = 0
 
-        burgerContent.classList.toggle("header__burger-content_active")
-        e.currentTarget.classList.toggle("header__button-burger_active")
+        if (window.innerWidth <= 768) {
+            const burgerContent = document.getElementsByClassName("header__burger-content")[0]
+            let timer = 0
 
-        if (!document.body.classList.contains("scroll-lock")) {
-            timer = 300
+            burgerContent.classList.toggle("header__burger-content_active")
+            e.currentTarget.classList.toggle("header__button-burger_active")
+
+            if (!document.body.classList.contains("scroll-lock")) {
+                timer = 300
+            }
+
+            setTimeout(() => {
+                document.body.classList.toggle("scroll-lock")
+                document.getElementById("root").classList.toggle("scroll-lock")
+            }, timer)
         }
-
-        setTimeout(() => {
-            document.body.classList.toggle("scroll-lock")
-            document.getElementById("root").classList.toggle("scroll-lock")
-        }, timer)
     }, [])
 
     useEffect(() => {
@@ -44,9 +48,9 @@ function Header() {
                 <div className="header__burger-content">
                     <nav className="header__nav-row">
                         {data?.nav?.map((v, i) => (
-                            <div className="header__link" key={i}>
-                                {v}
-                            </div>
+                            <button className="header__link" key={i} data-section={v?.dataSection} onClick={(e) => { clickBurgerMenu(e); moveToSection(e) }}>
+                                {v?.text}
+                            </button>
                         ))}
                     </nav>
                 </div>

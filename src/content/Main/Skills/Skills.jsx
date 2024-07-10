@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 export default function Skills() {
 
-    return <section className="skills">
+    return <section className="skills" id="skills">
         <div className="skills__wrapper">
             <div className="skills__content">
                 <h2 className="skills__title show-block move-left" data-move="move-left">Навыки</h2>

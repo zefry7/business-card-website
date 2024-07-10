@@ -4,7 +4,7 @@ import { DataContext } from "../../..";
 function Footer() {
     const data = useContext(DataContext)?.footer;
 
-    return <footer className="footer">
+    return <footer className="footer" id="footer">
         <div className="footer__wrapper">
             <div className="footer__content">
                 <ul className="footer__links">

@@ -49,7 +49,7 @@ export default function Contact() {
         return false
     }, [])
 
-    return <section className="contact">
+    return <section className="contact" id="contact">
         <div className="contact__wrapper">
             <div className="contact__content">
                 <h2 className="contact__title">{data?.title}</h2>

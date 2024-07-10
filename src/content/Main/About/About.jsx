@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
-import showBlock from "../../../styles/script/showBlock";
-import { useSelector } from "react-redux";
 
 export default function About() {
 
-    return <section className="about">
+    return <section className="about" id="about">
         <div className="about__wrapper">
             <div className="about__content">
                 <h2 className="about__title show-block move-left" data-move="move-left">О себе</h2>

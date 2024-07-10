@@ -2,10 +2,22 @@ export const data = {
     header: {
         logo: "",
         nav: [
-            "О себе",
-            "Навыки",
-            "Портфолио",
-            "Контакты"
+            {
+                text: "О себе",
+                dataSection: "about"
+            },
+            {
+                text: "Навыки",
+                dataSection: "skills"
+            },
+            {
+                text: "Портфолио",
+                dataSection: "portfolio"
+            },
+            {
+                text: "Контакты",
+                dataSection: "contact"
+            }
         ]
     },
     portfolio: {

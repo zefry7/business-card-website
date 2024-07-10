@@ -192,7 +192,7 @@
         padding: 70px 120px;
         @include adap(padding-left, 120, 100, 80, 60, 20);
         @include adap(padding-right, 120, 100, 80, 60, 20);
-        border-radius: 17px;
+        border-radius: 34px;
         &_active {
             display: block;
         }
@@ -263,7 +263,7 @@
         }
 
         &-label {
-            @include adap(margin-bottom, 10, 10, 10, 10, 5);
+            margin-bottom: 10px;
             @include adap(font-size, 32, 32, 32, 32, 24);
             color: var(--text-grey);
         }
@@ -387,6 +387,10 @@
     .portfolio {
         &__wrapper-detail {
             padding: 0;
+        }
+
+        &__detail {
+            border-radius: 0px;
         }
     }
 }

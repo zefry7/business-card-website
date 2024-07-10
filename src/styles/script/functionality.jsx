@@ -4,8 +4,20 @@ export function moveToSection(e) {
     const target = e.currentTarget
     const el = document?.getElementById(target.getAttribute("data-section"))
 
+    console.log(el?.offsetTop);
+
+    let y = el?.offsetTop
+
+    if(target.getAttribute("data-section") == "about") {
+        y += window.innerHeight + 50
+    } else if(target.getAttribute("data-section") == "contact") {
+        y = document.getElementById("footer")?.offsetTop - window.innerHeight - 10
+    }
+
+    console.log(y);
+
     window.scrollTo({
-        top: el?.offsetTop - 120,
+        top: y,
         behavior: "smooth"
     })
 }
