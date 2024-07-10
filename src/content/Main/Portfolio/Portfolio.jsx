@@ -11,13 +11,19 @@ function Portfolio() {
     const openBlockDetail = (e) => {
         const idBlock = e.currentTarget.getAttribute("data-detail-id");
         const blockDetail = document.getElementById(`detail-${idBlock}`);
+        const burgerMenu = document.getElementsByClassName("header__button-burger")[0];
+
+        burgerMenu.classList.add("header__button-burger_hidden")
         document.body.classList.add("scroll-lock");
         blockDetail.classList.add("portfolio__detail_active");
     }
 
     const removeClassBlockDetail = (e) => {
         const wrapper = document.getElementsByClassName("portfolio__wrapper-detail")[0]
+        const burgerMenu = document.getElementsByClassName("header__button-burger")[0];
+
         if (e.target.classList.contains("portfolio__wrapper-detail") || e.currentTarget.classList.contains("portfolio__detail-close")) {
+            burgerMenu.classList.remove("header__button-burger_hidden")
             document.body.classList.remove("scroll-lock");
             wrapper.classList.remove("portfolio__detail_active")
         }
@@ -157,11 +163,14 @@ function Portfolio() {
                                     <p className="portfolio__detail-description">{v?.description}</p>
                                     <a className="portfolio__detail-link" href={v?.link?.url} target="_blank">{v?.link?.text}</a>
                                 </div>
-                                <ul className="portfolio__detail-list">
-                                    {v?.list?.map((item, key) => (
-                                        <li className="portfolio__detail-item" key={key}>{item}</li>
-                                    ))}
-                                </ul>
+                                <div className="portfolio__detail-done">
+                                    <h3 className="portfolio__detail-label">{data?.detailLabel}</h3>
+                                    <ul className="portfolio__detail-list">
+                                        {v?.list?.map((item, key) => (
+                                            <li className="portfolio__detail-item" key={key}>{item}</li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                             <div className="portfolio__detail-close" onClick={(e) => removeClassBlockDetail(e)}>
                                 <span></span>

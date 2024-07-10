@@ -11,7 +11,7 @@ function Header() {
         burgerContent.classList.toggle("header__burger-content_active")
         e.currentTarget.classList.toggle("header__button-burger_active")
 
-        if(!document.body.classList.contains("scroll-lock")) {
+        if (!document.body.classList.contains("scroll-lock")) {
             timer = 300
         }
 
@@ -23,14 +23,17 @@ function Header() {
 
     useEffect(() => {
         window.addEventListener("resize", () => {
-            if(window.innerWidth > 768) {
+            if (window.innerWidth > 768) {
                 const burgerContent = document.getElementsByClassName("header__burger-content")[0]
                 const buttonBurger = document.getElementsByClassName("header__button-burger")[0]
+                const detailWrapper = document.getElementsByClassName("portfolio__wrapper-detail")[0]
 
                 burgerContent.classList.remove("header__burger-content_active")
                 buttonBurger.classList.remove("header__button-burger_active")
-                document.body.classList.remove("scroll-lock")
-                document.getElementById("root").classList.remove("scroll-lock")
+                if (!detailWrapper.classList.contains("portfolio__detail_active")) {
+                    document.body.classList.remove("scroll-lock")
+                    document.getElementById("root").classList.remove("scroll-lock")
+                }
             }
         })
     }, [])

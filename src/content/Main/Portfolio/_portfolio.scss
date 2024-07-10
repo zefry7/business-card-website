@@ -9,7 +9,7 @@
         @extend .padding-block;
         padding-top: 50px;
         padding-bottom: 120px;
-        min-height: 100dvh;
+        min-height: 100lvh;
     }
     &__title {
         @extend .about__title;
@@ -104,10 +104,10 @@
                 content: "";
                 position: absolute;
                 z-index: 1;
-                bottom: -2px;
-                left: 0;
-                width: 100%;
-                height: 100%;
+                bottom: 0px;
+                left: 0px;
+                width: 110%;
+                height: 110%;
                 background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0) 40%);
             }
         }
@@ -170,14 +170,14 @@
         position: fixed;
         z-index: 10;
         overflow-y: auto;
-        padding-top: 50px;
         top: 0;
         left: 0;
         height: 100%;
         width: 100%;
-        @include adap(padding-right, 120, 30);
-        @include adap(padding-left, 120, 30);
-        padding-bottom: 50px;
+        @include adap(padding-right, 120, 120, 100, 40, 0);
+        @include adap(padding-left, 120, 120, 100, 40, 0);
+        @include adap(padding-top, 50, 50, 50, 20, 0);
+        @include adap(padding-bottom, 50, 50, 50, 20, 0);
         backdrop-filter: blur(5px);
         background-color: rgba(128, 128, 128, 0.1);
         cursor: pointer;
@@ -189,7 +189,9 @@
         max-width: 1440px;
         width: 100%;
         margin: 0 auto;
-        padding: 60px 120px;
+        padding: 70px 120px;
+        @include adap(padding-left, 120, 100, 80, 60, 20);
+        @include adap(padding-right, 120, 100, 80, 60, 20);
         border-radius: 17px;
         &_active {
             display: block;
@@ -256,8 +258,17 @@
             }
         }
 
-        &-list {
+        &-done {
             flex: 60%;
+        }
+
+        &-label {
+            @include adap(margin-bottom, 10, 10, 10, 10, 5);
+            @include adap(font-size, 32, 32, 32, 32, 24);
+            color: var(--text-grey);
+        }
+
+        &-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -272,8 +283,8 @@
             &::before {
                 content: "";
                 display: inline-block;
-                @include adap(height, 40, 40, 40, 30, 30);
-                @include adap(min-width, 40, 40, 40, 30, 30);
+                @include adap(height, 30, 30, 30, 30, 30);
+                @include adap(min-width, 30, 30, 30, 30, 30);
                 @include adap(margin-right, 8, 8, 8, 5, 5);
                 background: url("./img/plus.svg") center/ 100% 100% no-repeat;
             }
@@ -283,11 +294,12 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            width: 70px;
-            height: 70px;
+            @include adap(width, 70, 70, 60, 50, 50);
+            @include adap(height, 70, 70, 60, 50, 50);
             border-radius: 50%;
             border: 3px solid var(--text-grey);
-            padding: 10px;
+            @include adap(border-width, 3, 3, 3, 2, 2);
+            @include adap(padding, 10, 10, 10, 8, 4);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -354,6 +366,27 @@
             &-more {
                 display: none;
             }
+        }
+        &__detail { 
+            &-info {
+                flex-direction: column;
+            }
+
+            &-row-tag {
+                margin-bottom: 10px;
+            }
+
+            &-link {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .portfolio {
+        &__wrapper-detail {
+            padding: 0;
         }
     }
 }

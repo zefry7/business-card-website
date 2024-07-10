@@ -55,7 +55,7 @@
             height: 3px;
             width: 100%;
             background-color: var(--bg-black-grey-3);
-            transition: all 0.1s linear;
+            transition: transform 0.1s linear;
         }
     }
     &__button-burger_active {
@@ -70,6 +70,9 @@
             top: -50%;
             transform: rotateZ(-45deg) translateY(50%);
         }
+    }
+    &__button-burger_hidden {
+        visibility: hidden;
     }
     @media (max-width: 768px) {
         .header {

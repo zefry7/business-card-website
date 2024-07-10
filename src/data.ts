@@ -21,6 +21,7 @@ export const data = {
                 }
             },
         ],
+        detailLabel: "Реализовано:",
         details: [
             {
                 name: "Chef kitchen",
