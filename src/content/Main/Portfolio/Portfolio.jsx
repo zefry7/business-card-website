@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DataContext } from "../../..";
 import SwiperConstructor from "../../../components/SwiperConstructor/SwiperConstructor";
@@ -32,11 +32,12 @@ function Portfolio() {
     }
 
     const addTagInFilter = (e) => {
-        const input = e.currentTarget.getElementsByTagName("input")[0]
         const str = e.currentTarget.getElementsByTagName("span")[0].textContent;
-        if (input.checked) {
+        if (!listTag.includes(str)) {
+            e.currentTarget.classList.add("portfolio__filter-tag_active")
             dispatch({ type: "addTag", value: str })
         } else {
+            e.currentTarget.classList.remove("portfolio__filter-tag_active")
             dispatch({ type: "removeTag", value: str })
         }
     }
@@ -77,7 +78,7 @@ function Portfolio() {
     }, [listTag])
 
 
-    const ttt = () => {
+    const rotateBlock = useCallback(() => {
         const item = document.getElementsByClassName("portfolio__item-content")[0]
 
         item.addEventListener("mousemove", (e) => {
@@ -91,11 +92,11 @@ function Portfolio() {
         item.addEventListener("mouseout", (e) => {
             item.removeAttribute("style")
         })
-    }
+    })
 
 
     useEffect(() => {
-        ttt()
+        rotateBlock()
     }, [])
 
     return <section className="portfolio" id="portfolio">
@@ -111,7 +112,6 @@ function Portfolio() {
                             {data?.tags?.map((v, i) => (
                                 <SwiperSlide key={i}>
                                     <div className="portfolio__filter-tag" onClick={(e) => addTagInFilter(e)}>
-                                        <input type="checkbox" name="filter" />
                                         <span>{v}</span>
                                     </div>
                                 </SwiperSlide>
@@ -130,7 +130,7 @@ function Portfolio() {
                                     <h3 className="portfolio__item-title">{v?.name}</h3>
                                     <div className="portfolio__item-tag-row">
                                         {v?.tags?.map((tag, i) => (
-                                            <div className="portfolio__item-tag" key={i} data-tag="tag">
+                                            <div className="portfolio__item-tag" key={i} data-tag={tag}>
                                                 <span>{tag}</span>
                                             </div>
                                         ))}

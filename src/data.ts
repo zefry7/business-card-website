@@ -21,7 +21,7 @@ export const data = {
         ]
     },
     portfolio: {
-        tags: ["React", "Redux", "Tailwind", "Js", "Sass", "Pug"],
+        tags: ["react", "redux", "tailwind", "js", "sass", "pug"],
         items: [
             {
                 id: "1",

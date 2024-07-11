@@ -54,24 +54,12 @@
                 color: var(--bg-black);
                 border-color: var(--text-orange); 
                 background-color: var(--text-orange);
+                span {
+                    color: var(--bg-black);
+                }
             }
             span {
                 font-size: 18px;
-            }
-            
-            input {
-                position: absolute;
-                top: 0;
-                left: 0;
-                opacity: 0;
-                height: 100%;
-                width: 100%;
-                cursor: pointer;
-            }
-            &:has(input:checked) {
-                color: var(--bg-black);
-                border-color: var(--text-orange); 
-                background-color: var(--text-orange);
             }
         }
     }

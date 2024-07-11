@@ -1030,22 +1030,11 @@ select {
   border-color: var(--text-orange);
   background-color: var(--text-orange);
 }
+.portfolio__filter-tag_active span {
+  color: var(--bg-black);
+}
 .portfolio__filter-tag span {
   font-size: 18px;
-}
-.portfolio__filter-tag input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-}
-.portfolio__filter-tag:has(input:checked) {
-  color: var(--bg-black);
-  border-color: var(--text-orange);
-  background-color: var(--text-orange);
 }
 .portfolio__list {
   padding-top: 30px;
