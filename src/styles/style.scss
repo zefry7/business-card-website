@@ -79,7 +79,7 @@ section {
 .show-block {
     transform: translateX(0%) scale(1);
     opacity: 1;
-    transition: all 0.3s ease-in;
+    transition: opacity 0.4s ease-in 0.3s, transform 0.4s ease-in 0.3s;
 }
 
 .move-left {
@@ -93,6 +93,7 @@ section {
 }
 
 .move-scale {
+    opacity: 0;
     transform: scale(0.001);
 }
 

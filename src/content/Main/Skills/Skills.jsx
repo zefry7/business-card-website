@@ -12,7 +12,7 @@ export default function Skills() {
                             <span>HTML: </span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore autem totam commodi deleniti reiciendis quisquam cumque sequi harum, corporis mollitia sit beatae omnis ad voluptates!
                         </p>
                     </li>
-                    <li className="skills__item show-block move-left" data-move="move-left">
+                    <li className="skills__item show-block move-right" data-move="move-right">
                         <p className="skills__item-text">
                             <span>HTML: </span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore autem totam commodi deleniti reiciendis quisquam cumque sequi harum, corporis mollitia sit beatae omnis ad voluptates!
                         </p>

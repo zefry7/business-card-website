@@ -1,18 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import { DataContext } from "../../..";
 
 export default function About() {
+    const data = useContext(DataContext)?.about
 
     return <section className="about" id="about">
         <div className="about__wrapper">
             <div className="about__content">
-                <h2 className="about__title show-block move-left" data-move="move-left">О себе</h2>
+                <h2 className="about__title show-block move-left" data-move="move-left">{data?.title}</h2>
                 <div className="about__info">
                     <div className="about__img show-block move-left" data-move="move-left">
-                        <img src="./img/About/quest.svg" alt="" />
+                        <img src={data?.img?.src} alt={data?.img?.alt} />
                     </div>
-                    <p className="about__text show-block move-right" data-move="move-right">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis praesentium corrupti debitis quibusdam neque, velit in voluptas similique temporibus harum ducimus voluptatem aliquam molestias ex vero eligendi iure quod accusantium!
-                    </p>
+                    <div className="about__text-wrapper show-block move-right" data-move="move-right">
+                        <p className="about__text-hi">{data?.text[0]}</p>
+                        <p className="about__text">
+                            {data?.text[1]}
+                            <span>{data?.text[2]}</span>
+                            <br />
+                            {data?.text[3]}
+                            <span>{data?.text[4]}</span>
+                            {data?.text[5]}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

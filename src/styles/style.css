@@ -196,6 +196,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .header__nav-row {
   display: flex;
@@ -253,9 +254,8 @@ select {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  position: relative;
+  right: 0;
   z-index: 30;
   box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.8);
   transition: transform 0.2s linear;
@@ -269,6 +269,11 @@ select {
   width: 100%;
   background-color: var(--bg-black-grey-3);
   transition: transform 0.1s linear;
+}
+.header__button-burger_active {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 .header__button-burger_active span:nth-child(1) {
   top: 48%;
@@ -386,6 +391,7 @@ select {
   text-transform: uppercase;
   text-align: center;
   color: var(--text-white);
+  font-weight: 500;
 }
 @media (min-width: 1440px) {
   .about__title, .portfolio__title, .skills__title {
@@ -451,8 +457,37 @@ select {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 40px;
   max-width: 1000px;
+}
+@media (min-width: 1440px) {
+  .about__info {
+    gap: 40px;
+  }
+}
+@media screen and (max-width: 1439px) and (min-width: 1280px) {
+  .about__info {
+    gap: calc(40px + 0 * (100vw - 1280px) / (1440 - 1280));
+  }
+}
+@media screen and (max-width: 1279px) and (min-width: 1024px) {
+  .about__info {
+    gap: calc(40px + 0 * (100vw - 1024px) / (1280 - 1024));
+  }
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .about__info {
+    gap: calc(30px + 10 * (100vw - 768px) / (1024 - 768));
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .about__info {
+    gap: calc(20px + 10 * (100vw - 320px) / (768 - 320));
+  }
+}
+@media (max-width: 320px) {
+  .about__info {
+    gap: 20px;
+  }
 }
 .about__img {
   border: 2px solid var(--text-grey);
@@ -527,9 +562,14 @@ select {
   max-width: 80%;
   height: 80%;
 }
+.about__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 590px;
+}
 .about__text {
-  line-height: 130%;
   color: var(--text-grey);
+  line-height: 150%;
 }
 @media (min-width: 1440px) {
   .about__text {
@@ -548,26 +588,113 @@ select {
 }
 @media screen and (max-width: 1023px) and (min-width: 768px) {
   .about__text {
-    font-size: calc(18px + 2 * (100vw - 768px) / (1024 - 768));
+    font-size: calc(20px + 0 * (100vw - 768px) / (1024 - 768));
   }
 }
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .about__text {
-    font-size: calc(18px + 0 * (100vw - 320px) / (768 - 320));
+    font-size: calc(16px + 4 * (100vw - 320px) / (768 - 320));
   }
 }
 @media (max-width: 320px) {
   .about__text {
-    font-size: 18px;
+    font-size: 16px;
+  }
+}
+.about__text span {
+  display: inline-block;
+  padding: 0 5px;
+  color: var(--bg-black);
+  line-height: 130%;
+  background-color: var(--text-orange);
+}
+@media (min-width: 1440px) {
+  .about__text span {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 1439px) and (min-width: 1280px) {
+  .about__text span {
+    font-size: calc(28px + 0 * (100vw - 1280px) / (1440 - 1280));
+  }
+}
+@media screen and (max-width: 1279px) and (min-width: 1024px) {
+  .about__text span {
+    font-size: calc(24px + 4 * (100vw - 1024px) / (1280 - 1024));
+  }
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .about__text span {
+    font-size: calc(24px + 0 * (100vw - 768px) / (1024 - 768));
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .about__text span {
+    font-size: calc(20px + 4 * (100vw - 320px) / (768 - 320));
+  }
+}
+@media (max-width: 320px) {
+  .about__text span {
+    font-size: 20px;
+  }
+}
+.about__text-hi {
+  font-weight: 500;
+  line-height: 130%;
+  color: var(--text-white);
+}
+@media (min-width: 1440px) {
+  .about__text-hi {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 1439px) and (min-width: 1280px) {
+  .about__text-hi {
+    font-size: calc(40px + 0 * (100vw - 1280px) / (1440 - 1280));
+  }
+}
+@media screen and (max-width: 1279px) and (min-width: 1024px) {
+  .about__text-hi {
+    font-size: calc(40px + 0 * (100vw - 1024px) / (1280 - 1024));
+  }
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .about__text-hi {
+    font-size: calc(32px + 8 * (100vw - 768px) / (1024 - 768));
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .about__text-hi {
+    font-size: calc(28px + 4 * (100vw - 320px) / (768 - 320));
+  }
+}
+@media (max-width: 320px) {
+  .about__text-hi {
+    font-size: 28px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .about__info {
     flex-direction: column;
   }
   .about__text {
     text-align: center;
+  }
+  .about__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .about__text-wrapper {
+    max-width: 550px;
+  }
+}
+@media (max-width: 425px) {
+  .about__text-wrapper {
+    max-width: 300px;
   }
 }
 .skills {
@@ -1036,11 +1163,13 @@ select {
 .portfolio__filter-tag span {
   font-size: 18px;
 }
+.portfolio hr {
+  border-top: 2px solid var(--bg-black-grey-2);
+}
 .portfolio__list {
   padding-top: 30px;
   display: grid;
   grid-template: auto/repeat(2, minmax(auto, 620px));
-  border-top: 2px solid var(--bg-black-grey-2);
 }
 @media (min-width: 1440px) {
   .portfolio__list {
@@ -1088,10 +1217,10 @@ select {
 }
 .portfolio__item-img {
   flex: 50%;
-  overflow: hidden;
   border-top-left-radius: 17px;
   border-top-right-radius: 17px;
   position: relative;
+  overflow: hidden;
 }
 .portfolio__item-img img {
   width: 100%;
@@ -1103,10 +1232,10 @@ select {
   content: "";
   position: absolute;
   z-index: 1;
-  bottom: 0px;
-  left: 0px;
-  width: 110%;
-  height: 110%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0) 40%);
 }
 .portfolio__item-info {
@@ -1427,11 +1556,10 @@ select {
   color: var(--text-orange);
 }
 .portfolio__wrapper-detail {
-  display: none;
   position: fixed;
   z-index: 10;
   overflow-y: auto;
-  top: 0;
+  bottom: -100%;
   left: 0;
   height: 100%;
   width: 100%;
@@ -1439,6 +1567,7 @@ select {
           backdrop-filter: blur(5px);
   background-color: rgba(128, 128, 128, 0.1);
   cursor: pointer;
+  transition: all 0.3s linear;
 }
 @media (min-width: 1440px) {
   .portfolio__wrapper-detail {
@@ -1560,6 +1689,9 @@ select {
     padding-bottom: 0px;
   }
 }
+.portfolio__wrapper-detail_active {
+  bottom: 0;
+}
 .portfolio__detail {
   position: relative;
   background-color: var(--bg-black-grey-2);
@@ -1569,7 +1701,7 @@ select {
   width: 100%;
   margin: 0 auto;
   padding: 70px 120px;
-  border-radius: 34px;
+  border-radius: 28px;
 }
 @media (min-width: 1440px) {
   .portfolio__detail {
@@ -1630,9 +1762,6 @@ select {
   .portfolio__detail {
     padding-right: 20px;
   }
-}
-.portfolio__detail_active {
-  display: block;
 }
 .portfolio__detail-img {
   margin-bottom: 20px;
@@ -2276,6 +2405,7 @@ select {
   text-transform: uppercase;
   text-align: center;
   color: var(--bg-black);
+  font-weight: 500;
 }
 @media (min-width: 1440px) {
   .contact__title {
@@ -2563,10 +2693,30 @@ select {
   color: red;
   text-transform: capitalize;
   font-size: 14px;
-  display: none;
+  display: inline-block;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+.contact__form-submit::after {
+  content: "Сообщение отправлено";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 20px;
+  width: -moz-max-content;
+  width: max-content;
+  color: rgb(0, 207, 0);
+  text-transform: none;
+  font-size: 14px;
+  display: inline-block;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+.contact__form-accept::after {
+  opacity: 1;
 }
 .contact__form-error::before {
-  display: inline-block;
+  opacity: 1;
 }
 
 .footer__wrapper {
@@ -2754,7 +2904,7 @@ section {
 .show-block {
   transform: translateX(0%) scale(1);
   opacity: 1;
-  transition: all 0.3s ease-in;
+  transition: opacity 0.4s ease-in 0.3s, transform 0.4s ease-in 0.3s;
 }
 
 .move-left {
@@ -2768,6 +2918,7 @@ section {
 }
 
 .move-scale {
+  opacity: 0;
   transform: scale(0.001);
 }
 

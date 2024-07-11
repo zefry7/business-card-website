@@ -17,7 +17,7 @@ function Portfolio() {
 
         burgerMenu.classList.add("header__button-burger_hidden")
         document.body.classList.add("scroll-lock");
-        blockDetail.classList.add("portfolio__detail_active");
+        blockDetail.classList.add("portfolio__wrapper-detail_active");
     }
 
     const removeClassBlockDetail = (e) => {
@@ -27,7 +27,7 @@ function Portfolio() {
         if (e.target.classList.contains("portfolio__wrapper-detail") || e.currentTarget.classList.contains("portfolio__detail-close")) {
             burgerMenu.classList.remove("header__button-burger_hidden")
             document.body.classList.remove("scroll-lock");
-            wrapper.classList.remove("portfolio__detail_active")
+            wrapper.classList.remove("portfolio__wrapper-detail_active")
         }
     }
 
@@ -102,16 +102,16 @@ function Portfolio() {
     return <section className="portfolio" id="portfolio">
         <div className="portfolio__wrapper">
             <div className="portfolio__content">
-                <h2 className="portfolio__title">
+                <h2 className="portfolio__title move-left show-block" data-move="move-left">
                     Портфолио
                 </h2>
                 <div className="portfolio__filter">
-                    <h3 className="portfolio__filter-title">Фильтр:</h3>
+                    <h3 className="portfolio__filter-title move-left show-block" data-move="move-left">Фильтр:</h3>
                     <div className="portfolio__filter-list">
                         <SwiperConstructor setting="settingTags">
                             {data?.tags?.map((v, i) => (
                                 <SwiperSlide key={i}>
-                                    <div className="portfolio__filter-tag" onClick={(e) => addTagInFilter(e)}>
+                                    <div className="portfolio__filter-tag move-scale show-block" data-move="move-scale" onClick={(e) => addTagInFilter(e)}>
                                         <span>{v}</span>
                                     </div>
                                 </SwiperSlide>
@@ -119,9 +119,10 @@ function Portfolio() {
                         </SwiperConstructor>
                     </div>
                 </div>
+                <hr className="move-scale show-block" data-move="move-scale"/>
                 <div className="portfolio__list">
                     {data?.items?.map((v) => (
-                        <article className="portfolio__item" key={v?.id} data-detail-id={v?.id} onClick={(e) => { openBlockDetail(e) }}>
+                        <article className="portfolio__item move-scale show-block" data-move="move-scale" key={v?.id} data-detail-id={v?.id} onClick={(e) => { openBlockDetail(e) }}>
                             <div className="portfolio__item-content">
                                 <div className="portfolio__item-img">
                                     <img src={v?.img?.src} alt={v?.img?.alt} />

@@ -8,6 +8,12 @@ function Header() {
     const clickBurgerMenu = useCallback((e) => {
 
         if (window.innerWidth <= 768) {
+
+            window.scrollTo({
+                behavior: "auto",
+                top: window.innerHeight
+            })
+
             const burgerContent = document.getElementsByClassName("header__burger-content")[0]
             let timer = 0
 

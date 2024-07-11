@@ -21,7 +21,7 @@
         text-transform: uppercase;
         text-align: center;
         color: var(--bg-black);
-
+        font-weight: 500;
         &::before,
         &::after {
             border-color: var(--bg-black);
@@ -90,13 +90,36 @@
                 color: red;
                 text-transform: capitalize;
                 font-size: 14px;
-                display: none;
+                display: inline-block;
+                opacity: 0;
+                transition: all 0.2s linear;
+            }
+
+            &::after {
+                content: "Сообщение отправлено";
+                position: absolute;
+                top: 120%;
+                left: 0;
+                height: 20px;
+                width: max-content;
+                color: rgb(0, 207, 0);
+                text-transform: none;
+                font-size: 14px;
+                display: inline-block;
+                opacity: 0;
+                transition: all 0.2s linear;
+            }
+        }
+
+        &-accept {
+            &::after {
+                opacity: 1;
             }
         }
 
         &-error {
             &::before {
-                display: inline-block;
+                opacity: 1;
             }
         }
     }
