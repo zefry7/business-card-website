@@ -64,7 +64,7 @@ html {
 }
 .bottom-block {
     position: sticky;
-    bottom: calc((-1) * max(calc(900px - 100vh), calc(100vh - 900px)));
+    bottom: calc((-1) * max(calc(745px - 100vh), calc(100vh - 745px)));
     z-index: 0;
 }
 
@@ -77,7 +77,7 @@ section {
 }
 
 .show-block {
-    transform: translateX(0%);
+    transform: translateX(0%) scale(1);
     opacity: 1;
     transition: all 0.3s ease-in;
 }
@@ -90,6 +90,10 @@ section {
 .move-right {
     opacity: 0;
     transform: translateX(30%);
+}
+
+.move-scale {
+    transform: scale(0.001);
 }
 
 h2 {

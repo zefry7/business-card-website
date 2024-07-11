@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DataContext } from "../../..";
+import SwiperConstructor from "../../../components/SwiperConstructor/SwiperConstructor";
+import { SwiperSlide } from "swiper/react";
 
 
 function Portfolio() {
@@ -105,18 +107,16 @@ function Portfolio() {
                 <div className="portfolio__filter">
                     <h3 className="portfolio__filter-title">Фильтр:</h3>
                     <div className="portfolio__filter-list">
-                        <div className="portfolio__filter-tag" onClick={(e) => addTagInFilter(e)}>
-                            <input type="checkbox" name="filter" />
-                            <span>HTML</span>
-                        </div>
-                        <div className="portfolio__filter-tag" onClick={(e) => addTagInFilter(e)}>
-                            <input type="checkbox" name="filter" />
-                            <span>CSS</span>
-                        </div>
-                        <div className="portfolio__filter-tag" onClick={(e) => addTagInFilter(e)}>
-                            <input type="checkbox" name="filter" />
-                            <span>SASS</span>
-                        </div>
+                        <SwiperConstructor setting="settingTags">
+                            {data?.tags?.map((v, i) => (
+                                <SwiperSlide key={i}>
+                                    <div className="portfolio__filter-tag" onClick={(e) => addTagInFilter(e)}>
+                                        <input type="checkbox" name="filter" />
+                                        <span>{v}</span>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </SwiperConstructor>
                     </div>
                 </div>
                 <div className="portfolio__list">

@@ -21,6 +21,7 @@ export const data = {
         ]
     },
     portfolio: {
+        tags: ["React", "Redux", "Tailwind", "Js", "Sass", "Pug"],
         items: [
             {
                 id: "1",
@@ -66,7 +67,7 @@ export const data = {
     },
     contact: {
         title: "Контакты",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non tempore atque, consectetur blanditiis mollitia nihil.",
+        description: "Если у Вас есть предложения или вопросы, то Вы можете оставить своё сообщение.",
         name: {
             type: "text",
             name: "name",

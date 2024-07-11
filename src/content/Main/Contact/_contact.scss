@@ -16,7 +16,7 @@
         align-items: center;
     }
     &__title {
-        font-size: 40px;
+        @include adap(font-size, 40, 40, 40, 40, 32);
         margin-bottom: 40px;
         text-transform: uppercase;
         text-align: center;
@@ -28,10 +28,11 @@
         }
     }
     &__description {
-        max-width: 500px;
-        margin-bottom: 30px;
+        max-width: 460px;
+        @include adap(margin-bottom, 30, 30, 30, 30, 20);
         text-align: center;
-        font-size: 20px;
+        @include adap(font-size, 20, 20, 20, 20, 16);
+        line-height: 130%;
         color: var(--bg-black-grey-3);
     }
     &__wrapper-form {
@@ -41,7 +42,7 @@
     }
     &__form {
         display: flex;
-        gap: 20px;
+        @include adap(gap, 20, 20, 20, 20, 10);
         flex-direction: column;
         input, textarea { 
             font-size: 20px;
@@ -63,7 +64,7 @@
         }
         & textarea::placeholder,
         & input::placeholder {
-            font-size: 16px;
+            @include adap(font-size, 16, 16, 16, 16, 14);
         }
 
         &-submit {

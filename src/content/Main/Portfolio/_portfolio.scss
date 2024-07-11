@@ -26,6 +26,13 @@
         &-list {
             display: flex;
             gap: 10px;
+
+            .swiper {
+                margin-left: 0;
+                &-slide {
+                    max-width: max-content;
+                }
+            }
         }
         &-tag {
             width: max-content;
@@ -382,6 +389,26 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .portfolio {
+        &__filter {
+            &-list {
+                @include adap(margin-left, -80, -80, -80, -40, -20);
+                @include adap(margin-right, -80, -80, -80, -40, -20);
+                .swiper {
+                    @include adap(padding-left, 80, 80, 80, 40, 20);
+                    @include adap(padding-right, 80, 80, 80, 40, 20);
+                    margin-left: 0;
+                    &-slide {
+                        max-width: max-content;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 @media (max-width: 425px) {
     .portfolio {

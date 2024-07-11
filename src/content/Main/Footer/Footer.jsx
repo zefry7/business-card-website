@@ -9,14 +9,14 @@ function Footer() {
             <div className="footer__content">
                 <ul className="footer__links">
                     {data?.links?.map((v, i) => (
-                        <li className="footer__img" key={i}>
+                        <li className="footer__img move-scale show-block" key={i} data-move={"move-scale"}>
                             <a href={v?.url} target="_blank">
                                 <img src={v?.img?.src} alt={v?.img?.alt} />
                             </a>
                         </li>
                     ))}
                 </ul>
-                <p className="footer__text">{data?.year}</p>
+                <p className="footer__text show-block move-left" data-move={"move-left"}>{data?.year}</p>
             </div>
         </div>
     </footer>
