@@ -5,10 +5,23 @@ export default function Intro() {
     const moveBottom = useCallback(() => {
         const introBlock = document.getElementsByClassName("intro")[0]
         const topVar = introBlock.clientHeight - window.scrollY
-        window.scrollBy({
+
+        setTimeout(() => {
+            const root = document.querySelector(":root");
+            introBlock.style.display = "none"
+            root.style.removeProperty('--d');
+
+            window.scrollTo({
+                behavior: "auto",
+                top: window.scrollY - window.innerHeight
+            })
+        }, 550)
+
+        window.scrollTo({
             behavior: "smooth",
             top: topVar
         })
+
     }, [])
 
     useEffect(() => {

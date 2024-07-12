@@ -6,17 +6,33 @@ import Footer from "./Footer/Footer";
 import About from "./About/About";
 import Skills from "./Skills/Skills";
 import Contact from "./Contact/Contact";
-import { useDispatch, useSelector } from "react-redux";
 import showBlock from "../../styles/script/showBlock";
 
 function MainPage() {
-    const scrollY = useSelector(state => state.globalReducer.scrollY)
-    const dispath = useDispatch()
+
+    function scrollScan() {
+        const introBlock = document.getElementsByClassName("intro")[0]
+        const root = document.querySelector(":root");
+        
+        if (introBlock.style.display == "none") {
+            showBlock()
+            window.removeEventListener("scroll", scrollScan)
+        }
+        if (window.scrollY > window.innerHeight) {
+            introBlock.style.display = "none"
+            root.style.removeProperty('--d');
+
+            window.scrollTo({
+                behavior: "auto",
+                top: window.scrollY - window.innerHeight
+            })
+        }
+
+    }
+
 
     useEffect(() => {
-        window.addEventListener("scroll", () => {
-            dispath({ type: "scrollY", value: window.scrollY })
-        })
+        window.addEventListener("scroll", scrollScan)
 
         window.addEventListener("resize", () => {
             const root = document.querySelector(":root");
@@ -25,11 +41,6 @@ function MainPage() {
         })
 
     }, [])
-
-    useEffect(() => {
-        if (scrollY > window.innerHeight - 100)
-            showBlock()
-    }, [scrollY])
 
     return <>
         <div className="move-block-wrapper">
