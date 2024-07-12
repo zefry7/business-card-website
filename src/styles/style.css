@@ -273,7 +273,36 @@ select {
 .header__button-burger_active {
   position: fixed;
   top: 20px;
-  right: 20px;
+}
+@media (min-width: 1440px) {
+  .header__button-burger_active {
+    right: 80px;
+  }
+}
+@media screen and (max-width: 1439px) and (min-width: 1280px) {
+  .header__button-burger_active {
+    right: calc(80px + 0 * (100vw - 1280px) / (1440 - 1280));
+  }
+}
+@media screen and (max-width: 1279px) and (min-width: 1024px) {
+  .header__button-burger_active {
+    right: calc(80px + 0 * (100vw - 1024px) / (1280 - 1024));
+  }
+}
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .header__button-burger_active {
+    right: calc(40px + 40 * (100vw - 768px) / (1024 - 768));
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header__button-burger_active {
+    right: calc(20px + 20 * (100vw - 320px) / (768 - 320));
+  }
+}
+@media (max-width: 320px) {
+  .header__button-burger_active {
+    right: 20px;
+  }
 }
 .header__button-burger_active span:nth-child(1) {
   top: 48%;
@@ -748,13 +777,14 @@ select {
 }
 .skills__list {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .skills__item {
   display: flex;
+  width: 100%;
 }
 .skills__item::before {
   content: "";
@@ -844,32 +874,32 @@ select {
 }
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .skills__item::before {
-    margin-right: calc(5px + 0 * (100vw - 320px) / (768 - 320));
+    margin-right: calc(0px + 5 * (100vw - 320px) / (768 - 320));
   }
 }
 @media (max-width: 320px) {
   .skills__item::before {
-    margin-right: 5px;
+    margin-right: 0px;
   }
 }
 @media (min-width: 1440px) {
   .skills__item::before {
-    top: -9px;
+    top: -7px;
   }
 }
 @media screen and (max-width: 1439px) and (min-width: 1280px) {
   .skills__item::before {
-    top: calc(-9px + 0 * (100vw - 1280px) / (1440 - 1280));
+    top: calc(-7px + 0 * (100vw - 1280px) / (1440 - 1280));
   }
 }
 @media screen and (max-width: 1279px) and (min-width: 1024px) {
   .skills__item::before {
-    top: calc(-9px + 0 * (100vw - 1024px) / (1280 - 1024));
+    top: calc(-7px + 0 * (100vw - 1024px) / (1280 - 1024));
   }
 }
 @media screen and (max-width: 1023px) and (min-width: 768px) {
   .skills__item::before {
-    top: calc(-5px + -4 * (100vw - 768px) / (1024 - 768));
+    top: calc(-5px + -2 * (100vw - 768px) / (1024 - 768));
   }
 }
 @media screen and (max-width: 767px) and (min-width: 320px) {
@@ -907,12 +937,12 @@ select {
 }
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .skills__item span {
-    font-size: calc(22px + 0 * (100vw - 320px) / (768 - 320));
+    font-size: calc(18px + 4 * (100vw - 320px) / (768 - 320));
   }
 }
 @media (max-width: 320px) {
   .skills__item span {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 .skills__item-text {
@@ -921,27 +951,27 @@ select {
 }
 @media (min-width: 1440px) {
   .skills__item-text {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 @media screen and (max-width: 1439px) and (min-width: 1280px) {
   .skills__item-text {
-    font-size: calc(20px + 0 * (100vw - 1280px) / (1440 - 1280));
+    font-size: calc(24px + 0 * (100vw - 1280px) / (1440 - 1280));
   }
 }
 @media screen and (max-width: 1279px) and (min-width: 1024px) {
   .skills__item-text {
-    font-size: calc(20px + 0 * (100vw - 1024px) / (1280 - 1024));
+    font-size: calc(24px + 0 * (100vw - 1024px) / (1280 - 1024));
   }
 }
 @media screen and (max-width: 1023px) and (min-width: 768px) {
   .skills__item-text {
-    font-size: calc(18px + 2 * (100vw - 768px) / (1024 - 768));
+    font-size: calc(22px + 2 * (100vw - 768px) / (1024 - 768));
   }
 }
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .skills__item-text {
-    font-size: calc(18px + 0 * (100vw - 320px) / (768 - 320));
+    font-size: calc(18px + 4 * (100vw - 320px) / (768 - 320));
   }
 }
 @media (max-width: 320px) {
@@ -1557,9 +1587,9 @@ select {
 }
 .portfolio__wrapper-detail {
   position: fixed;
-  z-index: 10;
+  z-index: 1000;
   overflow-y: auto;
-  bottom: -100%;
+  top: 100%;
   left: 0;
   height: 100%;
   width: 100%;
@@ -1567,7 +1597,7 @@ select {
           backdrop-filter: blur(5px);
   background-color: rgba(128, 128, 128, 0.1);
   cursor: pointer;
-  transition: all 0.3s linear;
+  transition: top 0.3s linear;
 }
 @media (min-width: 1440px) {
   .portfolio__wrapper-detail {
@@ -1690,14 +1720,16 @@ select {
   }
 }
 .portfolio__wrapper-detail_active {
-  bottom: 0;
+  top: 0;
 }
 .portfolio__detail {
+  visibility: hidden;
   position: relative;
   background-color: var(--bg-black-grey-2);
+  max-width: 1440px;
+  min-height: 100lvh;
   height: -moz-max-content;
   height: max-content;
-  max-width: 1440px;
   width: 100%;
   margin: 0 auto;
   padding: 70px 120px;
@@ -1762,6 +1794,9 @@ select {
   .portfolio__detail {
     padding-right: 20px;
   }
+}
+.portfolio__detail_active {
+  visibility: visible;
 }
 .portfolio__detail-img {
   margin-bottom: 20px;

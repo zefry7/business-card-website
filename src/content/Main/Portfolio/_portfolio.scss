@@ -165,9 +165,9 @@
     }
     &__wrapper-detail {
         position: fixed;
-        z-index: 10;
+        z-index: 1000;
         overflow-y: auto;
-        bottom: -100%;
+        top: 100%;
         left: 0;
         height: 100%;
         width: 100%;
@@ -178,24 +178,30 @@
         backdrop-filter: blur(5px);
         background-color: rgba(128, 128, 128, 0.1);
         cursor: pointer;
-        transition: all 0.3s linear;
-
+        transition: top 0.3s linear;
 
         &_active {
-            bottom: 0;
+            top: 0;
         }
     }
     &__detail {
+        visibility: hidden;
         position: relative;
         background-color: var(--bg-black-grey-2);
-        height: max-content;
         max-width: 1440px;
+        min-height: 100lvh;
+        height: max-content;
         width: 100%;
         margin: 0 auto;
         padding: 70px 120px;
         @include adap(padding-left, 120, 100, 80, 60, 20);
         @include adap(padding-right, 120, 100, 80, 60, 20);
         border-radius: 28px;
+
+        &_active {
+            visibility: visible;
+        }
+
 
         &-img {
             margin-bottom: 20px;

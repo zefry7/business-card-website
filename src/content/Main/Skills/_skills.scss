@@ -21,31 +21,32 @@
     }
     &__list {
         margin: 0 auto;
-        max-width: 1000px;
+        max-width: 900px;
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
     &__item {
         display: flex;
+        width: 100%;
         &::before {
             content: "";
             display: inline-block;
             @include adap(height, 40, 40, 40, 30, 30);
             @include adap(min-width, 40, 40, 40, 30, 30);
-            @include adap(margin-right, 8, 8, 8, 5, 5);
+            @include adap(margin-right, 8, 8, 8, 5, 0);
             position: relative;
-            @include adap(top, -9, -9, -9, -5, -5);
+            @include adap(top, -7, -7, -7, -5, -5);
             background: url("./img/plus.svg") center/ 100% 100% no-repeat;
         }
         span {
-            @include adap(font-size, 24, 24, 24, 22, 22);
+            @include adap(font-size, 24, 24, 24, 22, 18);
             color: var(--text-orange);
         }
 
         &-text {
             line-height: 130%;
-            @include adap(font-size, 20, 20, 20, 18, 18);
+            @include adap(font-size, 24, 24, 24, 22, 18);
             color: var(--text-grey);
         }
     }

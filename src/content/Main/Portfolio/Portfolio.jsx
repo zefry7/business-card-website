@@ -18,6 +18,7 @@ function Portfolio() {
         burgerMenu.classList.add("header__button-burger_hidden")
         document.body.classList.add("scroll-lock");
         blockDetail.classList.add("portfolio__wrapper-detail_active");
+        blockDetail.getElementsByClassName("portfolio__detail")[0].classList.add("portfolio__detail_active")
     }
 
     const removeClassBlockDetail = (e) => {
@@ -28,6 +29,9 @@ function Portfolio() {
             burgerMenu.classList.remove("header__button-burger_hidden")
             document.body.classList.remove("scroll-lock");
             wrapper.classList.remove("portfolio__wrapper-detail_active")
+            setTimeout(() => {
+                wrapper.getElementsByClassName("portfolio__detail")[0].classList.remove("portfolio__detail_active")
+            }, 300)
         }
     }
 

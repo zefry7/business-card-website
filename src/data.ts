@@ -28,8 +28,41 @@ export const data = {
             alt: "Моё фото"
         }
     },
+    skills: {
+        title: "Навыки",
+        list: [
+            {
+                label: "HTML",
+                text: "Знание семантики, работа с формами и таблицами, доступность сайта, SEO-оптимизация."
+            },
+            {
+                label: "CSS/SASS",
+                text: "Flexbox и Grid, создание анимации, псевдоклассы и псевдоэлементы, адаптивность и кроссбраузерность."
+            }, 
+            {
+                label: "JS",
+                text: "HTML DOM, Async/await, Promise, хранение данных, браузерное окружение, fetch, axios."
+            }, 
+            {
+                label: "REACT",
+                text: "React хуки, Virtual DOM, создание собственных компонентов и хуков, React Router."
+            }, 
+            {
+                label: "REDUX",
+                text: "Работа с хранилищем и передачей данных, Redux Toolkit, Redux thunk, Redux saga, Redux DevTools."
+            }, 
+            {
+                label: "TS",
+                text: "Способы типизации, шаблоны, интерфейсы, служебные утилиты." 
+            },
+            {
+                label: "Другое",
+                text: "Tailwind, Git, SQL, REST API, jQuery."
+            }
+        ]
+    },
     portfolio: {
-        tags: ["react", "redux", "tailwind", "js", "sass", "pug"],
+        tags: ["react", "redux", "js", "ts", "sass", "tailwind","pug"],
         items: [
             {
                 id: "1",
@@ -37,7 +70,17 @@ export const data = {
                 tags: ["sass", "react", "redux"],
                 description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
                 img: {
-                    src: "./img/Portfolio/food-delivery-screen.png",
+                    src: "./img/Portfolio/food-delivery-screen.webp",
+                    alt: "Обложка сайта из портфолио"
+                }
+            },
+            {
+                id: "2",
+                name: "Chef kitchen",
+                tags: ["sass", "react", "redux"],
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
+                img: {
+                    src: "./img/Portfolio/food-delivery-screen.webp",
                     alt: "Обложка сайта из портфолио"
                 }
             },
@@ -49,10 +92,10 @@ export const data = {
                 tags: ["sass", "react", "redux"],
                 description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
                 img: {
-                    src: "./img/Portfolio/food-delivery-screen.png",
+                    src: "./img/Portfolio/food-delivery-screen.webp",
                     alt: "Обложка сайта из портфолио"
                 },
-                list: [ 
+                list: [
                     "Адаптивный сайт",
                     "Анимации",
                     "Адаптивный сайт",
@@ -110,7 +153,7 @@ export const data = {
                     alt: "Ссылка на мой LeetCode"
                 },
                 url: "https://leetcode.com/u/zefry7/"
-            }, 
+            },
             {
                 img: {
                     src: "./img/Footer/tg.svg",

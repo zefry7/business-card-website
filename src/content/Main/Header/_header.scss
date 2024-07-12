@@ -62,7 +62,7 @@
     &__button-burger_active {
         position: fixed;
         top: 20px; 
-        right: 20px;
+        @include adap(right, 80, 80, 80, 40, 20);
         & span:nth-child(1) {
             top: 48%;
             transform: rotateZ(45deg) translateY(-50%);
