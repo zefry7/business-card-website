@@ -14,7 +14,7 @@ function Portfolio() {
     const itemPortfolioStr = (id) => {
         return <div className="portfolio__detail">
             <div className="portfolio__detail-img">
-                <img src={data?.details[id]?.img?.src} alt={data?.details[id]?.img?.alt} />
+                <img src={data?.details[id]?.img?.src} alt={data?.details[id]?.img?.alt} loading="lazy"/>
             </div>
             <div className="portfolio__detail-info">
                 <div className="portfolio__detail-text">
@@ -167,7 +167,7 @@ function Portfolio() {
                         <article className="portfolio__item move-scale show-block" data-move="move-scale" key={v?.id} onClick={(e) => { openBlockDetail(e, v?.id) }}>
                             <div className="portfolio__item-content">
                                 <div className="portfolio__item-img">
-                                    <img src={v?.img?.src} alt={v?.img?.alt} />
+                                    <img src={v?.img?.src} alt={v?.img?.alt} loading="lazy"/>
                                 </div>
                                 <div className="portfolio__item-info">
                                     <h3 className="portfolio__item-title">{v?.name}</h3>
@@ -191,38 +191,6 @@ function Portfolio() {
                     {idBlock != -1 &&
                         itemPortfolioStr(idBlock)
                     }
-                    {/* <div className="portfolio__detail">
-                        <div className="portfolio__detail-img">
-                            <img src={v?.img?.src} alt={v?.img?.alt} />
-                        </div>
-
-                        <div className="portfolio__detail-info">
-                            <div className="portfolio__detail-text">
-                                <h3 className="portfolio__detail-title">{v?.name}</h3>
-                                <ul className="portfolio__detail-row-tag">
-                                    {v?.tags?.map((tag, i) => (
-                                        <li className="portfolio__detail-tag" key={i}>
-                                            {tag}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <p className="portfolio__detail-description">{v?.description}</p>
-                                <a className="portfolio__detail-link" href={v?.link?.url} target="_blank">{v?.link?.text}</a>
-                            </div>
-                            <div className="portfolio__detail-done">
-                                <h3 className="portfolio__detail-label">{data?.detailLabel}</h3>
-                                <ul className="portfolio__detail-list">
-                                    {v?.list?.map((item, key) => (
-                                        <li className="portfolio__detail-item" key={key}>{item}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="portfolio__detail-close" onClick={(e) => removeClassBlockDetail(e)}>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </div>

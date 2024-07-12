@@ -13,7 +13,7 @@ export default function Intro() {
 
             window.scrollTo({
                 behavior: "auto",
-                top: window.scrollY - window.innerHeight
+                top: -100
             })
         }, 550)
 

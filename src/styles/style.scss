@@ -35,6 +35,10 @@ html {
     scrollbar-gutter: stable;
 }
 
+body {
+    min-width: 320px;
+}
+
 .scroll-lock {
     overflow: hidden;
 }

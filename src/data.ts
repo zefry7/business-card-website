@@ -57,7 +57,7 @@ export const data = {
             },
             {
                 label: "Другое",
-                text: "Tailwind, Git, SQL, REST API, jQuery, Pug."
+                text: "Tailwind, Git, SQL, REST API, jQuery, Pug, методология BEM."
             }
         ]
     },
@@ -68,7 +68,7 @@ export const data = {
                 id: "0",
                 name: "Chef kitchen",
                 tags: ["sass", "react", "redux"],
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
+                description: "Доставка еды по городу из готового меню на несколько дней с выбором количества калорий на каждый день.",
                 img: {
                     src: "./img/Portfolio/food-delivery-screen.webp",
                     alt: "Обложка сайта из портфолио"
@@ -78,7 +78,7 @@ export const data = {
                 id: "1",
                 name: "INTERIOR DESIGN",
                 tags: ["pug", "js", "sass"],
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
+                description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
                 img: {
                     src: "./img/Portfolio/interior-design-screen.webp",
                     alt: "Обложка сайта из портфолио"
@@ -90,24 +90,21 @@ export const data = {
             {
                 name: "Chef kitchen",
                 tags: ["sass", "react", "redux"],
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
+                description: "Доставка еды по городу из готового меню на несколько дней с выбором количества калорий на каждый день.",
                 img: {
                     src: "./img/Portfolio/food-delivery-screen.webp",
                     alt: "Обложка сайта из портфолио"
                 },
                 list: [
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации"
+                    "Одностраничный сайт",
+                    "Адаптивный сайт под разные устройства.",
+                    "Использование методологии BEM.",
+                    "Покомпонентная разработка.",
+                    "Оптимизация изображений и загрузки сайта.",
+                    "Работа со слайдером Swiper.",
+                    "Эффект параллакса у декоративных элементов.",
+                    "Анимации отображения различных элементов.",
+                    "Добавлена карта от Яндекса.",
                 ],
                 link: {
                     text: "Открыть сайт",
@@ -117,28 +114,22 @@ export const data = {
             {
                 name: "INTERIOR DESIGN",
                 tags: ["pug", "js", "sass"],
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
+                description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
                 img: {
                     src: "./img/Portfolio/interior-design-screen.webp",
                     alt: "Обложка сайта из портфолио"
                 },
                 list: [
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации",
-                    "Адаптивный сайт",
-                    "Анимации"
+                    "Одностраничный сайт",
+                    "Адаптивный сайт под разные устройства.",
+                    "Использование методологии BEM.",
+                    "Оптимизация изображений и загрузки сайта.",
+                    "Работа с элементами таблицы.",
+                    "Анимации отображения различных элементов.",
                 ],
                 link: {
                     text: "Открыть сайт",
-                    url: "https://zefry7.github.io/food-delivery/"
+                    url: "https://zefry7.github.io/interior-design/"
                 }
             }
         ]

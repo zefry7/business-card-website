@@ -13,10 +13,11 @@ function MainPage() {
     function scrollScan() {
         const introBlock = document.getElementsByClassName("intro")[0]
         const root = document.querySelector(":root");
-        
+
         if (introBlock.style.display == "none") {
             showBlock()
             window.removeEventListener("scroll", scrollScan)
+            window.removeEventListener("resize", resizeScan)
         }
         if (window.scrollY > window.innerHeight) {
             introBlock.style.display = "none"
@@ -30,16 +31,16 @@ function MainPage() {
 
     }
 
+    function resizeScan() {
+        const root = document.querySelector(":root");
+        const a = document.getElementsByClassName("about")[0].clientHeight
+        root.style.setProperty('--d', `calc(100lvh + 150px + ${a}px)`);
+    }
+
 
     useEffect(() => {
         window.addEventListener("scroll", scrollScan)
-
-        window.addEventListener("resize", () => {
-            const root = document.querySelector(":root");
-            const a = document.getElementsByClassName("about")[0].clientHeight
-            root.style.setProperty('--d', `calc(100lvh + 150px + ${a}px)`);
-        })
-
+        window.addEventListener("resize", resizeScan)
     }, [])
 
     return <>
