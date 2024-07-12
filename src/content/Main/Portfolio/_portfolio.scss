@@ -185,7 +185,6 @@
         }
     }
     &__detail {
-        visibility: hidden;
         position: relative;
         background-color: var(--bg-black-grey-2);
         max-width: 1440px;
@@ -197,11 +196,6 @@
         @include adap(padding-left, 120, 100, 80, 60, 20);
         @include adap(padding-right, 120, 100, 80, 60, 20);
         border-radius: 28px;
-
-        &_active {
-            visibility: visible;
-        }
-
 
         &-img {
             margin-bottom: 20px;

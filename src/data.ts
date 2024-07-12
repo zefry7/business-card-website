@@ -57,7 +57,7 @@ export const data = {
             },
             {
                 label: "Другое",
-                text: "Tailwind, Git, SQL, REST API, jQuery."
+                text: "Tailwind, Git, SQL, REST API, jQuery, Pug."
             }
         ]
     },
@@ -65,7 +65,7 @@ export const data = {
         tags: ["react", "redux", "js", "ts", "sass", "tailwind","pug"],
         items: [
             {
-                id: "1",
+                id: "0",
                 name: "Chef kitchen",
                 tags: ["sass", "react", "redux"],
                 description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
@@ -75,12 +75,12 @@ export const data = {
                 }
             },
             {
-                id: "2",
-                name: "Chef kitchen",
-                tags: ["sass", "react", "redux"],
+                id: "1",
+                name: "INTERIOR DESIGN",
+                tags: ["pug", "js", "sass"],
                 description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
                 img: {
-                    src: "./img/Portfolio/food-delivery-screen.webp",
+                    src: "./img/Portfolio/interior-design-screen.webp",
                     alt: "Обложка сайта из портфолио"
                 }
             },
@@ -93,6 +93,33 @@ export const data = {
                 description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
                 img: {
                     src: "./img/Portfolio/food-delivery-screen.webp",
+                    alt: "Обложка сайта из портфолио"
+                },
+                list: [
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации",
+                    "Адаптивный сайт",
+                    "Анимации"
+                ],
+                link: {
+                    text: "Открыть сайт",
+                    url: "https://zefry7.github.io/food-delivery/"
+                }
+            },
+            {
+                name: "INTERIOR DESIGN",
+                tags: ["pug", "js", "sass"],
+                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dignissimos rerum magnam voluptatibus voluptate, quasi repellendus incidunt ipsa obcaecati minus.",
+                img: {
+                    src: "./img/Portfolio/interior-design-screen.webp",
                     alt: "Обложка сайта из портфолио"
                 },
                 list: [

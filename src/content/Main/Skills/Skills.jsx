@@ -11,7 +11,7 @@ export default function Skills() {
                 <h2 className="skills__title show-block move-left" data-move="move-left">{data?.title}</h2>
                 <ul className="skills__list">
                     {data?.list?.map((v, i) => (
-                        <li className="skills__item show-block move-left" data-move="move-left">
+                        <li className={i % 2 == 0 ? "skills__item show-block move-left" : "skills__item show-block move-right"} data-move={i % 2 == 0 ? "move-left" : "move-right"}>
                             <p className="skills__item-text">
                                 <span>{v?.label}: </span> {v?.text}
                             </p>

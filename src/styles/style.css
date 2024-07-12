@@ -157,7 +157,7 @@ select {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   100% {
     transform: scale(1);
@@ -1723,7 +1723,6 @@ select {
   top: 0;
 }
 .portfolio__detail {
-  visibility: hidden;
   position: relative;
   background-color: var(--bg-black-grey-2);
   max-width: 1440px;
@@ -1794,9 +1793,6 @@ select {
   .portfolio__detail {
     padding-right: 20px;
   }
-}
-.portfolio__detail_active {
-  visibility: visible;
 }
 .portfolio__detail-img {
   margin-bottom: 20px;
