@@ -29,6 +29,7 @@ img {
 #root {
     height: auto;
     min-width: 320px;
+    background-color: var(--bg-black);
 }
 
 html {
@@ -56,17 +57,23 @@ body {
     display: none;
 }
 
+.first-block {
+    background-color: var(--bg-black);
+}
+
 .move-block-wrapper {
     height: var(--d);
 }
 
 .move-block {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 2;
 }
 .bottom-block {
+    position: -webkit-sticky;
     position: sticky;
     bottom: calc((-1) * max(calc(745px - 100vh), calc(100vh - 745px)));
     z-index: 0;
@@ -103,6 +110,8 @@ section {
 
 h2 {
     line-height: 130%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     position: relative;
     &::before {

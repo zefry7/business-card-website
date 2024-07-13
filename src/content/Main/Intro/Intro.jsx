@@ -9,7 +9,7 @@ export default function Intro() {
         setTimeout(() => {
             const root = document.querySelector(":root");
             introBlock.style.display = "none"
-            root.style.removeProperty('--d');
+            root.removeAttribute('style');
 
             window.scrollTo({
                 behavior: "auto",

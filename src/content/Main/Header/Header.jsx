@@ -9,10 +9,11 @@ function Header() {
 
         if (window.innerWidth <= 768) {
             const burgerContent = document.getElementsByClassName("header__burger-content")[0]
+            const burgerButton = document.getElementsByClassName("header__button-burger")[0]
             let timer = 0
 
             burgerContent.classList.toggle("header__burger-content_active")
-            e.currentTarget.classList.toggle("header__button-burger_active")
+            burgerButton.classList.toggle("header__button-burger_active")
 
             if (!document.body.classList.contains("scroll-lock")) {
                 timer = 300

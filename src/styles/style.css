@@ -52,6 +52,7 @@ html, body {
   font-style: 100%;
   line-height: 1;
   font-style: 14px;
+  text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -1200,7 +1201,7 @@ select {
 .portfolio__list {
   padding-top: 20px;
   display: grid;
-  grid-template: auto/repeat(2, minmax(auto, 620px));
+  grid-template: auto/repeat(2, minmax(47%, 620px));
 }
 @media (min-width: 1440px) {
   .portfolio__list {
@@ -1264,13 +1265,14 @@ select {
   content: "";
   position: absolute;
   z-index: 1;
-  bottom: 0;
+  bottom: -15px;
   left: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0) 40%);
 }
 .portfolio__item-info {
+  flex: 40%;
   display: flex;
   flex-direction: column;
 }
@@ -1370,7 +1372,7 @@ select {
   }
 }
 .portfolio__item-text {
-  margin-top: auto;
+  margin-bottom: auto;
   font-size: 20px;
   line-height: 130%;
   color: var(--text-grey);
@@ -1584,7 +1586,7 @@ select {
   height: 100%;
   width: 100%;
   -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   background-color: rgba(128, 128, 128, 0.1);
   cursor: pointer;
   transition: top 0.3s linear;
@@ -2260,7 +2262,7 @@ select {
     content: "";
     position: absolute;
     z-index: 1;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -2268,6 +2270,9 @@ select {
   }
   .portfolio__item-img {
     border-radius: 17px;
+  }
+  .portfolio__item-img::before {
+    display: none;
   }
   .portfolio__item-info {
     border-radius: 17px;
@@ -2851,6 +2856,7 @@ img {
 #root {
   height: auto;
   min-width: 320px;
+  background-color: var(--bg-black);
 }
 
 html {
@@ -2932,6 +2938,10 @@ body {
 
 .no-search {
   display: none;
+}
+
+.first-block {
+  background-color: var(--bg-black);
 }
 
 .move-block-wrapper {

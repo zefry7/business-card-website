@@ -21,7 +21,7 @@ function MainPage() {
         }
         if (window.scrollY > window.innerHeight) {
             introBlock.style.display = "none"
-            root.style.removeProperty('--d');
+            root.removeAttribute('style');
 
             window.scrollTo({
                 behavior: "auto",
@@ -44,15 +44,17 @@ function MainPage() {
     }, [])
 
     return <>
-        <div className="move-block-wrapper">
-            <Intro />
-            <div className="move-block">
-                <Header />
-                <About />
+        <div className="first-block">
+            <div className="move-block-wrapper">
+                <Intro />
+                <div className="move-block">
+                    <Header />
+                    <About />
+                </div>
             </div>
+            <Skills />
+            <Portfolio />
         </div>
-        <Skills />
-        <Portfolio />
         <div className="bottom-block">
             <Contact />
         </div>
