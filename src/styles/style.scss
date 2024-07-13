@@ -58,6 +58,8 @@ body {
 }
 
 .first-block {
+    position: relative;
+    z-index: 4;
     background-color: var(--bg-black);
 }
 

@@ -5,8 +5,7 @@ import { moveToSection } from "../../../styles/script/functionality";
 function Header() {
     const data = useContext(DataContext)?.header
 
-    const clickBurgerMenu = useCallback((e) => {
-
+    const clickBurgerMenu = useCallback(() => {
         if (window.innerWidth <= 768) {
             const burgerContent = document.getElementsByClassName("header__burger-content")[0]
             const burgerButton = document.getElementsByClassName("header__button-burger")[0]
@@ -35,6 +34,7 @@ function Header() {
 
                 burgerContent.classList.remove("header__burger-content_active")
                 buttonBurger.classList.remove("header__button-burger_active")
+                
                 if (!detailWrapper.classList.contains("portfolio__detail_active")) {
                     document.body.classList.remove("scroll-lock")
                     document.getElementById("root").classList.remove("scroll-lock")

@@ -8,7 +8,7 @@ export default function Contact() {
     const buttonSubmit = useRef()
 
 
-    const onSubmit = async (event) => {
+    const sendingEmail = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
 
@@ -33,7 +33,6 @@ export default function Contact() {
 
         }
     };
-
 
     const changeInputName = useCallback((e) => {
         const reg = new RegExp("[a-zа-я]", "ig")
@@ -61,7 +60,7 @@ export default function Contact() {
                 <h2 className="contact__title">{data?.title}</h2>
                 <p className="contact__description">{data?.description}</p>
                 <div className="contact__wrapper-form">
-                    <form className="contact__form" onSubmit={onSubmit} >
+                    <form className="contact__form" onSubmit={sendingEmail} >
                         <input type={data?.name?.type} name={data?.name?.name} className="contact__form-name" placeholder={data?.name?.placeholder} onChange={changeInputName} aria-description="Для имени" required />
                         <input type={data?.email?.type} name={data?.email?.name} className="contact__form-email" placeholder={data?.email?.placeholder} aria-description="Для почты" required />
                         <textarea name={data?.textarea?.name} className="contact__form-description" placeholder={data?.textarea?.placeholder} aria-description="Для сообщения" required></textarea>

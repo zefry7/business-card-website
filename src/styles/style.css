@@ -731,7 +731,7 @@ select {
   min-height: 100vh;
   height: 100%;
   position: relative;
-  z-index: 1;
+  z-index: 4;
 }
 .skills__wrapper {
   max-width: 1440px;
@@ -1883,22 +1883,22 @@ select {
 }
 @media (min-width: 1440px) {
   .portfolio__detail-description {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 @media screen and (max-width: 1439px) and (min-width: 1280px) {
   .portfolio__detail-description {
-    font-size: calc(22px + 0 * (100vw - 1280px) / (1440 - 1280));
+    font-size: calc(20px + 0 * (100vw - 1280px) / (1440 - 1280));
   }
 }
 @media screen and (max-width: 1279px) and (min-width: 1024px) {
   .portfolio__detail-description {
-    font-size: calc(22px + 0 * (100vw - 1024px) / (1280 - 1024));
+    font-size: calc(20px + 0 * (100vw - 1024px) / (1280 - 1024));
   }
 }
 @media screen and (max-width: 1023px) and (min-width: 768px) {
   .portfolio__detail-description {
-    font-size: calc(20px + 2 * (100vw - 768px) / (1024 - 768));
+    font-size: calc(20px + 0 * (100vw - 768px) / (1024 - 768));
   }
 }
 @media screen and (max-width: 767px) and (min-width: 320px) {
@@ -2250,7 +2250,7 @@ select {
   transform: rotateZ(-45deg) translateY(50%);
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1024px) {
   .portfolio__list {
     grid-template: auto/auto;
   }
@@ -2945,6 +2945,8 @@ body {
 }
 
 .first-block {
+  position: relative;
+  z-index: 4;
   background-color: var(--bg-black);
 }
 

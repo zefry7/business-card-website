@@ -1,19 +1,21 @@
 import React, { useCallback, useEffect } from "react"
+import showBlock from "../../../styles/script/showBlock"
 
 export default function Intro() {
 
     const moveBottom = useCallback(() => {
         const introBlock = document.getElementsByClassName("intro")[0]
-        const topVar = introBlock.clientHeight - window.scrollY
+        const root = document.querySelector(":root");
+        const topVar = introBlock.clientHeight
 
         setTimeout(() => {
-            const root = document.querySelector(":root");
+            showBlock()
             introBlock.style.display = "none"
             root.removeAttribute('style');
 
             window.scrollTo({
                 behavior: "auto",
-                top: -100
+                top: 0
             })
         }, 550)
 
@@ -21,14 +23,39 @@ export default function Intro() {
             behavior: "smooth",
             top: topVar
         })
-
     }, [])
+    
+    const scrollScan = useCallback(() => {
+        const introBlock = document.getElementsByClassName("intro")[0]
+        const root = document.querySelector(":root");
 
-    useEffect(() => {
+        if (introBlock.style.display == "none") {
+            showBlock()
+            window.removeEventListener("scroll", scrollScan)
+            window.removeEventListener("resize", resizeScan)
+        }
+
+        if (window.scrollY >= window.innerHeight) {
+            introBlock.style.display = "none"
+            root.removeAttribute('style');
+
+            window.scrollTo({
+                behavior: "auto",
+                top: window.scrollY - window.innerHeight
+            })
+        }
+    })
+
+    const resizeScan = useCallback(() => {
         const root = document.querySelector(":root");
         const a = document.getElementsByClassName("about")[0].clientHeight
+        root.style.setProperty('--d', `calc(100lvh + 150px + ${a}px)`);
+    })
 
-        root.style.setProperty('--d', `calc(100lvh + 120px + ${a}px)`);
+    useEffect(() => {
+        resizeScan()
+        window.addEventListener("scroll", scrollScan)
+        window.addEventListener("resize", resizeScan)
     }, [])
 
     return <section className="intro" aria-hidden="true">

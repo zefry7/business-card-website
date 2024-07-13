@@ -228,7 +228,7 @@
         &-description {
             margin-top: auto;
             margin-bottom: 20px;
-            @include adap(font-size, 22, 22, 22, 20, 18);
+            @include adap(font-size, 20, 20, 20, 20, 18);
             line-height: 130%;
             color: var(--text-grey);
         }
@@ -320,7 +320,7 @@
     }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1024px) {
     .portfolio {
         &__list {
             grid-template: auto / auto;

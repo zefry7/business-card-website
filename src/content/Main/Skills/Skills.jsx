@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { DataContext } from "../../..";
 
 export default function Skills() {
     const data = useContext(DataContext)?.skills
-
 
     return <section className="skills" id="skills">
         <div className="skills__wrapper">

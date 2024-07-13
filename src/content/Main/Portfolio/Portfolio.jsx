@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DataContext } from "../../..";
 import SwiperConstructor from "../../../components/SwiperConstructor/SwiperConstructor";
@@ -11,7 +11,7 @@ function Portfolio() {
     const listTag = useSelector(state => state?.portfolioReducer?.listTag)
     const [idBlock, setIdBlock] = useState(-1)
 
-    const itemPortfolioStr = (id) => {
+    const itemPortfolioStr = useCallback((id) => {
         return <div className="portfolio__detail">
             <div className="portfolio__detail-img">
                 <img src={data?.details[id]?.img?.src} alt={data?.details[id]?.img?.alt} loading="lazy"/>
@@ -43,9 +43,9 @@ function Portfolio() {
                 <span></span>
             </div>
         </div>
-    }
+    })
 
-    const openBlockDetail = (e, id) => {
+    const openBlockDetail = useCallback((_, id) => {
         setIdBlock(id)
 
         const wrapperDetail = document.getElementsByClassName("portfolio__wrapper-detail")[0]
@@ -54,9 +54,9 @@ function Portfolio() {
         burgerMenu.classList.add("header__button-burger_hidden")
         document.body.classList.add("scroll-lock");
         wrapperDetail.classList.add("portfolio__wrapper-detail_active");
-    }
+    })
 
-    const removeClassBlockDetail = (e) => {
+    const removeClassBlockDetail = useCallback((e) => {
         const wrapper = document.getElementsByClassName("portfolio__wrapper-detail")[0]
         const burgerMenu = document.getElementsByClassName("header__button-burger")[0];
 
@@ -69,9 +69,9 @@ function Portfolio() {
                 setIdBlock(-1)
             }, 300)
         }
-    }
+    })
 
-    const addTagInFilter = (e) => {
+    const addTagInFilter = useCallback((e) => {
         const str = e.currentTarget.getElementsByTagName("span")[0].textContent;
         if (!listTag.includes(str)) {
             e.currentTarget.classList.add("portfolio__filter-tag_active")
@@ -80,7 +80,7 @@ function Portfolio() {
             e.currentTarget.classList.remove("portfolio__filter-tag_active")
             dispatch({ type: "removeTag", value: str })
         }
-    }
+    })
 
     useEffect(() => {
         const listItemWorks = document.getElementsByClassName("portfolio__item")
