@@ -81,7 +81,8 @@
 
             position: relative;
             &::before {
-                content: "*Неправильно указана почта ";
+                content: "*Неправильно указана почта";
+                visibility: hidden;
                 position: absolute;
                 top: 120%;
                 left: 0;
@@ -97,6 +98,7 @@
 
             &::after {
                 content: "Сообщение отправлено";
+                visibility: hidden;
                 position: absolute;
                 top: 120%;
                 left: 0;
@@ -113,12 +115,14 @@
 
         &-accept {
             &::after {
+                visibility: visible;
                 opacity: 1;
             }
         }
 
         &-error {
             &::before {
+                visibility: visible;
                 opacity: 1;
             }
         }

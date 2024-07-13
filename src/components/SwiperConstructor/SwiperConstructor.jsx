@@ -11,6 +11,9 @@ export default function SwiperConstructor(props) {
       {...settingSwiper[setting]}
       modules={[Navigation]}
       slidesPerView={"auto"}
+      tabIndex="0" 
+      aria-label="Слайдер"
+      role='button'
     >
       {props?.children}
     </Swiper>

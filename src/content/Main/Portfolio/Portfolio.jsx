@@ -153,9 +153,9 @@ function Portfolio() {
                         <SwiperConstructor setting="settingTags">
                             {data?.tags?.map((v, i) => (
                                 <SwiperSlide key={i}>
-                                    <div className="portfolio__filter-tag move-scale show-block" data-move="move-scale" onClick={(e) => addTagInFilter(e)}>
+                                    <button className="portfolio__filter-tag move-scale show-block" data-move="move-scale" onClick={(e) => addTagInFilter(e)}>
                                         <span>{v}</span>
-                                    </div>
+                                    </button>
                                 </SwiperSlide>
                             ))}
                         </SwiperConstructor>
@@ -164,7 +164,7 @@ function Portfolio() {
                 <hr className="move-scale show-block" data-move="move-scale" />
                 <div className="portfolio__list">
                     {data?.items?.map((v) => (
-                        <article className="portfolio__item move-scale show-block" data-move="move-scale" key={v?.id} onClick={(e) => { openBlockDetail(e, v?.id) }}>
+                        <article className="portfolio__item move-scale show-block" data-move="move-scale" key={v?.id} onClick={(e) => { openBlockDetail(e, v?.id) }} tabIndex={0} aria-label="Пример из портфолио" role="button">
                             <div className="portfolio__item-content">
                                 <div className="portfolio__item-img">
                                     <img src={v?.img?.src} alt={v?.img?.alt} loading="lazy"/>

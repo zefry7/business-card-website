@@ -62,9 +62,9 @@ export default function Contact() {
                 <p className="contact__description">{data?.description}</p>
                 <div className="contact__wrapper-form">
                     <form className="contact__form" onSubmit={onSubmit} >
-                        <input type={data?.name?.type} name={data?.name?.name} className="contact__form-name" placeholder={data?.name?.placeholder} onChange={changeInputName} required />
-                        <input type={data?.email?.type} name={data?.email?.name} className="contact__form-email" placeholder={data?.email?.placeholder} required />
-                        <textarea name={data?.textarea?.name} className="contact__form-description" placeholder={data?.textarea?.placeholder} required></textarea>
+                        <input type={data?.name?.type} name={data?.name?.name} className="contact__form-name" placeholder={data?.name?.placeholder} onChange={changeInputName} aria-description="Для имени" required />
+                        <input type={data?.email?.type} name={data?.email?.name} className="contact__form-email" placeholder={data?.email?.placeholder} aria-description="Для почты" required />
+                        <textarea name={data?.textarea?.name} className="contact__form-description" placeholder={data?.textarea?.placeholder} aria-description="Для сообщения" required></textarea>
                         <button type="submit" className="contact__form-submit" ref={buttonSubmit}>{data?.button?.text}</button>
                     </form>
                 </div>

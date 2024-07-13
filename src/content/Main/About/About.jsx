@@ -4,7 +4,7 @@ import { DataContext } from "../../..";
 export default function About() {
     const data = useContext(DataContext)?.about
 
-    return <section className="about" id="about">
+    return <section className="about" id="about" aria-label="Раздел 'О себе'">
         <div className="about__wrapper">
             <div className="about__content">
                 <h2 className="about__title show-block move-left" data-move="move-left">{data?.title}</h2>

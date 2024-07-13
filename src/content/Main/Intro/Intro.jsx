@@ -27,14 +27,15 @@ export default function Intro() {
     useEffect(() => {
         const root = document.querySelector(":root");
         const a = document.getElementsByClassName("about")[0].clientHeight
+
         root.style.setProperty('--d', `calc(100lvh + 120px + ${a}px)`);
     }, [])
 
-    return <section className="intro">
+    return <section className="intro" aria-hidden="true">
         <div className="intro__wrapper">
             <div className="intro__content">
                 <h1 className="intro__title">Frontend</h1>
-                <div className="intro__arrow" onClick={moveBottom}></div>
+                <button className="intro__arrow" onClick={moveBottom}></button>
             </div>
         </div>
     </section>
