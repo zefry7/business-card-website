@@ -11,40 +11,6 @@ function Portfolio() {
     const listTag = useSelector(state => state?.portfolioReducer?.listTag)
     const [idBlock, setIdBlock] = useState(-1)
 
-    const itemPortfolioStr = useCallback((id) => {
-        return <div className="portfolio__detail">
-            <div className="portfolio__detail-img">
-                <img src={data?.details[id]?.img?.src} alt={data?.details[id]?.img?.alt} loading="lazy"/>
-            </div>
-            <div className="portfolio__detail-info">
-                <div className="portfolio__detail-text">
-                    <h3 className="portfolio__detail-title">{data?.details[id]?.name}</h3>
-                    <ul className="portfolio__detail-row-tag">
-                        {data?.details[id]?.tags?.map((tag, i) => (
-                            <li className="portfolio__detail-tag" key={i}>
-                                {tag}
-                            </li>
-                        ))}
-                    </ul>
-                    <p className="portfolio__detail-description">{data?.details[id]?.description}</p>
-                    <a className="portfolio__detail-link" href={data?.details[id]?.link?.url} target="_blank">{data?.details[id]?.link?.text}</a>
-                </div>
-                <div className="portfolio__detail-done">
-                    <h3 className="portfolio__detail-label">{data?.detailLabel}</h3>
-                    <ul className="portfolio__detail-list">
-                        {data?.details[id]?.list?.map((item, key) => (
-                            <li className="portfolio__detail-item" key={key}>{item}</li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-            <div className="portfolio__detail-close" onClick={(e) => removeClassBlockDetail(e)}>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    })
-
     const openBlockDetail = useCallback((_, id) => {
         setIdBlock(id)
 
@@ -59,12 +25,14 @@ function Portfolio() {
     const removeClassBlockDetail = useCallback((e) => {
         const wrapper = document.getElementsByClassName("portfolio__wrapper-detail")[0]
         const burgerMenu = document.getElementsByClassName("header__button-burger")[0];
+        const detail = document.getElementsByClassName("portfolio__detail")[0];
 
         if (e.target.classList.contains("portfolio__wrapper-detail") || e.currentTarget.classList.contains("portfolio__detail-close")) {
             burgerMenu.classList.remove("header__button-burger_hidden")
-
-            wrapper.classList.remove("portfolio__wrapper-detail_active")
+            detail.classList.add("portfolio__detail_hidden")
             setTimeout(() => {
+                wrapper.classList.remove("portfolio__wrapper-detail_active")
+                detail.classList.remove("portfolio__detail_hidden") 
                 document.body.classList.remove("scroll-lock");
                 setIdBlock(-1)
             }, 300)
@@ -167,7 +135,7 @@ function Portfolio() {
                         <article className="portfolio__item move-scale show-block" data-move="move-scale" key={v?.id} onClick={(e) => { openBlockDetail(e, v?.id) }} tabIndex={0} aria-label="Пример из портфолио" role="button">
                             <div className="portfolio__item-content">
                                 <div className="portfolio__item-img">
-                                    <img src={v?.img?.src} alt={v?.img?.alt} loading="lazy"/>
+                                    <img src={v?.img?.src} alt={v?.img?.alt} loading="lazy" />
                                 </div>
                                 <div className="portfolio__item-info">
                                     <h3 className="portfolio__item-title">{v?.name}</h3>
@@ -187,10 +155,42 @@ function Portfolio() {
                     ))}
                 </div>
 
-                <div className="portfolio__wrapper-detail" onClick={(e) => removeClassBlockDetail(e)}>
-                    {idBlock != -1 &&
-                        itemPortfolioStr(idBlock)
-                    }
+                <div className="portfolio__wrapper-detail" onClick={(e) => removeClassBlockDetail(e)}> 
+                    <div className="portfolio__detail">
+                        {idBlock != -1 &&
+                            <>
+                                <div className="portfolio__detail-img">
+                                    <img src={data?.details[idBlock]?.img?.src} alt={data?.details[idBlock]?.img?.alt} loading="lazy" />
+                                </div>
+                                <div className="portfolio__detail-info">
+                                    <div className="portfolio__detail-text">
+                                        <h3 className="portfolio__detail-title">{data?.details[idBlock]?.name}</h3>
+                                        <ul className="portfolio__detail-row-tag">
+                                            {data?.details[idBlock]?.tags?.map((tag, i) => (
+                                                <li className="portfolio__detail-tag" key={i}>
+                                                    {tag}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <p className="portfolio__detail-description">{data?.details[idBlock]?.description}</p>
+                                        <a className="portfolio__detail-link" href={data?.details[idBlock]?.link?.url} target="_blank">{data?.details[idBlock]?.link?.text}</a>
+                                    </div>
+                                    <div className="portfolio__detail-done">
+                                        <h3 className="portfolio__detail-label">{data?.detailLabel}</h3>
+                                        <ul className="portfolio__detail-list">
+                                            {data?.details[idBlock]?.list?.map((item, key) => (
+                                                <li className="portfolio__detail-item" key={key}>{item}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="portfolio__detail-close" onClick={(e) => removeClassBlockDetail(e)}>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

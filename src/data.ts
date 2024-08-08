@@ -36,7 +36,7 @@ export const data = {
                 text: "Знание семантики, работа с формами и таблицами, доступность сайта, SEO-оптимизация."
             },
             {
-                label: "CSS/SASS",
+                label: "CSS/SASS/Tailwind",
                 text: "Flexbox и Grid, создание анимации, псевдоклассы и псевдоэлементы, адаптивность и кроссбраузерность."
             }, 
             {
@@ -44,11 +44,11 @@ export const data = {
                 text: "HTML DOM, Async/await, Promise, хранение данных, браузерное окружение, fetch, axios."
             }, 
             {
-                label: "REACT",
+                label: "React",
                 text: "React хуки, Virtual DOM, создание собственных компонентов и хуков, React Router."
             }, 
             {
-                label: "REDUX",
+                label: "Redux",
                 text: "Работа с хранилищем и передачей данных, Redux Toolkit, Redux thunk, Redux saga, Redux DevTools."
             }, 
             {
@@ -57,7 +57,7 @@ export const data = {
             },
             {
                 label: "Другое",
-                text: "Tailwind, Git, SQL, REST API, jQuery, Pug, методология BEM."
+                text: "Webpack, Git, SQL, REST API, jQuery, Pug, методология BEM."
             }
         ]
     },
@@ -76,21 +76,21 @@ export const data = {
             },
             {
                 id: "1",
-                name: "INTERIOR DESIGN",
-                tags: ["pug", "js", "sass"],
-                description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
-                img: {
-                    src: "./img/Portfolio/interior-design-screen.webp",
-                    alt: "Обложка сайта из портфолио"
-                }
-            },
-            {
-                id: "2",
                 name: "Столярная мастерская",
                 tags: ["react", "sass"],
                 description: "Столярная мастерская, предоставляющая услуги по производству и реставрации мебели.",
                 img: {
                     src: "./img/Portfolio/furniture-restoration-screen.webp",
+                    alt: "Обложка сайта из портфолио"
+                }
+            },
+            {
+                id: "2",
+                name: "INTERIOR DESIGN",
+                tags: ["pug", "js", "sass"],
+                description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
+                img: {
+                    src: "./img/Portfolio/interior-design-screen.webp",
                     alt: "Обложка сайта из портфолио"
                 }
             },
@@ -122,27 +122,6 @@ export const data = {
                 }
             },
             {
-                name: "INTERIOR DESIGN",
-                tags: ["pug", "js", "sass"],
-                description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
-                img: {
-                    src: "./img/Portfolio/interior-design-screen.webp",
-                    alt: "Обложка сайта из портфолио"
-                },
-                list: [
-                    "Одностраничный сайт",
-                    "Адаптивный сайт под разные устройства",
-                    "Использование методологии BEM",
-                    "Оптимизация изображений и загрузки сайта",
-                    "Работа с элементами таблицы",
-                    "Анимации отображения различных элементов",
-                ],
-                link: {
-                    text: "Открыть сайт",
-                    url: "https://zefry7.github.io/interior-design/"
-                }
-            },
-            {
                 name: "Столярная мастерская",
                 tags: ["react", "sass"],
                 description: "Столярная мастерская, предоставляющая услуги по производству и реставрации мебели.",
@@ -163,7 +142,29 @@ export const data = {
                     text: "Открыть сайт",
                     url: "https://zefry7.github.io/interior-design/"
                 }
-            }
+            },
+            {
+                
+                name: "INTERIOR DESIGN",
+                tags: ["pug", "js", "sass"],
+                description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
+                img: {
+                    src: "./img/Portfolio/interior-design-screen.webp",
+                    alt: "Обложка сайта из портфолио"
+                },
+                list: [
+                    "Одностраничный сайт",
+                    "Адаптивный сайт под разные устройства",
+                    "Использование методологии BEM",
+                    "Оптимизация изображений и загрузки сайта",
+                    "Работа с элементами таблицы",
+                    "Анимации отображения различных элементов",
+                ],
+                link: {
+                    text: "Открыть сайт",
+                    url: "https://zefry7.github.io/interior-design/"
+                }
+            },
         ]
     },
     contact: {

@@ -1,6 +1,6 @@
 .portfolio {
     position: relative;
-    z-index: 1;
+    z-index: 5;
     &__wrapper {
         max-width: 1440px;
         margin: 0 auto;
@@ -158,36 +158,64 @@
     &__wrapper-detail {
         position: fixed;
         z-index: 1000;
-        overflow-y: auto;
-        top: 100%;
+        top: 0;
         left: 0;
-        height: 100%;
-        width: 100%;
-        @include adap(padding-right, 120, 120, 100, 40, 0);
-        @include adap(padding-left, 120, 120, 100, 40, 0);
-        @include adap(padding-top, 50, 50, 50, 20, 0);
-        @include adap(padding-bottom, 50, 50, 50, 20, 0);
-        backdrop-filter: blur(5px);
-        background-color: rgba(128, 128, 128, 0.1);
         cursor: pointer;
         transition: top 0.3s linear;
 
-        &_active {
+        &::before {
+            content: "";
+            display: inline-block;
+            position: fixed;
             top: 0;
+            left: 0;
+            opacity: 0;
+            backdrop-filter: blur(5px);
+            background-color: rgba(128, 128, 128, 0.1);
+            transition: opacity 0.3s linear;
         }
+
+        &_active {
+            overflow-y: auto;
+            height: 100%;
+            width: 100%;
+            @include adap(padding-right, 120, 120, 100, 40, 0);
+            @include adap(padding-left, 120, 120, 100, 40, 0);
+            @include adap(padding-top, 50, 50, 50, 20, 0);
+            @include adap(padding-bottom, 50, 50, 50, 20, 0);
+
+            &::before {
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+            }
+
+            .portfolio__detail {
+                top: 0;
+                padding: 70px 120px;
+                @include adap(padding-left, 120, 100, 80, 60, 20);
+                @include adap(padding-right, 120, 100, 80, 60, 20);
+                &_hidden {
+                    top: 200lvh;
+                }
+            }
+
+        }
+
     }
     &__detail {
         position: relative;
+        top: 200lvh;
         background-color: var(--bg-black-grey-1);
-        max-width: 1440px;
-        min-height: 100lvh;
-        height: max-content;
-        width: 100%;
         margin: 0 auto;
-        padding: 70px 120px;
-        @include adap(padding-left, 120, 100, 80, 60, 20);
-        @include adap(padding-right, 120, 100, 80, 60, 20);
         border-radius: 28px;
+        transition: top 0.3s linear;
+        max-width: 1440px;
+        width: 100%;
+
+        &_hidden {
+            top: 200lvh !important;
+        }
 
         &-img {
             margin-bottom: 20px;
@@ -319,6 +347,16 @@
         }
     }
 }
+
+@keyframes move-top {
+    0%  { 
+        top: 200%;
+    }
+    100% { 
+        top: 0;
+    }
+}
+
 
 @media (max-width: 1024px) {
     .portfolio {
