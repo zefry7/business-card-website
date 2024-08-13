@@ -13,11 +13,10 @@ function Portfolio() {
 
     const openBlockDetail = useCallback((_, id) => {
         setIdBlock(id)
-
         const wrapperDetail = document.getElementsByClassName("portfolio__wrapper-detail")[0]
         const burgerMenu = document.getElementsByClassName("header__button-burger")[0];
 
-        burgerMenu.classList.add("header__button-burger_hidden")
+        // burgerMenu.classList.add("header__button-burger_hidden")
         document.body.classList.add("scroll-lock");
         wrapperDetail.classList.add("portfolio__wrapper-detail_active");
     })
@@ -28,7 +27,7 @@ function Portfolio() {
         const detail = document.getElementsByClassName("portfolio__detail")[0];
 
         if (e.target.classList.contains("portfolio__wrapper-detail") || e.currentTarget.classList.contains("portfolio__detail-close")) {
-            burgerMenu.classList.remove("header__button-burger_hidden")
+            // burgerMenu.classList.remove("header__button-burger_hidden")
             detail.classList.add("portfolio__detail_hidden")
             setTimeout(() => {
                 wrapper.classList.remove("portfolio__wrapper-detail_active")

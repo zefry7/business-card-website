@@ -204,7 +204,7 @@
         transition: top 0.3s linear;
         max-width: 1440px;
         width: 100%;
-
+        border: 2px solid var(--text-grey);
 
         &::before {
             content: "";

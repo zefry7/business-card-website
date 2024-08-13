@@ -14,8 +14,8 @@ function MainPage() {
         <div className="first-block">
             <div className="move-block-wrapper">
                 <Intro />
+                {/* <Header /> */}
                 <div className="move-block">
-                    <Header />
                     <About />
                 </div>
             </div>

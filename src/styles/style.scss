@@ -110,31 +110,3 @@ section {
     transform: scale(0.001);
 }
 
-h2 {
-    line-height: 130%;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    position: relative;
-    &::before {
-        content: "";
-        width: 25px;
-        height: 25px;
-        border-left: 3px solid var(--text-white);
-        border-bottom: 3px solid var(--text-white);
-        position: absolute;
-        bottom: -5px;
-        left: -15px;
-    }
-    &::after {
-        content: "";
-        width: 25px;
-        height: 25px;
-        border-right: 3px solid var(--text-white);
-        border-top: 3px solid var(--text-white);
-        position: absolute;
-        top: -5px;
-        right: -15px;
-    }
-}
-
