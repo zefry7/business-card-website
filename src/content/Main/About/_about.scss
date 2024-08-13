@@ -39,6 +39,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all linear 0.5s;
+    cursor: pointer;
+
+    // &:hover {
+    //   border: 2px solid var(--text-orange);
+    // }
+
     img {
       max-width: 80%;
       height: 80%;
@@ -56,7 +63,7 @@
     line-height: 150%;
     span {
       display: inline-block;
-      padding: 0 4px;
+      padding: 0 5px;
       @include adap(font-size, 20, 20, 20, 20, 16);
       color: var(--bg-black);
       font-weight: 500;

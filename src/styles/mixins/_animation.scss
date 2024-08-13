@@ -12,6 +12,7 @@
 @keyframes move-border {
     0% {
         border-top-left-radius: 55%;
+        border-color: var(--text-grey);
     }
     10% {
         border-bottom-left-radius: 25%;
@@ -24,6 +25,7 @@
     }
     50% {
         border-top-left-radius: 20%;
+        border-color: var(--text-orange);
     }
     60% {
         border-bottom-left-radius: 60%;
@@ -36,6 +38,7 @@
     }
     100% {
         border-top-left-radius: 55%;
+        border-color: var(--text-grey);
     }
 }
 

@@ -12,7 +12,7 @@ export default function Skills() {
                     {data?.list?.map((v, i) => (
                         <li className={i % 2 == 0 ? "skills__item show-block move-left" : "skills__item show-block move-right"} key={i} data-move={i % 2 == 0 ? "move-left" : "move-right"}>
                             <p className="skills__item-text">
-                                <span>{v?.label}: </span> {v?.text}
+                                {v}
                             </p>
                         </li>
                     ))}
