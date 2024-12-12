@@ -2,30 +2,37 @@ import React, { useContext } from "react";
 import { DataContext } from "../../..";
 
 export default function About() {
-    const data = useContext(DataContext)?.about
+    const data = useContext(DataContext)?.about;
 
-    return <section className="about" id="about" aria-label="Раздел 'О себе'">
-        <div className="about__wrapper">
+    return (
+        <section className="about">
             <div className="about__content">
-                <div className="about__info">
-                    <div className="about__img show-block move-left" data-move="move-left">
-                        <img src={data?.img?.src} alt={data?.img?.alt} />
+                <div className="about__column">
+                    <div className="about__auth">
+                        <div className="about__auth-img">
+                            <img src="./img/About/quest.svg" alt="Фотография" />
+                        </div>
                     </div>
-                    <div className="about__text-wrapper show-block move-right" data-move="move-right">
-                        <p className="about__text-hi">{data?.text[0]}</p>
-                        <p className="about__text">
-                            {data?.text[1]}
-                            <span>{data?.text[2]}</span>
-                            {data?.text[3]}
-                            <span>{data?.text[4]}</span>
-                            <br />
-                            {data?.text[5]}
-                            <span>{data?.text[6]}</span>
-                            {data?.text[7]}
+                    <h2 className="about__title">О себе</h2>
+                </div>
+                <div className="about__column">
+                    <div className="about__descr">
+                        <h3 className="about__descr-title">Кто? Что? Почему?</h3>
+                        <p className="about__descr-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolor fugit porro exercitationem expedita vero
+                            labore aliquid odit dicta ab.
+                        </p>
+                        <p className="about__descr-text">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam eligendi natus voluptatibus eveniet, illum
+                            nam.
+                        </p>
+                        <p className="about__descr-text">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum cum neque modi, doloribus porro labore quidem
+                            eaque maiores ex placeat.
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    );
 }

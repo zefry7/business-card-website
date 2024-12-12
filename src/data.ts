@@ -37,25 +37,6 @@ export const data = {
       alt: "Моё фото",
     },
   },
-  skills: {
-    title: "Навыки",
-    list: [
-      "HTML",
-      "CSS",
-      "SASS",
-      "Tailwind",
-      "React",
-      "JavaScript",
-      "Redux",
-      "TypeScript",
-      "Webpack",
-      "Git",
-      "REST API",
-      "jQuery",
-      "Pug",
-      "Prettier"
-    ],
-  },
   portfolio: {
     tags: ["react", "redux", "js", "ts", "sass", "tailwind", "pug"],
     items: [

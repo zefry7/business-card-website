@@ -1,23 +1,90 @@
 import React, { useContext } from "react";
 import { DataContext } from "../../..";
 
-export default function Skills() {
-    const data = useContext(DataContext)?.skills
+const list = ["HTML", "CSS", "Tailwind", "React", "Redux", "JavaScript", "SASS", "TypeScript", "Webpack", "Git", "REST API", "Prettier"];
 
-    return <section className="skills" id="skills">
-        <div className="skills__wrapper">
+export default function Skills() {
+    return (
+        <section className="skills" id="skills">
             <div className="skills__content">
-                <h2 className="skills__title show-block move-left" data-move="move-left">{data?.title}</h2>
-                <ul className="skills__list">
-                    {data?.list?.map((v, i) => (
-                        <li className={i % 2 == 0 ? "skills__item show-block move-left" : "skills__item show-block move-right"} key={i} data-move={i % 2 == 0 ? "move-left" : "move-right"}>
-                            <p className="skills__item-text">
-                                {v}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
+                <h2 className="skills__title">{"Навыки"}</h2>
+                <div className="skills__block skills__block_left">
+                    <div className="skills__column">
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[0]}</span>
+                            </div>
+                        </div>
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[1]}</span>
+                            </div>
+                        </div>
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[2]}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="skills__column">
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[3]}</span>
+                            </div>
+                        </div>
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[4]}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="skills__column">
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[5]}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="skills__block skills__block_right">
+                    <div className="skills__column">
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[0]}</span>
+                            </div>
+                        </div>
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[0]}</span>
+                            </div>
+                        </div>
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[0]}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="skills__column">
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[0]}</span>
+                            </div>
+                        </div>
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[0]}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="skills__column">
+                        <div className="skills__wrapper-item">
+                            <div className={"skills__item"}>
+                                <span className="skills__item-text">{list[0]}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    );
 }

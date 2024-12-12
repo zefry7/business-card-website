@@ -111,16 +111,16 @@ function Portfolio() {
     return <section className="portfolio" id="portfolio">
         <div className="portfolio__wrapper">
             <div className="portfolio__content">
-                <h2 className="portfolio__title move-left show-block" data-move="move-left">
+                <h2 className="portfolio__title">
                     Портфолио
                 </h2>
                 <div className="portfolio__filter">
-                    <h3 className="portfolio__filter-title move-left show-block" data-move="move-left">Фильтр:</h3>
+                    <h3 className="portfolio__filter-title">Фильтр:</h3>
                     <div className="portfolio__filter-list">
                         <SwiperConstructor setting="settingTags">
                             {data?.tags?.map((v, i) => (
                                 <SwiperSlide key={i}>
-                                    <button className="portfolio__filter-tag move-scale show-block" data-move="move-scale" onClick={(e) => addTagInFilter(e)}>
+                                    <button className="portfolio__filter-tag" onClick={(e) => addTagInFilter(e)}>
                                         <span>{v}</span>
                                     </button>
                                 </SwiperSlide>
@@ -128,10 +128,10 @@ function Portfolio() {
                         </SwiperConstructor>
                     </div>
                 </div>
-                <hr className="move-scale show-block" data-move="move-scale" />
+                <hr />
                 <div className="portfolio__list">
                     {data?.items?.map((v) => (
-                        <article className="portfolio__item move-scale show-block" data-move="move-scale" key={v?.id} onClick={(e) => { openBlockDetail(e, v?.id) }} tabIndex={0} aria-label="Пример из портфолио" role="button">
+                        <article className="portfolio__item" key={v?.id} onClick={(e) => { openBlockDetail(e, v?.id) }} tabIndex={0} aria-label="Пример из портфолио" role="button">
                             <div className="portfolio__item-content">
                                 <div className="portfolio__item-img">
                                     <img src={v?.img?.src} alt={v?.img?.alt} loading="lazy" />
