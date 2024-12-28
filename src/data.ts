@@ -170,30 +170,4 @@ export const data = {
       text: "Отправить",
     },
   },
-  footer: {
-    links: [
-      {
-        img: {
-          src: "./img/Footer/github.svg",
-          alt: "Ссылка на мой GitHub",
-        },
-        url: "https://github.com/zefry7",
-      },
-      {
-        img: {
-          src: "./img/Footer/leetcode.svg",
-          alt: "Ссылка на мой LeetCode",
-        },
-        url: "https://leetcode.com/u/zefry7/",
-      },
-      {
-        img: {
-          src: "./img/Footer/tg.svg",
-          alt: "Ссылка на мой Telegram",
-        },
-        url: "https://t.me/petrov_71",
-      },
-    ],
-    year: "©2023-2024",
-  },
 };

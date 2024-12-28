@@ -1,7 +1,12 @@
 .skills {
     height: 100%;
     z-index: 0;
-    background-color: var(--text-orange);
+    background-color: var(--orange);
+    min-width: 100vw;
+    position: relative;
+    z-index: 20;
+    right: calc((var(--page) - 1) * 100vw);
+    transition: right 0.3s linear;
 
     &__content {
         margin: 0 auto;
@@ -10,19 +15,20 @@
         padding: 50px;
         display: flex;
         justify-content: space-between;
-        overflow: hidden;
         position: relative;
     }
     &__title {
+        font-family: "pixy";
         margin-bottom: 0;
         line-height: 100%;
         text-align: center;
-        font-size: 130px;
+        font-size: 150px;
+        letter-spacing: 10px;
         position: absolute;
         bottom: 35px;
         left: 50px;
         text-transform: uppercase;
-        color: var(--bg-black);
+        color: var(--black);
     }
     &__block {
         display: flex;
@@ -48,7 +54,7 @@
 
     &__wrapper-item {
         padding: 15px;
-        background-color: var(--bg-black);
+        background-color: var(--black);
         border-radius: 15px;
     }
 
@@ -59,7 +65,7 @@
         width: 150px;
         height: 150px;
         border-radius: 15px;
-        border: 2px solid var(--text-grey);
+        border: 2px solid var(--grey);
         transition: all 0.3s linear;
         position: relative;
         overflow: hidden;
@@ -76,15 +82,15 @@
             left: -2px;
             z-index: 0;
             transition: all 0.3s linear;
-            background-color: var(--text-orange);
+            background-color: var(--orange);
             background-clip: border-box;
         }
 
         &:hover {
-            border-color: var(--text-orange);
+            border-color: var(--orange);
 
             & span {
-                color: var(--bg-black);
+                color: var(--black);
                 font-weight: 700;
             }
 
@@ -101,7 +107,7 @@
         &-text {
             width: 100%;
             @include adap(font-size, 24, 24, 24, 22, 18);
-            color: var(--text-grey);
+            color: var(--grey);
             font-weight: 500;
             padding: 10px;
             line-height: 130%;

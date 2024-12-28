@@ -1,17 +1,23 @@
-import React from "react";
-import Portfolio from "./Portfolio/Portfolio";
-import Footer from "./Footer/Footer";
+import React, { useState } from "react";
 import About from "./About/About";
 import Skills from "./Skills/Skills";
-import Contact from "./Contact/Contact";
-
+import WrapperSwiper from "../../components/wrapper-swiper";
+import { useDispatch, useSelector } from "react-redux";
 
 function MainPage() {
+    const page = useSelector(state => state.globalReducer.page)
+    const dispath = useDispatch()
 
-    return <>
-        <About />
-        <Skills />
-    </>
+    const handleNextPage = (typeName) => {
+        dispath({ type: typeName })
+    };
+
+    return (
+        <WrapperSwiper handleNextPage={handleNextPage}>
+            <About page={page}/>
+            <Skills page={page}/>
+        </WrapperSwiper>
+    );
 }
 
 export default MainPage;
