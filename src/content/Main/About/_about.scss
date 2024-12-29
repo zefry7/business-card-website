@@ -1,7 +1,7 @@
 .about {
   height: 100%;
   position: relative;
-  background: #14213d;
+  background: var(--blue);
   min-width: 100vw;
   right: calc((var(--page) - 1) * 100vw);
   transition: right 0.3s linear;
@@ -22,8 +22,10 @@
 
   &__name {
     position: absolute;
+    height: 90px;
     font-size: 64px;
     font-weight: 700;
+    line-height: 90px;
     text-shadow: 0px 3px 10px black;
     color: var(--orange);
 
@@ -42,20 +44,35 @@
 
   &__title {
     font-family: "pixy";
-    font-size: 150px;
+    font-size: 170px;
     margin-bottom: 0;
-    line-height: 100%;
+    line-height: 50%;
     letter-spacing: 10px;
     text-transform: uppercase;
-    text-shadow: 0px 3px 10px black;
+    text-shadow: 3px 3px 5px var(--black);
     color: var(--orange);
   }
 
   &__auth {
     width: max-content;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     position: relative;
     cursor: pointer;
+
+    &::after {
+      content: "«Кнопки сами себя не спроектируют!»";
+      display: inline-block;
+      height: 200px;
+      width: 370px;
+      position: absolute;
+      top: -150px;
+      right: -330px;
+      z-index: 3;
+      background: url("/public/img/cloud.png") center/ 100% 100% no-repeat;
+      padding: 30px 30px 0 50px;
+      font-size: 27px;
+      line-height: 130%;
+    }
 
     &:hover {
       .about__auth-img {
@@ -75,8 +92,8 @@
 
     &-img {
       border: 4px solid var(--grey);
-      height: 270px;
-      width: 270px;
+      height: 300px;
+      width: 300px;
       border-radius: 50%;
       background-color: var(--black);
       transition: all .3s linear;
@@ -97,8 +114,8 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      height: 270px;
-      width: 270px;
+      height: 300px;
+      width: 300px;
       border-radius: 50%;
       position: absolute;
       top: 0;
@@ -115,14 +132,26 @@
     }
   }
 
+  &__info {
+
+    &:hover {
+      .about__achiev {
+        left: -100px;
+        bottom: 60px;
+        z-index: 4;
+      }
+    }
+  }
+
   &__descr {
     position: relative;
     z-index: 2;
     width: 450px;
+    height: 570px;
     padding: 40px;
-    border-radius: 17px;
+    border-radius: 30px;
     border: 3px solid var(--grey);
-    box-shadow: 0 3px 10px 5px var(--black);
+    box-shadow: 0 3px 7px 3px var(--black);
     background-color: var(--black);
     cursor: pointer;
 
@@ -131,17 +160,20 @@
     }
 
     &-title {
-      margin-bottom: 15px;
-      font-size: 36px;
+      text-align: center;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      font-size: 34px;
       line-height: 130%;
-      font-weight: 500;
+      font-weight: 700;
       color: var(--orange);
+      border-bottom: 3px solid var(--orange);
     }
     &-text {
       text-indent: 1ch;
       font-size: 20px;
-      line-height: 130%;
-      color: var(--grey);
+      line-height: 150%;
+      color: var(--white);
     }
   }
 
@@ -151,33 +183,35 @@
     bottom: 40px;
     left: -50px;
     width: 450px;
+    height: 570px;
     padding: 40px;
-    border-radius: 17px;
+    border-radius: 30px;
     border: 3px solid var(--grey);
-    box-shadow: 0 3px 10px 5px var(--black);
+    box-shadow: 0 3px 7px 3px var(--black);
     background-color: var(--black);
+    transition: all 0.15s linear;
     cursor: pointer;
 
     & * {
       cursor: pointer;
     }
 
-    &:hover {
-      z-index: 4;
-    }
-
     &-title {
-      margin-bottom: 15px;
-      font-size: 36px;
+      text-align: center;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      font-size: 34px;
       line-height: 130%;
-      font-weight: 500;
+      font-weight: 700;
       color: var(--orange);
+      border-bottom: 3px solid var(--orange);
     }
     &-text {
-      text-indent: 1ch;
+      list-style-type: square;
+      list-style-position: inside;
       font-size: 20px;
-      line-height: 130%;
-      color: var(--grey);
+      line-height: 150%;
+      color: var(--white);
     }
   }
 
@@ -185,12 +219,12 @@
     align-self: flex-end;
     width: max-content;
     display: flex;
-    gap: 15px;
+    gap: 30px;
   }
 
   &__social {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 17px;
     transition: all 0.15s linear;
     cursor: pointer;

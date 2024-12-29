@@ -64,35 +64,39 @@ export default function About({ page }) {
                             </li>
                         ))}
                     </ul>
-                    <div className="about__descr">
-                        <h3 className="about__descr-title">Кто? Что? Почему?</h3>
-                        <p className="about__descr-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolor fugit porro exercitationem expedita vero
-                            labore aliquid odit dicta ab.
-                        </p>
-                        <p className="about__descr-text">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam eligendi natus voluptatibus eveniet, illum
-                            nam.
-                        </p>
-                        <p className="about__descr-text">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum cum neque modi, doloribus porro labore quidem
-                            eaque maiores ex placeat.
-                        </p>
-                    </div>
-                    <div className="about__achiev">
-                        <h3 className="about__achiev-title">Достижения</h3>
-                        <p className="about__achiev-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolor fugit porro exercitationem expedita vero
-                            labore aliquid odit dicta ab.
-                        </p>
-                        <p className="about__achiev-text">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam eligendi natus voluptatibus eveniet, illum
-                            nam.
-                        </p>
-                        <p className="about__achiev-text">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum cum neque modi, doloribus porro labore quidem
-                            eaque maiores ex placeat.
-                        </p>
+                    <div className="about__info">
+                        <div className="about__descr">
+                            <h3 className="about__descr-title">Кто? Что? Почему?</h3>
+                            <p className="about__descr-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolor fugit porro exercitationem expedita
+                                vero labore aliquid odit dicta ab.
+                            </p>
+                            <p className="about__descr-text">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam eligendi natus voluptatibus eveniet, illum
+                                nam.
+                            </p>
+                            <p className="about__descr-text">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum cum neque modi, doloribus porro labore
+                                quidem eaque maiores ex placeat.
+                            </p>
+                        </div>
+                        <div className="about__achiev">
+                            <h3 className="about__achiev-title">Достижения</h3>
+                            <ul>
+                                <li className="about__achiev-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, in.
+                                </li>
+                                <li className="about__achiev-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, doloribus.
+                                </li>
+                                <li className="about__achiev-text">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, alias!
+                                </li>
+                                <li className="about__achiev-text">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, ipsa.
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
