@@ -1,12 +1,33 @@
 .skills {
     height: 100%;
-    z-index: 0;
     background-color: var(--orange);
     min-width: 100vw;
     position: relative;
     z-index: 20;
     right: calc((var(--page) - 1) * 100vw);
     transition: right 0.3s linear;
+
+    &_active {
+        .skills__wrapper-item {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .scale-9 {
+            transform: scale(0.9) !important;
+            position: relative;
+            top: 5px;
+        }
+        
+        .scale-8 {
+            transform: scale(0.8) !important;
+            position: relative;
+            top: 28px;
+        }
+        .skills__line {
+            opacity: 1;
+        }
+    }
 
     &__content {
         margin: 0 auto;
@@ -16,13 +37,6 @@
         display: flex;
         justify-content: space-between;
         position: relative;
-
-        &_active {
-            .skills__wrapper-item {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
     }
 
 
@@ -87,7 +101,6 @@
 
         &_left {
             flex-direction: column-reverse;
-            gap: 10px;
         }
 
         &_right {
@@ -97,7 +110,7 @@
 
             .skills__column {
                 flex-direction: column-reverse;
-                gap: 5px;
+                gap: 0;
             }
         }
     }
@@ -204,9 +217,15 @@
         }
     }
 
-    &__line-1 {
+    &__line {
         position: absolute;
         background-color: var(--black);
+        z-index: -1;
+        opacity: 0;
+        transition: all 0.5s ease-out 0.5s;
+    }
+
+    &__line-1 {
         height: 5px;
         width: 205px;
         bottom: 0;
@@ -216,8 +235,6 @@
     }
 
     &__line-2 {
-        position: absolute;
-        background-color: var(--black);
         height: 5px;
         width: 205px;
         bottom: 0;
@@ -226,28 +243,23 @@
         transform: rotateZ(45deg);
     }
     &__line-3 {
-        position: absolute;
-        background-color: var(--black);
         height: 900px;
         width: 5px;
         bottom: 145px;
         right: 155px;
     }
     &__line-4 {
-        position: absolute;
-        background-color: var(--black);
         height: 900px;
         width: 5px;
         bottom: 145px;
         left: 140px;
     }
     &__line-5 {
-        position: absolute;
-        z-index: -1;
-        background-color: var(--black);
         height: 5px;
         width: 1615px;
         bottom: 145px;
         left: 140px;
     }
 }
+
+

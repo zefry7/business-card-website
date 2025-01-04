@@ -30,7 +30,7 @@ function WrapperSwiper({ children, handleNextPage }) {
                 className={
                     "wrapper-swiper__arrow-next" +
                     (active == true ? " wrapper-swiper__arrow_move" : "") +
-                    (page == 3 ? " wrapper-swiper__arrow_disibled" : "")
+                    (page == 4 ? " wrapper-swiper__arrow_disibled" : "")
                 }
                 onClick={() => handleClickArrow("next-page")}
             >

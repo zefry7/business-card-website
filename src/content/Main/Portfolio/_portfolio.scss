@@ -1,459 +1,199 @@
 .portfolio {
+    height: 100%;
+    min-width: 100vw;
     position: relative;
-    z-index: 5;
-    &__wrapper {
-        max-width: 1440px;
-        margin: 0 auto;
+    z-index: 20;
+    background: var(--blue);
+    right: calc((var(--page) - 1) * 100vw);
+    transition: right 0.3s linear;
+
+    &_active {
+
     }
+
     &__content {
-        @extend .padding-block;
-        padding-top: 50px;
-        padding-bottom: 120px;
-        min-height: 100lvh;
-    }
-    &__title {
-        @extend .about__title;
         margin: 0 auto;
-        margin-bottom: 40px;
-    }
-    &__filter {
-        margin-bottom: 20px;
-        &-title {
-            font-size: 20px;
-            color: var(--text-grey);
-            margin-bottom: 10px;
-        }
-        &-list {
-            display: flex;
-            gap: 10px;
-
-            .swiper {
-                margin-left: 0;
-                &-slide {
-                    max-width: max-content;
-                }
-            }
-        }
-        &-tag {
-            width: max-content;
-            text-transform: uppercase;
-            border-radius: 12px;
-            border: 2px solid transparent;
-            font-weight: 500;
-            background-color: var(--bg-black-grey-2);
-            color: var(--text-grey-2);
-            cursor: pointer;
-            position: relative;
-            padding: 8px 12px;
-            cursor: pointer;
-            &:hover {
-                border-color: var(--text-orange);
-                color: var(--text-orange);
-            }
-            &_active {
-                color: var(--bg-black);
-                border-color: var(--text-orange); 
-                background-color: var(--text-orange);
-                span {
-                    color: var(--bg-black);
-                }
-            }
-            span {
-                font-size: 18px;
-            }
-        }
-    }
-
-    hr {
-        border-top: 2px solid var(--bg-black-grey-2); 
-    }
-    &__list {
-        padding-top: 20px;
-        display: grid;
-        grid-template: auto / repeat(2, minmax(47%, 620px));
-        @include adap(gap, 40, 40, 40, 30, 15);
-    }
-    &__item {
-        perspective: 300px;
+        max-width: 1440px;
         height: 100%;
-        &-content {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border-radius: 17px;
-            background-color: var(--bg-black-grey-1);
-            transition: all 0.3s linear;
-            cursor: pointer;
-            &:hover {
-                outline: 2px solid var(--text-orange);
-            }
-        }
-        &-img {
-            border-top-left-radius: 17px;
-            border-top-right-radius: 17px;
-            position: relative;
-            overflow: hidden;
-            img {
-                width: 100%;
-                height: auto;
-                opacity: 0.9;
-                animation: img-scale 20s linear infinite;
-            }
-            &::before {
-                content: "";
-                position: absolute;
-                z-index: 1;
-                bottom: -15px;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0) 40%);
-            }
-        }
-        &-info {
-            flex: 40%;
-            display: flex;
-            flex-direction: column;
-            @include adap(padding, 20, 20, 20, 20, 10);
-        }
-        &-title {
-            font-weight: 700;
-            @include adap(margin-bottom, 10, 10, 10, 10, 5);
-            @include adap(font-size, 32, 32, 32, 32, 24);
-            color: var(--text-white);
-            text-transform: uppercase;
-        }
-        &-text {
-            margin-bottom: auto;
-            font-size: 20px;
-            line-height: 130%;
-            color: var(--text-grey);
-        }
-        &-tag-row {
-            margin-bottom: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            @include adap(gap, 10, 10, 10, 10, 6);
-        }
-        &-tag {
-            @include adap(padding-top, 8, 8, 8, 8, 6);
-            @include adap(padding-bottom, 8, 8, 8, 8, 6);
-            @include adap(padding-left, 12, 12, 12, 12, 8);
-            @include adap(padding-right, 12, 12, 12, 12, 8);
-            @include adap(font-size, 14, 14, 14, 14, 12);
-            width: max-content;
-            text-transform: uppercase;
-            border-radius: 12px;
-            border: 2px solid transparent;
-            font-weight: 500;
-            background-color: var(--bg-black-grey-2);
-            color: var(--text-grey-2);
-            &_active {
-                color: var(--bg-black);
-                border-color: var(--text-orange); 
-                background-color: var(--text-orange);
-            }
+        padding: 50px 80px;
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+
+        & .portfolio__column:nth-child(2) {
+            flex: 1;
         }
     }
-    &__wrapper-detail {
-        position: fixed;
-        z-index: 1000;
-        top: 0;
-        left: 0;
+
+    &__column {
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    &__row {
+        height: 47px;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        border-radius: 20px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        & .portfolio__name:first-child {
+            left: 0;
+            transform: translateX(0%);
+        }
+    }
+
+    &__name {
+        display: inline-block;
+        height: 90px;
+        width: max-content;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 20px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        color: var(--white);
+        border: 3px solid var(--grey);
+        border-bottom: 0px;
+        background-color: var(--black);
+        position: relative;
+        left: -30%;
+        transform: translateX(50%);
+        top: 10%;
+        box-shadow: 0 3px 7px 3px var(--black);
+        transition: top 0.15s linear, color 0.15s linear, box-shadow 0.15s linear;
         cursor: pointer;
 
         &_active {
-            overflow-y: auto;
-            height: 100%;
-            width: 100%;
-            @include adap(padding-right, 120, 120, 100, 40, 0);
-            @include adap(padding-left, 120, 120, 100, 40, 0);
-            @include adap(padding-top, 50, 50, 50, 20, 0);
-            @include adap(padding-bottom, 50, 50, 50, 20, 0);
-
-
-            .portfolio__detail {
-                top: 0;
-                padding: 70px 120px;
-                @include adap(padding-left, 120, 100, 80, 60, 20);
-                @include adap(padding-right, 120, 100, 80, 60, 20);
-
-                &::before {
-                    width: 100%;
-                    height: 100%;
-                    opacity: 1;
-                }
-
-                &_hidden {
-                    top: 200lvh;
-                    &::before {
-                        opacity: 0;
-                    }
-                }
-            }
-
-        }
-
-    }
-    &__detail {
-        position: relative;
-        top: 200lvh;
-        background-color: var(--bg-black-grey-1);
-        margin: 0 auto;
-        border-radius: 28px;
-        transition: top 0.3s linear;
-        max-width: 1440px;
-        width: 100%;
-        border: 2px solid var(--text-grey);
-
-        &::before {
-            content: "";
-            display: inline-block;
-            position: fixed;
-            top: 0;
-            left: 0;
-            opacity: 0;
+            top: -40px;
             z-index: -1;
-            backdrop-filter: blur(5px);
-            background-color: rgba(128, 128, 128, 0.1);
-            transition: opacity linear 0.3s;
+            color: var(--orange);
+            box-shadow: 0 0px 7px 3px var(--orange);
         }
+    }
 
-        &_hidden {
-            top: 200lvh !important;
-        }
+    &__project {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        width: 100%;
+        padding: 20px;
+        border-radius: 30px;
+        border-top-left-radius: 0px;
+        border-top-left-radius: 0px;
+        border: 3px solid var(--grey);
+        box-shadow: 0 3px 7px 3px var(--black);
+        background-color: var(--black);
+        display: flex;
+        flex-direction: column;
 
         &-img {
             margin-bottom: 20px;
-            overflow: hidden;
-            border-radius: 17px;
-            img {
-                max-width: 100%;
+            max-width: 669px;
+            height: 430px;
+
+            img { 
+                border-radius: 20px;
                 height: 100%;
-                animation: img-scale 20s linear infinite;
+                max-width: 100%;
+                object-fit: fill;
             }
         }
-        &-info {
-            display: flex;
-            gap: 20px;
-        }
-        &-text {
-            flex: 40%;
-        }
-        &-title {
-            font-weight: 700;
-            @include adap(margin-bottom, 10, 10, 10, 10, 5);
-            @include adap(font-size, 32, 32, 32, 32, 24);
-            color: var(--text-white);
-            text-transform: uppercase;
-        }   
 
-        &-row-tag {
-            @extend .portfolio__item-tag-row;
-            margin-bottom: 10px;
+        &-info {
+            flex: 1;
+            padding: 20px;
+            height: 100%;
+            border-radius: 30px;
+            border: 3px solid var(--grey);
+            background-color: var(--black);
+        }
+
+        &-tag-row {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
         }
 
         &-tag {
-            @extend .portfolio__item-tag;
-            font-size: 14px;
-            background-color: var(--bg-black);
-        }
-
-        &-description {
-            margin-top: auto;
-            margin-bottom: 20px;
-            @include adap(font-size, 20, 20, 20, 20, 18);
-            line-height: 130%;
-            color: var(--text-grey);
-        }
-
-        &-link {
             display: inline-block;
-            width: 90%;
-            font-size: 18px;
-            color: var(--text-white);
-            padding: 16px;
-            text-align: center;
+            padding: 6px 10px;
+            font-size: 20px;
             border-radius: 12px;
-            background-color: var(--bg-black);
+            min-width: 80px;
             text-transform: uppercase;
-            transition: transform 0.3s linear;
-            &:hover {
-                color: var(--text-white);
-            }
-
-            &:active {
-                transform: translateY(5px);
-            }
+            text-align: center;
+            font-weight: 700;
+            background-color: var(--orange);
+            cursor: default;
         }
 
-        &-done {
-            flex: 60%;
-        }
-
-        &-label {
-            margin-bottom: 10px;
-            @include adap(font-size, 32, 32, 32, 32, 24);
-            color: var(--text-grey);
-        }
-
-        &-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        &-item {
-            display: flex;
+        &-descr {
+            font-size: 24px;
             line-height: 130%;
-            @include adap(font-size, 20, 20, 20, 18, 18);
-            color: var(--text-grey);
-            &::before {
-                content: "";
-                display: block;
-                @include adap(height, 30, 30, 30, 30, 30);
-                @include adap(min-width, 30, 30, 30, 30, 30);
-                @include adap(margin-right, 8, 8, 8, 5, 0);
-                top: -4px;
-                position: relative;
-                background: url("./img/plus.svg") center/ 100% 100% no-repeat;
-            }
+            color: var(--white);
         }
 
-        &-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            @include adap(width, 70, 70, 60, 50, 50);
-            @include adap(height, 70, 70, 60, 50, 50);
-            border-radius: 50%;
-            border: 3px solid var(--text-grey);
-            @include adap(border-width, 3, 3, 3, 2, 2);
-            @include adap(padding, 10, 10, 10, 8, 4);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            span {
-                position: relative;
-                display: inline-block;
-                height: 3px;
-                width: 100%;
-                background-color: var(--text-grey);
-                transition: all 0.1s linear;
-            }
+    }
 
-            & span:nth-child(1) {
-                top: 50%;
-                transform: rotateZ(45deg) translateY(-50%);
-            }
-            & span:nth-child(2) {
-                top: -50%;
-                transform: rotateZ(-45deg) translateY(50%);
+    &__title {
+        margin-top: 50px;
+        font-family: "pixy";
+        font-size: 100px;
+        margin-bottom: 0;
+        line-height: 70%;
+        text-transform: uppercase;
+        text-shadow: 3px 3px 5px var(--black);
+        color: var(--orange);
+    }
+
+    &__info {
+        margin-top: 47px;
+        padding: 30px;
+        flex: 1;
+        width: 100%;
+        border-radius: 30px;
+        border: 3px solid var(--grey);
+        background-color: var(--black);
+        display: flex;
+        flex-direction: column;
+
+        &-title {
+            margin-bottom: 20px;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        &-line {
+            font-size: 20px;
+            line-height: 150%;
+            color: var(--white);
+        }
+
+        &-button {
+            margin-top: auto;
+            text-align: center;
+            padding: 15px;
+            font-size: 28px;
+            border-radius: 15px;
+            border: 3px solid var(--white);
+            color: var(--white);
+            transition: all 0.15s linear;
+
+            &:hover {
+                background-color: var(--white);
+                border-color: var(--black);
+                color: var(--black);
+                box-shadow: 0 0px 7px 3px var(--white);
             }
         }
     }
-}
 
-@keyframes move-top {
-    0%  { 
-        top: 200%;
-    }
-    100% { 
-        top: 0;
-    }
-}
-
-
-@media (max-width: 1024px) {
-    .portfolio {
-        &__list {
-            grid-template: auto / auto;
-        }
-        &__item {
-            &-content {
-                overflow: hidden;
-                position: relative;
-                &::before {
-                    content: "";
-                    position: absolute;
-                    z-index: 1;
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0) 50%);
-                }
-            }
-            &-img { 
-                border-radius: 17px;
-                &::before {
-                    display: none;
-                }
-            }
-            &-info {
-                border-radius: 17px;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                justify-content: flex-end;
-                z-index: 1;
-            }
-            &-tag-row {
-                margin-bottom: 0;
-            }
-            &-text { 
-                display: none;
-            }
-            &-more {
-                display: none;
-            }
-        }
-        &__detail { 
-            &-info {
-                flex-direction: column;
-            }
-
-            &-row-tag {
-                margin-bottom: 10px;
-            }
-
-            &-link {
-                width: 100%;
-            }
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    .portfolio {
-        &__filter {
-            &-list {
-                @include adap(margin-left, -80, -80, -80, -40, -20);
-                @include adap(margin-right, -80, -80, -80, -40, -20);
-                .swiper {
-                    @include adap(padding-left, 80, 80, 80, 40, 20);
-                    @include adap(padding-right, 80, 80, 80, 40, 20);
-                    margin-left: 0;
-                    &-slide {
-                        max-width: max-content;
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-@media (max-width: 425px) {
-    .portfolio {
-        &__wrapper-detail {
-            padding: 0;
-        }
-
-        &__detail {
-            border-radius: 0px;
-        }
-    }
 }

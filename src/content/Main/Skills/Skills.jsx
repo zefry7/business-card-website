@@ -4,8 +4,8 @@ const list = ["HTML", "CSS", "Tailwind", "React", "Redux", "JavaScript", "SASS",
 
 export default function Skills({ page }) {
     return (
-        <section className="skills" id="skills" style={{ "--page": page }}>
-            <div className={"skills__content" + (page == 2 ? " skills__content_active" : "")}>
+        <section className={"skills" + (page == 2 ? " skills_active" : "")} id="skills" style={{ "--page": page }}>
+            <div className={"skills__content"}>
                 <div className={"skills__banner" + (page == 2 ? " skills__banner_active" : "")}>
                     <h2 className="skills__title">Навыки</h2>
                 </div>
@@ -28,21 +28,21 @@ export default function Skills({ page }) {
                         </div>
                     </div>
                     <div className="skills__column">
-                        <div className="skills__wrapper-item">
-                        <div className="skills__wrapper-item-top"></div>
+                        <div className="skills__wrapper-item scale-9">
+                            <div className="skills__wrapper-item-top"></div>
                             <div className="skills__item">
                                 <span className="skills__item-text">{list[5]}</span>
                             </div>
                         </div>
-                        <div className="skills__wrapper-item">
+                        <div className="skills__wrapper-item scale-9">
                             <div className="skills__item">
                                 <span className="skills__item-text">{list[4]}</span>
                             </div>
                         </div>
                     </div>
                     <div className="skills__column">
-                        <div className={"skills__wrapper-item"}>
-                        <div className="skills__wrapper-item-top"></div>
+                        <div className={"skills__wrapper-item scale-8"}>
+                            <div className="skills__wrapper-item-top"></div>
                             <div className="skills__item">
                                 <span className="skills__item-text">{list[3]}</span>
                             </div>
@@ -56,12 +56,12 @@ export default function Skills({ page }) {
                                 <span className="skills__item-text">{list[6]}</span>
                             </div>
                         </div>
-                        <div className="skills__wrapper-item">
+                        <div className="skills__wrapper-item scale-9">
                             <div className="skills__item">
                                 <span className="skills__item-text">{list[7]}</span>
                             </div>
                         </div>
-                        <div className="skills__wrapper-item">
+                        <div className="skills__wrapper-item scale-8">
                             <div className="skills__item">
                                 <span className="skills__item-text">{list[8]}</span>
                             </div>
@@ -73,7 +73,7 @@ export default function Skills({ page }) {
                                 <span className="skills__item-text">{list[9]}</span>
                             </div>
                         </div>
-                        <div className="skills__wrapper-item">
+                        <div className="skills__wrapper-item scale-9">
                             <div className="skills__item">
                                 <span className="skills__item-text">{list[10]}</span>
                             </div>
@@ -88,11 +88,11 @@ export default function Skills({ page }) {
                     </div>
                 </div>
             </div>
-            <div className="skills__line-1"></div>
-            <div className="skills__line-2"></div>
-            <div className="skills__line-3"></div>
-            <div className="skills__line-4"></div>
-            <div className="skills__line-5"></div>
+            <div className="skills__line skills__line-1"></div>
+            <div className="skills__line skills__line-2"></div>
+            <div className="skills__line skills__line-3"></div>
+            <div className="skills__line skills__line-4"></div>
+            <div className="skills__line skills__line-5"></div>
         </section>
     );
 }

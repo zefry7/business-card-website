@@ -16,7 +16,7 @@ const globalReducer = (state = defaultValue, action) => {
         case "next-page": {
             let oldPage = state.page;
             
-            if (oldPage != 3) {
+            if (oldPage != 4) {
                 ++oldPage;
             }
 
