@@ -1,7 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DataContext } from "../../..";
-import SwiperConstructor from "../../../components/SwiperConstructor/SwiperConstructor";
 import { SwiperSlide } from "swiper/react";
 
 const items = [

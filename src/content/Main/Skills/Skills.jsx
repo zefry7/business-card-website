@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const list = ["HTML", "CSS", "Tailwind", "React", "Redux", "JavaScript", "SASS", "TypeScript", "Webpack", "Git", "REST API", "Prettier"];
 
 export default function Skills({ page }) {
+    const [active, setActive] = useState(page)
+
+    useEffect(() => {
+        if(page == 2) {
+            setActive(page)
+        } else {
+            setTimeout(() => {
+                setActive(page)
+            }, 300)
+        }
+    }, [page])
+
+
     return (
-        <section className={"skills" + (page == 2 ? " skills_active" : "")} id="skills" style={{ "--page": page }}>
+        <section className={"skills" + (active == 2 ? " skills_active" : "")} id="skills" style={{ "--page": page }}>
             <div className={"skills__content"}>
-                <div className={"skills__banner" + (page == 2 ? " skills__banner_active" : "")}>
+                <div className={"skills__banner" + (active == 2 ? " skills__banner_active" : "")}>
                     <h2 className="skills__title">Навыки</h2>
                 </div>
                 <div className="skills__block skills__block_left">

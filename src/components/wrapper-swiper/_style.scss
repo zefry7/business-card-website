@@ -31,11 +31,13 @@
         border-bottom-right-radius: 60px;
         transition: all 0.2s linear;
         transform-origin: left center;
+        background-color: rgba(255, 255, 255, 0.3);
         cursor: pointer;
     
         img {
             height: 60px;
             transform: rotateZ(180deg);
+            filter: drop-shadow(0px 0px 1px var(--black));
         }
     }
 
@@ -60,10 +62,12 @@
         border-bottom-left-radius: 60px;
         transition: all 0.2s linear;
         transform-origin: right center;
+        background-color: rgba(255, 255, 255, 0.3);
         cursor: pointer;
 
         img {
             height: 60px;
+            filter: drop-shadow(0px 0px 1px var(--black));
         }
     }
 }

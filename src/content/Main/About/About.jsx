@@ -52,6 +52,7 @@ export default function About({ page }) {
                             <span>г. Ярославль</span>
                         </div>
                     </div>
+                    <div className="about__auth-cloud"></div>
                     <h2 className="about__title">О себе</h2>
                 </div>
                 <div className="about__column">

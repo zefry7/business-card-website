@@ -1,43 +1,47 @@
 .contact {
-    background-color: var(--text-white);
-    &__wrapper {
-        max-width: 1440px;
-        margin: 0 auto;
-    }
+    height: 100%;
+    min-width: 100vw;
+    position: relative;
+    background-color: var(--orange);
+    right: calc((var(--page) - 1) * 100vw);
+    transition: right 0.3s linear;
+
     &__content {
-        @extend .padding-block;
-        padding-top: 100px;
-        padding-bottom: 50px;
-        min-height: 110svh;
+        margin: 0 auto;
+        max-width: 1440px;
         height: 100%;
+        padding: 50px 80px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
     &__title {
-        @include adap(font-size, 40, 40, 40, 40, 32);
-        margin-bottom: 40px;
+        font-family: "pixy";
+        font-size: 130px;
         text-transform: uppercase;
+        margin-bottom: 10px;
         text-align: center;
-        color: var(--bg-black);
+        color: var(--white);
         font-weight: 500;
+        text-shadow: 3px 3px 5px var(--black);
         &::before,
         &::after {
             border-color: var(--bg-black);
         }
     }
     &__description {
-        max-width: 460px;
+        max-width: 560px;
         @include adap(margin-bottom, 30, 30, 30, 30, 20);
         text-align: center;
-        @include adap(font-size, 20, 20, 20, 20, 16);
+        font-size: 24px;
         line-height: 130%;
-        color: var(--bg-black-grey-3);
+        font-weight: 500;
+        color: var(--black);
     }
     &__wrapper-form {
         margin: 0 auto;
-        max-width: 700px;
+        max-width: 660px;
         width: 100%;
     }
     &__form {
@@ -53,13 +57,16 @@
         &-email {
             height: max-content;
             @include adap(padding, 15, 15, 15, 15, 10);
+            box-shadow: 3px 3px 5px var(--black);
         }
         &-submit {
             height: 40px;
+            box-shadow: 3px 3px 5px var(--black);
         }
         &-description {
             resize: none;
             @include adap(padding, 15, 15, 15, 15, 10);
+            box-shadow: 3px 3px 5px var(--black);
             height: 250px;
         }
         & textarea::placeholder,
@@ -71,61 +78,24 @@
             height: 60px;
             font-size: 20px;
             border-radius: 10px;
-            color: var(--text-white);
-            background-color: var(--bg-black);
+            color: var(--white);
+            background-color: var(--black);
             transition: transform 0.2s linear;
             text-transform: uppercase;
+
             &:active {
                 transform: translateY(5px);
-            }
-
-            position: relative;
-            &::before {
-                content: "*Неправильно указана почта";
-                visibility: hidden;
-                position: absolute;
-                top: 120%;
-                left: 0;
-                height: 20px;
-                width: max-content;
-                color: red;
-                text-transform: capitalize;
-                font-size: 14px;
-                display: inline-block;
-                opacity: 0;
-                transition: all 0.2s linear;
-            }
-
-            &::after {
-                content: "Сообщение отправлено";
-                visibility: hidden;
-                position: absolute;
-                top: 120%;
-                left: 0;
-                height: 20px;
-                width: max-content;
-                color: rgb(0, 207, 0);
-                text-transform: none;
-                font-size: 14px;
-                display: inline-block;
-                opacity: 0;
-                transition: all 0.2s linear;
-            }
-        }
-
-        &-accept {
-            &::after {
-                visibility: visible;
-                opacity: 1;
-            }
-        }
-
-        &-error {
-            &::before {
-                visibility: visible;
-                opacity: 1;
             }
         }
     }
 
+    &__error {
+        padding-left: 10px;
+        height: 20px;
+        width: max-content;
+        color: red;
+        font-size: 20px;
+        display: inline-block;
+        transition: all 0.2s linear;
+    }
 }

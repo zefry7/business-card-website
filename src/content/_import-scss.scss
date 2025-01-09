@@ -1,10 +1,9 @@
 @import "../components/wrapper-swiper/style";
+@import "../components/size-window/style";
 
 
 //для импорта стилей
 @import "./Main/About/about";
 @import "./Main/Skills/skills";
 @import "./Main/Portfolio/portfolio";
-// @import "./Main/Intro/intro";
-// @import "./Main/Contact/contact";
-// @import "./Main/Footer/footer";
+@import "./Main/Contact/contact";

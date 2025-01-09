@@ -7,11 +7,11 @@
   transition: right 0.3s linear;
 
   &__content {
-    max-width: 1440px;
+    @include adapPage(max-width, 1440);
     margin: 0 auto;
     height: 100%;
     position: relative;
-    padding: 80px;
+    @include adapPage(padding, 80);
     display: flex;
     justify-content: space-between;
 
@@ -22,10 +22,10 @@
 
   &__name {
     position: absolute;
-    height: 90px;
-    font-size: 64px;
+    @include adapPage(height, 90);
+    @include adapPage(font-size, 64);
     font-weight: 700;
-    line-height: 90px;
+    @include adapPage(line-height, 90);
     text-shadow: 0px 3px 10px black;
     color: var(--orange);
 
@@ -44,10 +44,10 @@
 
   &__title {
     font-family: "pixy";
-    font-size: 170px;
+    @include adapPage(font-size, 170);
     margin-bottom: 0;
     line-height: 50%;
-    letter-spacing: 10px;
+    @include adapPage(letter-spacing, 10);
     text-transform: uppercase;
     text-shadow: 3px 3px 5px var(--black);
     color: var(--orange);
@@ -55,24 +55,9 @@
 
   &__auth {
     width: max-content;
-    margin-bottom: 100px;
+    @include adapPage(margin-bottom, 100);
     position: relative;
     cursor: pointer;
-
-    &::after {
-      content: "«Кнопки сами себя не спроектируют!»";
-      display: inline-block;
-      height: 200px;
-      width: 370px;
-      position: absolute;
-      top: -150px;
-      right: -330px;
-      z-index: 3;
-      background: url("/public/img/cloud.png") center/ 100% 100% no-repeat;
-      padding: 30px 30px 0 50px;
-      font-size: 27px;
-      line-height: 130%;
-    }
 
     &:hover {
       .about__auth-img {
@@ -90,13 +75,33 @@
       }
     }
 
+    &-cloud {
+      &::after {
+        content: "«Кнопки сами себя не спроектируют!»";
+        display: inline-block;
+        @include adapPage(height, 200);
+        @include adapPage(width, 370);
+        position: absolute;
+        @include adapPage(top, 180);
+        @include adapPage(right, -60);
+        z-index: 3;
+        background: url("/public/img/cloud.png") center/ 100% 100% no-repeat;
+        @include adapPage(padding-top, 30);
+        @include adapPage(padding-right, 30);
+        @include adapPage(padding-left, 50);
+        @include adapPage(font-size, 27);
+        line-height: 130%;
+      }
+    }
+
     &-img {
       border: 4px solid var(--grey);
-      height: 300px;
-      width: 300px;
+      @include adapPage(border-width, 4);
+      @include adapPage(height, 300);
+      @include adapPage(width, 300);
       border-radius: 50%;
       background-color: var(--black);
-      transition: all .3s linear;
+      transition: transform .3s linear, z-index .3s linear;
       transform: rotateY(0deg);
       position: relative;
       z-index: 2;
@@ -113,20 +118,21 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      height: 300px;
-      width: 300px;
+      @include adapPage(gap, 10);
+      @include adapPage(height, 300);
+      @include adapPage(width, 300);
       border-radius: 50%;
       position: absolute;
       top: 0;
       left: 0;
       transform: rotateY(-180deg);
       border: 4px solid var(--grey);
+      @include adapPage(border-width, 4);
       background-color: var(--black);
-      transition: all 0.3s linear;
+      transition: transform 0.3s linear;
 
       span {
-        font-size: 20px;
+        @include adapPage(font-size, 20);
         color: white;
       }
     }
@@ -136,8 +142,8 @@
 
     &:hover {
       .about__achiev {
-        left: -100px;
-        bottom: 60px;
+        @include adapPage(left, -100);
+        @include adapPage(bottom, 60);
         z-index: 4;
       }
     }
@@ -146,11 +152,12 @@
   &__descr {
     position: relative;
     z-index: 2;
-    width: 450px;
-    height: 570px;
-    padding: 40px;
-    border-radius: 30px;
+    @include adapPage(width, 450);
+    @include adapPage(height, 570);
+    @include adapPage(padding, 40);
+    @include adapPage(border-radius, 30);
     border: 3px solid var(--grey);
+    @include adapPage(border-width, 3);
     box-shadow: 0 3px 7px 3px var(--black);
     background-color: var(--black);
     cursor: pointer;
@@ -161,17 +168,18 @@
 
     &-title {
       text-align: center;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
-      font-size: 34px;
+      @include adapPage(padding-bottom, 5);
+      @include adapPage(margin-bottom, 10);
+      @include adapPage(font-size, 34);
       line-height: 130%;
       font-weight: 700;
       color: var(--orange);
       border-bottom: 3px solid var(--orange);
+      @include adapPage(border-bottom-width, 3);
     }
     &-text {
       text-indent: 1ch;
-      font-size: 20px;
+      @include adapPage(font-size, 20);
       line-height: 150%;
       color: var(--white);
     }
@@ -180,16 +188,17 @@
   &__achiev {
     position: absolute;
     z-index: 0;
-    bottom: 40px;
-    left: -50px;
-    width: 450px;
-    height: 570px;
-    padding: 40px;
-    border-radius: 30px;
+    @include adapPage(bottom, 40);
+    @include adapPage(left, -50);
+    @include adapPage(width, 450);
+    @include adapPage(height, 570);
+    @include adapPage(padding, 40);
+    @include adapPage(border-radius, 30);
     border: 3px solid var(--grey);
+    @include adapPage(border-width, 3);
     box-shadow: 0 3px 7px 3px var(--black);
     background-color: var(--black);
-    transition: all 0.15s linear;
+    transition: left 0.15s linear, bottom 0.15s linear, z-index 0.15s linear;
     cursor: pointer;
 
     & * {
@@ -198,18 +207,19 @@
 
     &-title {
       text-align: center;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
-      font-size: 34px;
+      @include adapPage(padding-bottom, 5);
+      @include adapPage(margin-bottom, 10);
+      @include adapPage(font-size, 34);
       line-height: 130%;
       font-weight: 700;
       color: var(--orange);
       border-bottom: 3px solid var(--orange);
+      @include adapPage(border-bottom-width, 3);
     }
     &-text {
       list-style-type: square;
       list-style-position: inside;
-      font-size: 20px;
+      @include adapPage(font-size, 20);
       line-height: 150%;
       color: var(--white);
     }
@@ -219,14 +229,14 @@
     align-self: flex-end;
     width: max-content;
     display: flex;
-    gap: 30px;
+    @include adapPage(gap, 30);
   }
 
   &__social {
-    width: 90px;
-    height: 90px;
-    border-radius: 17px;
-    transition: all 0.15s linear;
+    @include adapPage(width, 90);
+    @include adapPage(height, 90);
+    @include adapPage(border-radius, 17);
+    transition: transform 0.15s linear, box-shadow 0.15s linear;
     cursor: pointer;
     position: relative;
     
@@ -239,13 +249,15 @@
         display: block;
         height: 100%;
         width: 100%;
-        padding: 12px;
+        @include adapPage(padding, 12);
         border: 3px solid var(--black);
-        border-radius: 17px;
+        @include adapPage(border-width, 3);
+        @include adapPage(border-radius, 17);
         background-color: var(--black);
         box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.8);
         &:hover {
             outline: 3px solid var(--text-orange);
+            @include adapPage(outline-width, 3);
             
             img {
                 animation: move-top-bottom 0.5s linear infinite;

@@ -1,4 +1,5 @@
 $MAX-WIDTH: 1440;
+$MAX-HEIGHT: 960;
 $MIN-WIDTH: 320;
 
 $MOBILE: 320;
@@ -39,4 +40,8 @@ $DESKTOP: 1280;
     @media (max-width: #{$MIN-WIDTH + px}) {
         #{$prop}: #{$m + px};
     }
+}
+
+@mixin adapPage($prop, $v) {
+    #{$prop}: min(calc(($v/$MAX-WIDTH) * 100vw), calc(($v/$MAX-HEIGHT) * 100vh));
 }
