@@ -7,10 +7,12 @@
     right: calc((var(--page) - 1) * 100vw);
     transition: right 0.3s linear;
 
+
     &_active {
+
         .skills__wrapper-item {
             transform: scale(1);
-            transition: all 0.4s ease-in-out 0.4s;
+            transition: transform 0.4s ease-in-out 0.4s;
             opacity: 1;
         }
 
@@ -19,19 +21,19 @@
         }
 
         .skills__line {
-            transition: all 0.5s ease-out 0.5s;
+            transition: opacity 0.5s ease-out 0.5s;
         }
 
         .scale-9 {
             transform: scale(0.9) !important;
             position: relative;
-            top: 5px;
+            @include adapPage(top, 5);
         }
         
         .scale-8 {
             transform: scale(0.8) !important;
             position: relative;
-            top: 28px;
+            @include adapPage(top, 28);
         }
 
         .skills__line {
@@ -41,9 +43,12 @@
 
     &__content {
         margin: 0 auto;
-        max-width: 1440px;
+        @include adapPage(max-width, 1440);
         height: 100%;
-        padding: 50px 80px;
+        @include adapPage(padding-left, 80);
+        @include adapPage(padding-right, 80);
+        @include adapPage(padding-top, 50);
+        @include adapPage(padding-bottom, 50);
         display: flex;
         justify-content: space-between;
         position: relative;
@@ -52,51 +57,54 @@
 
     &__banner {
         margin: 0 auto;
-        padding: 50px 40px 20px;
+        @include adapPage(padding-left, 40);
+        @include adapPage(padding-right, 40);
+        @include adapPage(padding-top, 50);
+        @include adapPage(padding-bottom, 20);
         position: absolute;
-        top: -200px;
-        left: 395px;
-        border-radius: 20px;
+        @include adapPage(top, -200);
+        @include adapPage(left, 395);
+        @include adapPage(border-radius, 20);
         width: max-content;
         background-color: var(--black);
         box-shadow: 0px 0px 15px 5px var(--white);
         opacity: 0;
         
         &_active {
-            top: 55px;
+            @include adapPage(top, 55);
             opacity: 1;
         }
 
         &::before {
             content: "";
             display: inline-block;
-            width: 40px;
-            height: 100px;
+            @include adapPage(width, 40);
+            @include adapPage(height, 300);
             background-color: var(--black);
             position: absolute;
             z-index: -1;
-            top: -60px;
-            left: 100px;
+            @include adapPage(top, -160);
+            @include adapPage(left, 100);
         }
         
         &::after {
             content: "";
-            width: 40px;
-            height: 100px;
+            @include adapPage(width, 40);
+            @include adapPage(height, 300);
             background-color: var(--black);
             position: absolute;
             z-index: -1;
-            top: -60px;
-            right: 100px;
+            @include adapPage(top, -160);
+            @include adapPage(right, 100);
         }
     }
 
     &__title {
         font-family: "pixy";
-        font-size: 130px;
+        @include adapPage(font-size, 130);
         margin-bottom: 0;
         line-height: 70%;
-        letter-spacing: 10px;
+        @include adapPage(letter-spacing, 10);
         text-transform: uppercase;
         text-align: center;
         color: var(--orange);
@@ -105,7 +113,7 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        max-width: 580px;
+        @include adapPage(max-width, 580);
         width: max-content;
         position: relative;
 
@@ -116,7 +124,7 @@
         &_right {
             flex-direction: row;
             align-items: flex-end;
-            gap: 10px;
+            @include adapPage(gap, 10);
 
             .skills__column {
                 flex-direction: column-reverse;
@@ -129,37 +137,37 @@
         display: flex;
         justify-content: center;
         height: max-content;
-        gap: 10px;
+        @include adapPage(gap, 10);
         position: relative;
     }
 
     &__wrapper-item {
-        padding: 15px;
+        @include adapPage(padding, 15);
         background-color: var(--black);
-        border-radius: 15px;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        @include adapPage(border-radius, 15);
+        @include adapPage(border-top-left-radius, 5);
+        @include adapPage(border-top-right-radius, 5);
         transform: scale(0.001);
         opacity: 0;
         position: relative;
-        perspective: 150px;
+        @include adapPage(perspective, 150);
         border: 2px solid var(--white);
+        @include adapPage(border-width, 2);
         border-top-width: 0px;
 
         &::before {
             content: "";
             display: inline-block;
             position: absolute;
-            width: 148px;
-            height: 100px;
-            top: -65px;
-            left: 16px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            border-radius: 5px;
+            @include adapPage(width, 148);
+            @include adapPage(height, 100);
+            top: -37%;
+            @include adapPage(left, 16);
+            @include adapPage(border-radius, 5);
             background-color: var(--black);
             border: 3px solid var(--white);
-            border-top-width: 5px;
+            @include adapPage(border-width, 3);
+            @include adapPage(border-top-width, 5);
             transform: rotateX(40deg);
         }
 
@@ -169,11 +177,12 @@
         display: inline-block;
         display: flex;
         align-items: center;
-        width: 150px;
-        height: 150px;
+        @include adapPage(width, 150);
+        @include adapPage(height, 150);
         border-radius: 20%;
         border: 2px solid var(--grey);
-        transition: all 0.3s linear;
+        @include adapPage(border-width, 2);
+        transition: transform 0.3s linear, border-color 0.3s linear;
         position: relative;
         overflow: hidden;
         cursor: pointer;
@@ -182,14 +191,14 @@
         &::before {
             content: "";
             display: inline-block;
-            width: 150px;
+            @include adapPage(width, 150);
             height: 0px;
-            border-radius: 15px;
+            @include adapPage(border-radius, 15);
             position: absolute;
-            bottom: -2px;
-            left: -2px;
+            @include adapPage(bottom, -2);
+            @include adapPage(left, -2);
             z-index: 0;
-            transition: all 0.3s linear;
+            transition: height 0.3s linear;
             background-color: var(--orange);
             background-clip: border-box;
         }
@@ -202,21 +211,16 @@
             }
 
             &::before {
-                height: 180px;
+                @include adapPage(height, 180);
             }
-        }
-
-        &-empty {
-            width: 150px;
-            height: 150px;
         }
 
         &-text {
             width: 100%;
-            @include adap(font-size, 24, 24, 24, 22, 18);
+            @include adapPage(font-size, 24);
             color: var(--grey);
             font-weight: 500;
-            padding: 10px;
+            @include adapPage(padding, 10);
             line-height: 130%;
             text-align: center;
             transition: all linear 0.3s;
@@ -234,8 +238,8 @@
     }
 
     &__line-1 {
-        height: 5px;
-        width: 205px;
+        @include adapPage(height, 5);
+        @include adapPage(width, 205);
         bottom: 0;
         left: 0;
         transform-origin: left center;
@@ -243,30 +247,30 @@
     }
 
     &__line-2 {
-        height: 5px;
-        width: 205px;
+        @include adapPage(height, 5);
+        @include adapPage(width, 205);
         bottom: 0;
-        right: 15px;
+        @include adapPage(right, 15);
         transform-origin: right center;
         transform: rotateZ(45deg);
     }
     &__line-3 {
-        height: 900px;
-        width: 5px;
-        bottom: 145px;
-        right: 155px;
+        @include adapPage(height, 1440);
+        @include adapPage(width, 5);
+        @include adapPage(bottom, 145);
+        @include adapPage(right, 155);
     }
     &__line-4 {
-        height: 900px;
-        width: 5px;
-        bottom: 145px;
-        left: 140px;
+        @include adapPage(height, 1440);
+        @include adapPage(width, 5);
+        @include adapPage(bottom, 145);
+        @include adapPage(left, 140);
     }
     &__line-5 {
-        height: 5px;
-        width: 1615px;
-        bottom: 145px;
-        left: 140px;
+        @include adapPage(height, 5);
+        width: calc((1620/1920) * 100vw);
+        @include adapPage(bottom, 145);
+        @include adapPage(left, 140);
     }
 }
 

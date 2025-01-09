@@ -27,15 +27,16 @@
         border-top: 3px solid var(--grey);
         border-right: 3px solid var(--grey);
         border-bottom: 3px solid var(--grey);
-        border-top-right-radius: 60px;
-        border-bottom-right-radius: 60px;
+        @include adapPage(border-width, 3); 
+        @include adapPage(border-top-right-radius, 60);
+        @include adapPage(border-bottom-right-radius, 60);
         transition: all 0.2s linear;
         transform-origin: left center;
         background-color: rgba(255, 255, 255, 0.3);
         cursor: pointer;
     
         img {
-            height: 60px;
+            @include adapPage(height, 60);
             transform: rotateZ(180deg);
             filter: drop-shadow(0px 0px 1px var(--black));
         }
@@ -58,15 +59,16 @@
         border-top: 3px solid var(--grey);
         border-left: 3px solid var(--grey);
         border-bottom: 3px solid var(--grey);
-        border-top-left-radius: 60px;
-        border-bottom-left-radius: 60px;
+        @include adapPage(border-width, 3); 
+        @include adapPage(border-top-left-radius, 60);
+        @include adapPage(border-bottom-left-radius, 60);
         transition: all 0.2s linear;
         transform-origin: right center;
         background-color: rgba(255, 255, 255, 0.3);
         cursor: pointer;
 
         img {
-            height: 60px;
+            @include adapPage(height, 60);
             filter: drop-shadow(0px 0px 1px var(--black));
         }
     }

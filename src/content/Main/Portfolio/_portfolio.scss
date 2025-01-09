@@ -50,6 +50,7 @@
     }
 
     &__name {
+        max-width: 135px;
         display: inline-block;
         height: 90px;
         width: max-content;
@@ -63,9 +64,12 @@
         border-bottom: 0px;
         background-color: var(--black);
         position: relative;
-        left: -30%;
-        transform: translateX(50%);
+        // left: -30%;
+        // transform: translateX(50%);
         top: 10%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         box-shadow: 0 3px 7px 3px var(--black);
         transition: top 0.15s linear, color 0.15s linear, box-shadow 0.15s linear;
         cursor: pointer;
@@ -86,7 +90,7 @@
         padding: 20px;
         border-radius: 30px;
         border-top-left-radius: 0px;
-        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
         border: 3px solid var(--grey);
         box-shadow: 0 3px 7px 3px var(--black);
         background-color: var(--black);
@@ -134,6 +138,14 @@
             cursor: default;
         }
 
+        &-name {
+            margin-bottom: 10px;
+            font-size: 36px;
+            line-height: 130%;
+            font-weight: 500;
+            color: var(--orange);
+        }
+
         &-descr {
             font-size: 24px;
             line-height: 130%;
@@ -175,6 +187,7 @@
             font-size: 20px;
             line-height: 150%;
             color: var(--white);
+            list-style: disc inside;
         }
 
         &-button {

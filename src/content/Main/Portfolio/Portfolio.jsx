@@ -6,7 +6,26 @@ import { SwiperSlide } from "swiper/react";
 const items = [
     {
         id: "0",
-        name: "Chef kitchen",
+        name: "Laboratory",
+        tags: ["js", "sass", "pug"],
+        description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
+        img: {
+            src: "./img/Portfolio/laboratory.png",
+            alt: "Обложка сайта из портфолио",
+        },
+        list: [
+            "Одностраничный сайт",
+            "Адаптивный сайт под разные устройства",
+            "Использование методологии BEM",
+            "Оптимизация изображений и загрузки сайта",
+            "Работа с элементами таблицы",
+            "Анимации отображения различных элементов",
+        ],
+        link: "https://laboratory-sigma.vercel.app/",
+    },
+    {
+        id: "1",
+        name: "Chef Kitchen",
         tags: ["react", "redux", "sass"],
         description: "Доставка еды по городу из готового меню на несколько дней с выбором количества калорий на каждый день.",
         img: {
@@ -27,7 +46,7 @@ const items = [
         link: "https://zefry7.github.io/food-delivery/",
     },
     {
-        id: "1",
+        id: "2",
         name: "Столярная мастерская",
         tags: ["react", "sass"],
         description: "Столярная мастерская, предоставляющая услуги по производству и реставрации мебели.",
@@ -47,8 +66,27 @@ const items = [
         link: "https://zefry7.github.io/furniture-restoration/",
     },
     {
-        id: "2",
-        name: "INTERIOR DESIGN",
+        id: "3",
+        name: "Digital Project",
+        tags: ["js", "sass", "pug"],
+        description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
+        img: {
+            src: "./img/Portfolio/digital-project.png",
+            alt: "Обложка сайта из портфолио",
+        },
+        list: [
+            "Одностраничный сайт",
+            "Адаптивный сайт под разные устройства",
+            "Использование методологии BEM",
+            "Оптимизация изображений и загрузки сайта",
+            "Работа с элементами таблицы",
+            "Анимации отображения различных элементов",
+        ],
+        link: "https://zefry7.github.io/interior-design/",
+    },
+    {
+        id: "4",
+        name: "Interior Design",
         tags: ["js", "sass", "pug"],
         description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
         img: {
@@ -98,6 +136,7 @@ function Portfolio() {
                                     </span>
                                 ))}
                             </div>
+                            <h2 className="portfolio__project-name">{items[activeProject].name}</h2>
                             <p className="portfolio__project-descr">{items[activeProject].description}</p>
                         </div>
                     </div>
@@ -105,13 +144,13 @@ function Portfolio() {
                 <div className="portfolio__column">
                     <div className="portfolio__info">
                         <h3 className="portfolio__info-title">Описание</h3>
-                        <div className="portfolio__info-list">
+                        <ul className="portfolio__info-list">
                             {items[activeProject]?.list.map((v, i) => (
-                                <p className="portfolio__info-line" key={i}>
+                                <li className="portfolio__info-line" key={i}>
                                     {v}
-                                </p>
+                                </li>
                             ))}
-                        </div>
+                        </ul>
                         <a href={items[activeProject].link} target="_blank" className="portfolio__info-button">
                             Открыть сайт
                         </a>

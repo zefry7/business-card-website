@@ -8,9 +8,12 @@
 
     &__content {
         margin: 0 auto;
-        max-width: 1440px;
+        @include adapPage(max-width, 1440);
         height: 100%;
-        padding: 50px 80px;
+        @include adapPage(padding-left, 80);
+        @include adapPage(padding-right, 80);
+        @include adapPage(padding-top, 50);
+        @include adapPage(padding-bottom, 50);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -18,66 +21,66 @@
     }
     &__title {
         font-family: "pixy";
-        font-size: 130px;
+        @include adapPage(font-size, 130);
         text-transform: uppercase;
-        margin-bottom: 10px;
+        @include adapPage(margin-bottom, 10);
         text-align: center;
         color: var(--white);
         font-weight: 500;
         text-shadow: 3px 3px 5px var(--black);
+
         &::before,
         &::after {
             border-color: var(--bg-black);
         }
     }
     &__description {
-        max-width: 560px;
-        @include adap(margin-bottom, 30, 30, 30, 30, 20);
+        @include adapPage(max-width, 560);
+        @include adapPage(margin-bottom, 30);
         text-align: center;
-        font-size: 24px;
+        @include adapPage(font-size, 24);
         line-height: 130%;
         font-weight: 500;
         color: var(--black);
     }
     &__wrapper-form {
         margin: 0 auto;
-        max-width: 660px;
+        @include adapPage(max-width, 660);
         width: 100%;
     }
     &__form {
         display: flex;
-        @include adap(gap, 20, 20, 20, 20, 10);
+        @include adapPage(gap, 20);
         flex-direction: column;
         input, textarea { 
-            font-size: 20px;
-            border: 1px solid var(--text-grey);
-            border-radius: 10px;
+            @include adapPage(font-size, 20);
+            @include adapPage(border-radius, 10);
         }
         &-name,
         &-email {
             height: max-content;
-            @include adap(padding, 15, 15, 15, 15, 10);
+            @include adapPage(padding, 15);
             box-shadow: 3px 3px 5px var(--black);
         }
         &-submit {
-            height: 40px;
+            @include adapPage(height, 40);
             box-shadow: 3px 3px 5px var(--black);
         }
         &-description {
             resize: none;
-            @include adap(padding, 15, 15, 15, 15, 10);
+            @include adapPage(padding, 15);
             box-shadow: 3px 3px 5px var(--black);
-            height: 250px;
+            @include adapPage(height, 250);
         }
         & textarea::placeholder,
         & input::placeholder {
-            @include adap(font-size, 16, 16, 16, 16, 14);
+            @include adapPage(font-size, 16);
         }
 
         &-submit {
-            height: 60px;
-            font-size: 20px;
-            border-radius: 10px;
+            @include adapPage(height, 60);
+            @include adapPage(font-size, 20);
+            @include adapPage(border-radius, 10);
             color: var(--white);
             background-color: var(--black);
             transition: transform 0.2s linear;
@@ -90,11 +93,11 @@
     }
 
     &__error {
-        padding-left: 10px;
-        height: 20px;
+        @include adapPage(padding-left, 10);
+        @include adapPage(height, 20);
         width: max-content;
         color: red;
-        font-size: 20px;
+        @include adapPage(font-size, 20);
         display: inline-block;
         transition: all 0.2s linear;
     }
