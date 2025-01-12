@@ -6,6 +6,45 @@
     right: calc((var(--page) - 1) * 100vw);
     transition: right 0.3s linear;
 
+    &_active {
+
+        .contact__title {
+            transform: translateX(0);
+            opacity: 1;
+            transition: opacity 0.5s ease-out 0.5s, transform 0.5s ease-out 0.5s;
+        }
+
+        .contact__description {
+            transform: translateX(0);
+            opacity: 1;
+            transition: opacity 0.5s ease-out 0.5s, transform 0.5s ease-out 0.5s;
+        }
+
+        .contact__form-name {
+            transform: rotateZ(0deg);
+            opacity: 1;
+            transition: opacity 0.5s ease-out 0.3s, transform 0.5s ease-out 0.3s;
+        }
+
+        .contact__form-email {
+            transform: rotateZ(0deg);
+            opacity: 1;
+            transition: opacity 0.5s ease-out 0.3s, transform 0.5s ease-out 0.3s;
+        }
+
+        .contact__form-description {
+            transform: translateY(0);
+            opacity: 1;
+            transition: opacity 0.5s ease-out 0.3s, transform 0.5s ease-out 0.3s;
+        }
+
+        .contact__form-submit {
+            transform: scale(1);
+            opacity: 1;
+            transition: opacity 0.5s ease-out 0.5s, transform 0.5s ease-out 0.5s;
+        }
+    }
+
     &__content {
         margin: 0 auto;
         @include adapPage(max-width, 1440);
@@ -28,6 +67,8 @@
         color: var(--white);
         font-weight: 500;
         text-shadow: 3px 3px 5px var(--black);
+        transform: translateX(-300px);
+        opacity: 0;
 
         &::before,
         &::after {
@@ -42,6 +83,8 @@
         line-height: 130%;
         font-weight: 500;
         color: var(--black);
+        transform: translateX(300px);
+        opacity: 0;
     }
     &__wrapper-form {
         margin: 0 auto;
@@ -56,11 +99,21 @@
             @include adapPage(font-size, 20);
             @include adapPage(border-radius, 10);
         }
-        &-name,
+        &-name {
+            height: max-content;
+            @include adapPage(padding, 15);
+            box-shadow: 3px 3px 5px var(--black);
+            transform: rotateZ(-90deg);
+            transform-origin: left center;  
+            opacity: 0;
+        }
         &-email {
             height: max-content;
             @include adapPage(padding, 15);
             box-shadow: 3px 3px 5px var(--black);
+            transform: rotateZ(-90deg);
+            transform-origin: right center;
+            opacity: 0;
         }
         &-submit {
             @include adapPage(height, 40);
@@ -71,6 +124,8 @@
             @include adapPage(padding, 15);
             box-shadow: 3px 3px 5px var(--black);
             @include adapPage(height, 250);
+            transform: translateY(150px);
+            opacity: 0;
         }
         & textarea::placeholder,
         & input::placeholder {
@@ -83,11 +138,13 @@
             @include adapPage(border-radius, 10);
             color: var(--white);
             background-color: var(--black);
-            transition: transform 0.2s linear;
             text-transform: uppercase;
+            transform: scale(0.0001);
+            opacity: 0;
 
             &:active {
                 transform: translateY(5px);
+                transition: transform 0.2s linear;
             }
         }
     }

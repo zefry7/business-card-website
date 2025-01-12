@@ -29,8 +29,8 @@ function MainPage() {
         <>
             {lockContent == false ? (
                 <WrapperSwiper handleNextPage={handleNextPage}>
-                    <About page={page} />
-                    <Skills page={page} />
+                    <About />
+                    <Skills />
                     <Portfolio />
                     <Contact />
                 </WrapperSwiper>

@@ -45,3 +45,9 @@ $DESKTOP: 1280;
 @mixin adapPage($prop, $v) {
     #{$prop}: min(calc(($v/$MAX-WIDTH) * 100vw), calc(($v/$MAX-HEIGHT) * 100vh));
 }
+
+@mixin adapTransform($prop, $v) {
+    @if $prop == "translateY" {
+        transform: translateY(min(calc(($v/$MAX-WIDTH) * 100vw), calc(($v/$MAX-HEIGHT) * 100vh)));
+    }
+}

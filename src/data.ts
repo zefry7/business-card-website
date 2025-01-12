@@ -1,25 +1,4 @@
 export const data = {
-  header: {
-    logo: "",
-    nav: [
-      {
-        text: "О себе",
-        dataSection: "about",
-      },
-      {
-        text: "Навыки",
-        dataSection: "skills",
-      },
-      {
-        text: "Портфолио",
-        dataSection: "portfolio",
-      },
-      {
-        text: "Контакты",
-        dataSection: "contact",
-      },
-    ],
-  },
   about: {
     title: "О себе",
     text: [
@@ -147,27 +126,5 @@ export const data = {
         },
       },
     ],
-  },
-  contact: {
-    title: "Контакты",
-    description:
-      "Если у Вас есть предложения или вопросы, то Вы можете оставить своё сообщение.",
-    name: {
-      type: "text",
-      name: "name",
-      placeholder: "Ваше имя...",
-    },
-    email: {
-      type: "email",
-      name: "email",
-      placeholder: "Ваш email...",
-    },
-    textarea: {
-      name: "description",
-      placeholder: "Ваше сообщение...",
-    },
-    button: {
-      text: "Отправить",
-    },
-  },
+  }
 };

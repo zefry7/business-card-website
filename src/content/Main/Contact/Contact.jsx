@@ -1,18 +1,30 @@
-import React, { useCallback, useContext, useRef, useState } from "react";
-import { DataContext } from "../../..";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const KEY_EMAIL = "019f267d-73c2-48b0-a2c5-b0c37e769e28";
 
 export default function Contact() {
-    const data = useContext(DataContext)?.contact;
     const page = useSelector((state) => state.globalReducer.page);
-    const [error, setError] = useState(false)
+    const [error, setError] = useState(false);
     const buttonSubmit = useRef();
+    const [active, setActive] = useState(page);
+    const refTimeout = useRef()
+
+    useEffect(() => {
+        if (page == 4) {
+            setActive(page);
+        } else {
+            refTimeout.current = setTimeout(() => {
+                setActive(page);
+            }, 300);
+        }
+
+        return () => clearTimeout(refTimeout.current)
+    }, [page]);
 
     const sendingEmail = async (event) => {
         event.preventDefault();
-        setError(false)
+        setError(false);
         const formData = new FormData(event.target);
 
         if (changeInputEmail(formData.get("email"))) {
@@ -27,13 +39,15 @@ export default function Contact() {
                     Accept: "application/json",
                 },
                 body: JSON.stringify(object),
-            }).then(() => {
-                alert("Сообщение отправлено!")
-                event.target.reset()
-            }).catch(() => {
-                alert("Возникла ошибка!")
             })
-        } 
+                .then(() => {
+                    alert("Сообщение отправлено!");
+                    event.target.reset();
+                })
+                .catch(() => {
+                    alert("Возникла ошибка!");
+                });
+        }
     };
 
     const changeInputName = useCallback((e) => {
@@ -51,44 +65,44 @@ export default function Contact() {
         if (reg.test(value)) {
             return true;
         }
-        setError(true)
+        setError(true);
         return false;
     }, []);
 
     return (
-        <section className="contact" id="contact" style={{ "--page": page }}>
+        <section className={"contact" + (active == 4 ? " contact_active" : "")} id="contact" style={{ "--page": page }}>
             <div className="contact__content">
-                <h2 className="contact__title">{data?.title}</h2>
-                <p className="contact__description">{data?.description}</p>
+                <h2 className="contact__title">Контакты</h2>
+                <p className="contact__description">Если у Вас есть предложения или вопросы, то Вы можете оставить своё сообщение.</p>
                 <div className="contact__wrapper-form">
                     <form className="contact__form" onSubmit={sendingEmail}>
                         <input
-                            type={data?.name?.type}
-                            name={data?.name?.name}
+                            type="text"
+                            name="name"
                             className="contact__form-name"
-                            placeholder={data?.name?.placeholder}
+                            placeholder="Ваше имя..."
                             onChange={changeInputName}
                             aria-description="Для имени"
                             required
                         />
                         <input
-                            type={data?.email?.type}
-                            name={data?.email?.name}
+                            type="email"
+                            name="email"
                             className="contact__form-email"
-                            placeholder={data?.email?.placeholder}
+                            placeholder="Ваша почта..."
                             aria-description="Для почты"
                             required
                         />
                         <textarea
-                            name={data?.textarea?.name}
+                            name="description"
                             className="contact__form-description"
-                            placeholder={data?.textarea?.placeholder}
+                            placeholder="Ваше сообщение..."
                             aria-description="Для сообщения"
                             required
                         ></textarea>
                         <p className="contact__error">{error == true && "*Неправильно указана почта"}</p>
                         <button type="submit" className="contact__form-submit" ref={buttonSubmit}>
-                            {data?.button?.text}
+                            Отправить
                         </button>
                     </form>
                 </div>

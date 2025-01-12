@@ -8,14 +8,13 @@ function WrapperSwiper({ children, handleNextPage }) {
 
     useEffect(() => {
         const handleKeyDown = (e) => {
-            if(e.keyCode == 37 || e.keyCode == 65) {
+            if((e.keyCode == 37 || e.keyCode == 65) && document.activeElement == document.body) {
                 handleClickArrow("prev-page")
-            }else if(e.keyCode == 39 || e.keyCode == 68) {
+            }else if((e.keyCode == 39 || e.keyCode == 68) && document.activeElement == document.body) {
                 handleClickArrow("next-page")
             }
         }
         
-
         window.addEventListener("keydown", handleKeyDown)
 
         return () => window.removeEventListener("keydown", handleKeyDown)

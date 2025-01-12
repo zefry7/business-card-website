@@ -6,6 +6,52 @@
   right: calc((var(--page) - 1) * 100vw);
   transition: right 0.3s linear;
 
+  &_active {
+    .about__name {
+      transform: translateY(0px);
+      opacity: 1;
+      transition: transform 0.5s ease-out 0.3s, opacity 0.5s ease-out 0.3s;
+    }
+
+    .about__title {
+      transform: translateX(0px);
+      opacity: 1;
+      transition: transform 0.5s ease-out 0.3s, opacity 0.5s ease-out 0.3s;
+    }
+
+    .about__social {
+      transform: scale(1);
+      opacity: 1;
+      transition: transform 0.3s ease-out 0.3s, opacity 0.5s ease-out 0.3s, box-shadow 0.15s linear;
+    }
+
+    .about__auth {
+      transform: scale(1);
+      opacity: 1;
+      transition: transform 0.5s ease-out 0.3s, opacity 0.5s ease-out 0.3s;
+    }
+
+    .about__auth-cloud {
+      &::after {
+        animation: fly 3s linear 0.8s infinite;
+        transform: scale(1);
+        opacity: 1;
+        transition: transform 0.5s ease-out 0.3s, opacity 0.5s ease-out 0.3s;
+      }
+    }
+
+    .about__descr {
+      transform: translateX(0);
+      opacity: 1;
+      transition: transform 0.5s ease-out 0.3s, opacity 0.5s ease-out 0.3s;
+    }
+
+    .about__achiev {
+      opacity: 1;
+      transition: left 0.15s linear, bottom 0.15s linear, z-index 0.15s linear, opacity 0.3s ease-out 0.8s;
+    }
+  }
+
   &__content {
     @include adapPage(max-width, 1440);
     margin: 0 auto;
@@ -28,6 +74,8 @@
     @include adapPage(line-height, 90);
     text-shadow: 0px 3px 10px black;
     color: var(--orange);
+    transform: translateY(-150px);
+    opacity: 0;
 
     span {
       color: var(--white);
@@ -51,6 +99,8 @@
     text-transform: uppercase;
     text-shadow: 3px 3px 5px var(--black);
     color: var(--orange);
+    transform: translateX(-200px);
+    opacity: 0;
   }
 
   &__auth {
@@ -58,6 +108,8 @@
     @include adapPage(margin-bottom, 100);
     position: relative;
     cursor: pointer;
+    transform: scale(0.001);
+    opacity: 0;
 
     &:hover {
       .about__auth-img {
@@ -76,6 +128,7 @@
     }
 
     &-cloud {
+
       &::after {
         content: "«Кнопки сами себя не спроектируют!»";
         display: inline-block;
@@ -91,6 +144,8 @@
         @include adapPage(padding-left, 50);
         @include adapPage(font-size, 27);
         line-height: 130%;
+        transform: scale(0.001);
+        opacity: 0;
       }
     }
 
@@ -161,7 +216,9 @@
     box-shadow: 0 3px 7px 3px var(--black);
     background-color: var(--black);
     cursor: pointer;
-
+    transform: translateX(300px);
+    opacity: 0;
+    
     & * {
       cursor: pointer;
     }
@@ -198,8 +255,8 @@
     @include adapPage(border-width, 3);
     box-shadow: 0 3px 7px 3px var(--black);
     background-color: var(--black);
-    transition: left 0.15s linear, bottom 0.15s linear, z-index 0.15s linear;
     cursor: pointer;
+    opacity: 0;
 
     & * {
       cursor: pointer;
@@ -236,13 +293,15 @@
     @include adapPage(width, 90);
     @include adapPage(height, 90);
     @include adapPage(border-radius, 17);
-    transition: transform 0.15s linear, box-shadow 0.15s linear;
     cursor: pointer;
     position: relative;
-    
+    transform: scale(0.001);
+    opacity: 0;
+
     &:hover {
         transform: scale(0.95);
         box-shadow: 0 0px 10px 3px var(--white);
+        transition: transform 0.15s linear, box-shadow 0.15s linear;
     }
 
     a {
@@ -269,5 +328,24 @@
         max-width: 100%;
         height: auto;
     }
+  }
+}
+
+
+@keyframes fly {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    @include adapTransform(translateY, 8)
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    @include adapTransform(translateY, -8)
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

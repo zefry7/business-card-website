@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { DataContext } from "../../..";
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 
 const links = [
     {
@@ -25,15 +25,30 @@ const links = [
     },
 ];
 
-export default function About({ page }) {
+export default function About() {
     const [hoverAuth, setHoverAuth] = useState("inactive");
+    const page = useSelector((state) => state.globalReducer.page);
+    const [active, setActive] = useState();
+    const refTimeout = useRef()
+
+    useEffect(() => {
+        if (page == 1) {
+            setActive(page);
+        } else {
+            refTimeout.current = setTimeout(() => {
+                setActive(page);
+            }, 300);
+        }
+
+        return () => clearTimeout(refTimeout.current)
+    }, [page]);
 
     const handleHoverAuth = (value) => {
         setHoverAuth(value);
     };
 
     return (
-        <section className="about" style={{ "--page": page }}>
+        <section className={"about" + (active == 1 ? " about_active" : "")} style={{ "--page": page }}>
             <div className="about__content">
                 <h1 className="about__name">
                     Frontend <span>разработчик</span>
