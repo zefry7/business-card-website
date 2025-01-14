@@ -477,7 +477,7 @@ select {
   z-index: 2;
   width: min(31.25vw, 46.875vh);
   height: min(39.5833333333vw, 59.375vh);
-  padding: min(2.7777777778vw, 4.1666666667vh);
+  padding: min(2.0833333333vw, 3.125vh);
   border-radius: min(2.0833333333vw, 3.125vh);
   border: 3px solid var(--grey);
   border-width: min(0.2083333333vw, 0.3125vh);
@@ -504,8 +504,9 @@ select {
 .about__descr-text {
   text-indent: 1ch;
   font-size: min(1.3888888889vw, 2.0833333333vh);
-  line-height: 150%;
+  line-height: 130%;
   color: var(--white);
+  word-break: keep-all;
 }
 .about__achiev {
   position: absolute;
@@ -514,7 +515,7 @@ select {
   left: min(-3.4722222222vw, -5.2083333333vh);
   width: min(31.25vw, 46.875vh);
   height: min(39.5833333333vw, 59.375vh);
-  padding: min(2.7777777778vw, 4.1666666667vh);
+  padding: min(2.0833333333vw, 3.125vh);
   border-radius: min(2.0833333333vw, 3.125vh);
   border: 3px solid var(--grey);
   border-width: min(0.2083333333vw, 0.3125vh);
@@ -537,11 +538,16 @@ select {
   border-bottom: 3px solid var(--orange);
   border-bottom-width: min(0.2083333333vw, 0.3125vh);
 }
+.about__achiev-list {
+  display: flex;
+  flex-direction: column;
+  gap: min(0.3472222222vw, 0.5208333333vh);
+}
 .about__achiev-text {
   list-style-type: square;
   list-style-position: inside;
   font-size: min(1.3888888889vw, 2.0833333333vh);
-  line-height: 150%;
+  line-height: 130%;
   color: var(--white);
 }
 .about__links {

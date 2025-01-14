@@ -25,11 +25,20 @@ const links = [
     },
 ];
 
+const achiev = [
+    "Самостоятельно обучился веб-разработке и её аспектам.",
+    "Участвовал во всероссийском акселераторе “Цифра” и занял с командой 3 место в рамках хакатона.",
+    "Успешно прошёл интенсив по React от компании YLab Development.",
+    "Решил более 700 задач различной сложности на LeetCode.",
+    "Работал с различными бэкенд-разработчиками и дизайнерами.",
+    "Работал по методологии Kanban.",
+];
+
 export default function About() {
     const [hoverAuth, setHoverAuth] = useState("inactive");
     const page = useSelector((state) => state.globalReducer.page);
     const [active, setActive] = useState();
-    const refTimeout = useRef()
+    const refTimeout = useRef();
 
     useEffect(() => {
         if (page === 1) {
@@ -40,7 +49,7 @@ export default function About() {
             }, 300);
         }
 
-        return () => clearTimeout(refTimeout.current)
+        return () => clearTimeout(refTimeout.current);
     }, [page]);
 
     const handleHoverAuth = (value) => {
@@ -55,7 +64,7 @@ export default function About() {
                 </h1>
                 <div className="about__column">
                     <div
-                        className={`about__auth about__auth_${hoverAuth}`} 
+                        className={`about__auth about__auth_${hoverAuth}`}
                         onMouseEnter={() => handleHoverAuth("active")}
                         onMouseLeave={() => handleHoverAuth("inactive")}
                     >
@@ -83,34 +92,29 @@ export default function About() {
                     <div className="about__info">
                         <div className="about__descr">
                             <h3 className="about__descr-title">Кто? Что? Почему?</h3>
-                            <p className="about__descr-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolor fugit porro exercitationem expedita
-                                vero labore aliquid odit dicta ab.
-                            </p>
-                            <p className="about__descr-text">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam eligendi natus voluptatibus eveniet, illum
-                                nam.
-                            </p>
-                            <p className="about__descr-text">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum cum neque modi, doloribus porro labore
-                                quidem eaque maiores ex placeat.
-                            </p>
+                            <div className="about__descr-list">
+                                <p className="about__descr-text">
+                                    Я – веб-разработчик, который ценит командную работу и стремится создавать качественный, адаптивный и
+                                    интуитивно понятный продукт.
+                                </p>
+                                <p className="about__descr-text">
+                                    Специализируюсь на React и всё, что с ним связано, так как он для меня удобен и идейно понятен в
+                                    разработке.
+                                </p>
+                                <p className="about__descr-text">
+                                    Мне нравится создавать проекты с индивидуальным и креативным подходом и писать код, выполнение которого
+                                    моментально отображается на экране, позволяя мне видеть результат своей работы.
+                                </p>
+                            </div>
                         </div>
                         <div className="about__achiev">
                             <h3 className="about__achiev-title">Достижения</h3>
-                            <ul>
-                                <li className="about__achiev-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, in.
-                                </li>
-                                <li className="about__achiev-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, doloribus.
-                                </li>
-                                <li className="about__achiev-text">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, alias!
-                                </li>
-                                <li className="about__achiev-text">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, ipsa.
-                                </li>
+                            <ul className="about__achiev-list">
+                                {achiev.map((v, i) => (
+                                    <li className="about__achiev-text" key={i}>
+                                        {v}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>

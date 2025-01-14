@@ -209,7 +209,7 @@
     z-index: 2;
     @include adapPage(width, 450);
     @include adapPage(height, 570);
-    @include adapPage(padding, 40);
+    @include adapPage(padding, 30);
     @include adapPage(border-radius, 30);
     border: 3px solid var(--grey);
     @include adapPage(border-width, 3);
@@ -234,11 +234,14 @@
       border-bottom: 3px solid var(--orange);
       @include adapPage(border-bottom-width, 3);
     }
+
+
     &-text {
       text-indent: 1ch;
       @include adapPage(font-size, 20);
-      line-height: 150%;
+      line-height: 130%;
       color: var(--white);
+      word-break: keep-all;
     }
   }
 
@@ -249,7 +252,7 @@
     @include adapPage(left, -50);
     @include adapPage(width, 450);
     @include adapPage(height, 570);
-    @include adapPage(padding, 40);
+    @include adapPage(padding, 30);
     @include adapPage(border-radius, 30);
     border: 3px solid var(--grey);
     @include adapPage(border-width, 3);
@@ -273,11 +276,18 @@
       border-bottom: 3px solid var(--orange);
       @include adapPage(border-bottom-width, 3);
     }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      @include adapPage(gap, 5);
+    }
+
     &-text {
       list-style-type: square;
       list-style-position: inside;
       @include adapPage(font-size, 20);
-      line-height: 150%;
+      line-height: 130%;
       color: var(--white);
     }
   }

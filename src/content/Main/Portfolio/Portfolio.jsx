@@ -1,48 +1,45 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
-
 const items = [
     {
         id: "0",
-        name: "Laboratory",
-        tags: ["js", "sass", "pug"],
-        description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
+        name: "Лаборатория",
+        tags: ["React", "ts", "redux", "Tailwind"],
+        description: "Сайт-лаборатория с личными разработками различных идей и задумок.",
         img: {
             src: "./img/Portfolio/laboratory.png",
             alt: "Обложка сайта из портфолио",
         },
         list: [
             "Одностраничный сайт",
-            "Адаптивный сайт под разные устройства",
-            "Использование методологии BEM",
-            "Оптимизация изображений и загрузки сайта",
-            "Работа с элементами таблицы",
-            "Анимации отображения различных элементов",
+            "Работа с Canvas",
+            "Добавлен Prettier для единого стиля кода",
+            "Добавлен Autoprefixer для стилей CSS",
+            "Анимации отображения элементов",
         ],
         link: "https://laboratory-sigma.vercel.app/",
     },
     {
         id: "1",
-        name: "Chef Kitchen",
-        tags: ["react", "redux", "sass"],
-        description: "Доставка еды по городу из готового меню на несколько дней с выбором количества калорий на каждый день.",
+        name: "Digital Project",
+        tags: ["React", "ts", "tailwind", "webpack"],
+        description: "Сайт строительной компании с примерами работ различных масштабов.",
         img: {
-            src: "./img/Portfolio/food-delivery-screen.webp",
+            src: "./img/Portfolio/digital-project.png",
             alt: "Обложка сайта из портфолио",
         },
         list: [
-            "Одностраничный сайт",
+            "Многостраничный сайт",
+            "Оптимизирован на 100 по каждому значению",
             "Адаптивный сайт под разные устройства",
-            "Использование методологии BEM",
-            "Покомпонентная разработка",
-            "Оптимизация изображений и загрузки сайта",
-            "Работа со слайдером Swiper",
-            "Эффект параллакса у декоративных элементов",
-            "Анимации отображения различных элементов",
-            "Добавлена карта от Яндекса",
+            "Использован lazy для загрузки страниц",
+            "Собственная конфигурация для Webpack",
+            "Работа с React Router",
+            "Работа с картой от Яндекса",
+            "Анимации отображения элементов",
         ],
-        link: "https://zefry7.github.io/food-delivery/",
+        link: "https://zefry7-digital-project.vercel.app/",
     },
     {
         id: "2",
@@ -55,22 +52,22 @@ const items = [
         },
         list: [
             "Многостраничный сайт",
+            "Оптимизирован на 100 по каждому значению",
             "Адаптивный сайт под разные устройства",
-            "Покомпонентная разработка",
             "Использование методологии BEM",
-            "Оптимизация изображений и загрузки сайта",
+            "Работа с React Router",
             "Работа со слайдером Swiper",
-            "Анимации отображения различных элементов",
+            "Анимации отображения элементов",
         ],
         link: "https://zefry7.github.io/furniture-restoration/",
     },
     {
         id: "3",
-        name: "Digital Project",
-        tags: ["js", "sass", "pug"],
-        description: "Сайт команды дизайнеров интерьера с примерами готовых работ и расценками предоставляемых услуг.",
+        name: "Chef Kitchen",
+        tags: ["react", "redux", "sass"],
+        description: "Доставка еды по городу из готового меню на несколько дней с возможностью выбора еды на каждый день.",
         img: {
-            src: "./img/Portfolio/digital-project.png",
+            src: "./img/Portfolio/food-delivery-screen.webp",
             alt: "Обложка сайта из портфолио",
         },
         list: [
@@ -78,10 +75,12 @@ const items = [
             "Адаптивный сайт под разные устройства",
             "Использование методологии BEM",
             "Оптимизация изображений и загрузки сайта",
-            "Работа с элементами таблицы",
-            "Анимации отображения различных элементов",
+            "Работа со слайдером Swiper",
+            "Работа с картой от Яндекса",
+            "Эффект параллакса у элементов",
+            "Анимации отображения элементов",
         ],
-        link: "https://zefry7.github.io/interior-design/",
+        link: "https://zefry7.github.io/food-delivery/",
     },
     {
         id: "4",
@@ -98,7 +97,7 @@ const items = [
             "Использование методологии BEM",
             "Оптимизация изображений и загрузки сайта",
             "Работа с элементами таблицы",
-            "Анимации отображения различных элементов",
+            "Анимации отображения элементов",
         ],
         link: "https://zefry7.github.io/interior-design/",
     },
@@ -108,7 +107,7 @@ function Portfolio() {
     const page = useSelector((state) => state.globalReducer.page);
     const [activeProject, setActiveProject] = useState(0);
     const [active, setActive] = useState();
-    const refTimeout = useRef()
+    const refTimeout = useRef();
 
     useEffect(() => {
         if (page === 3) {
@@ -119,9 +118,8 @@ function Portfolio() {
             }, 300);
         }
 
-        return () => clearTimeout(refTimeout.current)
+        return () => clearTimeout(refTimeout.current);
     }, [page]);
-
 
     return (
         <section className={"portfolio" + (active === 3 ? " portfolio_active" : "")} id="portfolio" style={{ "--page": page }}>
