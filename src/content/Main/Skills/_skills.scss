@@ -12,16 +12,17 @@
 
         .skills__wrapper-item {
             transform: scale(1);
-            transition: transform 0.4s ease-in-out 0.4s;
+            transition: transform 0.3s ease-in-out 0.6s;
             opacity: 1;
         }
 
         .skills__banner {
-            transition: top 0.2s ease-out 0.5s, opacity 0.2s ease-out 0.5s;
+            transition: top 0.3s ease-out 0.3s, opacity 0.3s ease-out 0.3s;
         }
 
         .skills__line {
-            transition: opacity 0.5s ease-out 0.5s;
+            transition: opacity 0.5s ease-out 0.3s;
+            opacity: 1;
         }
 
         .scale-9 {
@@ -34,10 +35,6 @@
             transform: scale(0.8) !important;
             position: relative;
             @include adapPage(top, 28);
-        }
-
-        .skills__line {
-            opacity: 1;
         }
     }
 
@@ -67,7 +64,7 @@
         @include adapPage(border-radius, 20);
         width: max-content;
         background-color: var(--black);
-        box-shadow: 0px 0px 15px 5px var(--white);
+        @include adapBoxShadow(0, 0, 15, 5, var(--white));
         opacity: 0;
         
         &_active {

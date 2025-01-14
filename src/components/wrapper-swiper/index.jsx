@@ -6,11 +6,19 @@ function WrapperSwiper({ children, handleNextPage }) {
     const page = useSelector((state) => state.globalReducer.page);
     const [active, setActive] = useState(false);
 
+    const handleClickArrow = (typeName) => {
+        setActive(true)
+        handleNextPage(typeName)
+        setTimeout(() => {
+            setActive(false)
+        }, 500)
+    }
+
     useEffect(() => {
         const handleKeyDown = (e) => {
-            if((e.keyCode == 37 || e.keyCode == 65) && document.activeElement == document.body) {
+            if((e.keyCode === 37 || e.keyCode === 65) && document.activeElement === document.body) {
                 handleClickArrow("prev-page")
-            }else if((e.keyCode == 39 || e.keyCode == 68) && document.activeElement == document.body) {
+            }else if((e.keyCode === 39 || e.keyCode === 68) && document.activeElement === document.body) {
                 handleClickArrow("next-page")
             }
         }
@@ -20,21 +28,14 @@ function WrapperSwiper({ children, handleNextPage }) {
         return () => window.removeEventListener("keydown", handleKeyDown)
     }, [page])
     
-    const handleClickArrow = (typeName) => {
-        setActive(true)
-        handleNextPage(typeName)
-        setTimeout(() => {
-            setActive(false)
-        }, 500)
-    }
 
     return (
         <main className="wrapper-swiper">
             <div
                 className={
                     "wrapper-swiper__arrow-prev" +
-                    (active == true ? " wrapper-swiper__arrow_move" : "") +
-                    (page == 1 ? " wrapper-swiper__arrow_disibled" : "")
+                    (active === true ? " wrapper-swiper__arrow_move" : "") +
+                    (page === 1 ? " wrapper-swiper__arrow_disibled" : "")
                 }
                 onClick={() => handleClickArrow("prev-page")}
             >
@@ -44,8 +45,8 @@ function WrapperSwiper({ children, handleNextPage }) {
             <div
                 className={
                     "wrapper-swiper__arrow-next" +
-                    (active == true ? " wrapper-swiper__arrow_move" : "") +
-                    (page == 4 ? " wrapper-swiper__arrow_disibled" : "")
+                    (active === true ? " wrapper-swiper__arrow_move" : "") +
+                    (page === 4 ? " wrapper-swiper__arrow_disibled" : "")
                 }
                 onClick={() => handleClickArrow("next-page")}
             >

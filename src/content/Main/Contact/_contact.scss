@@ -66,7 +66,7 @@
         text-align: center;
         color: var(--white);
         font-weight: 500;
-        text-shadow: 3px 3px 5px var(--black);
+        @include adapTextShadow(3, 3, 5, var(--black));
         transform: translateX(-300px);
         opacity: 0;
 
@@ -102,7 +102,7 @@
         &-name {
             height: max-content;
             @include adapPage(padding, 15);
-            box-shadow: 3px 3px 5px var(--black);
+            @include adapBoxShadow(3, 3, 5, 0, var(--black));
             transform: rotateZ(-90deg);
             transform-origin: left center;  
             opacity: 0;
@@ -110,19 +110,19 @@
         &-email {
             height: max-content;
             @include adapPage(padding, 15);
-            box-shadow: 3px 3px 5px var(--black);
+            @include adapBoxShadow(3, 3, 5, 0, var(--black));
             transform: rotateZ(-90deg);
             transform-origin: right center;
             opacity: 0;
         }
         &-submit {
             @include adapPage(height, 40);
-            box-shadow: 3px 3px 5px var(--black);
+            @include adapBoxShadow(3, 3, 5, 0, var(--black));
         }
         &-description {
             resize: none;
             @include adapPage(padding, 15);
-            box-shadow: 3px 3px 5px var(--black);
+            @include adapBoxShadow(3, 3, 5, 0, var(--black));
             @include adapPage(height, 250);
             transform: translateY(150px);
             opacity: 0;

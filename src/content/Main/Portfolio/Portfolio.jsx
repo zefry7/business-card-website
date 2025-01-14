@@ -1,7 +1,6 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { DataContext } from "../../..";
-import { SwiperSlide } from "swiper/react";
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+
 
 const items = [
     {
@@ -108,15 +107,30 @@ const items = [
 function Portfolio() {
     const page = useSelector((state) => state.globalReducer.page);
     const [activeProject, setActiveProject] = useState(0);
+    const [active, setActive] = useState();
+    const refTimeout = useRef()
+
+    useEffect(() => {
+        if (page === 3) {
+            setActive(page);
+        } else {
+            refTimeout.current = setTimeout(() => {
+                setActive(page);
+            }, 300);
+        }
+
+        return () => clearTimeout(refTimeout.current)
+    }, [page]);
+
 
     return (
-        <section className={"portfolio" + (page == 2 ? " portfolio_active" : "")} id="portfolio" style={{ "--page": page }}>
+        <section className={"portfolio" + (active === 3 ? " portfolio_active" : "")} id="portfolio" style={{ "--page": page }}>
             <div className="portfolio__content">
                 <div className="portfolio__column">
                     <div className="portfolio__row">
                         {items.map((v, i) => (
                             <span
-                                className={activeProject == i ? "portfolio__name portfolio__name_active" : "portfolio__name"}
+                                className={activeProject === i ? "portfolio__name portfolio__name_active" : "portfolio__name"}
                                 key={i}
                                 onClick={() => setActiveProject(i)}
                             >
@@ -151,7 +165,7 @@ function Portfolio() {
                                 </li>
                             ))}
                         </ul>
-                        <a href={items[activeProject].link} target="_blank" className="portfolio__info-button">
+                        <a href={items[activeProject].link} target="_blank" rel="noreferrer" className="portfolio__info-button">
                             Открыть сайт
                         </a>
                     </div>

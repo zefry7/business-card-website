@@ -32,7 +32,7 @@ export default function About() {
     const refTimeout = useRef()
 
     useEffect(() => {
-        if (page == 1) {
+        if (page === 1) {
             setActive(page);
         } else {
             refTimeout.current = setTimeout(() => {
@@ -48,14 +48,14 @@ export default function About() {
     };
 
     return (
-        <section className={"about" + (active == 1 ? " about_active" : "")} style={{ "--page": page }}>
+        <section className={"about" + (active === 1 ? " about_active" : "")} style={{ "--page": page }}>
             <div className="about__content">
                 <h1 className="about__name">
                     Frontend <span>разработчик</span>
                 </h1>
                 <div className="about__column">
                     <div
-                        className={"about__auth " + `about__auth_${hoverAuth}`}
+                        className={`about__auth about__auth_${hoverAuth}`} 
                         onMouseEnter={() => handleHoverAuth("active")}
                         onMouseLeave={() => handleHoverAuth("inactive")}
                     >
@@ -74,7 +74,7 @@ export default function About() {
                     <ul className="about__links">
                         {links?.map((v, i) => (
                             <li className="about__social" key={i}>
-                                <a href={v?.url} target="_blank">
+                                <a href={v?.url} target="_blank" rel="noreferrer">
                                     <img src={v?.img?.src} alt={v?.img?.alt} />
                                 </a>
                             </li>

@@ -9,7 +9,7 @@ export default function Skills() {
     const refTimeout = useRef()
 
     useEffect(() => {
-        if (page == 2) {
+        if (page === 2) {
             setActive(page);
         } else {
             refTimeout.current = setTimeout(() => {
@@ -22,9 +22,9 @@ export default function Skills() {
 
 
     return (
-        <section className={"skills" + (active == 2 ? " skills_active" : "")} id="skills" style={{ "--page": page }}>
+        <section className={"skills" + (active === 2 ? " skills_active" : "")} id="skills" style={{ "--page": page }}>
             <div className={"skills__content"}>
-                <div className={"skills__banner" + (active == 2 ? " skills__banner_active" : "")}>
+                <div className={"skills__banner" + (active === 2 ? " skills__banner_active" : "")}>
                     <h2 className="skills__title">Навыки</h2>
                 </div>
                 <div className="skills__block skills__block_left">

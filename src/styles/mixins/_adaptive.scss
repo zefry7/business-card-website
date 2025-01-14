@@ -51,3 +51,28 @@ $DESKTOP: 1280;
         transform: translateY(min(calc(($v/$MAX-WIDTH) * 100vw), calc(($v/$MAX-HEIGHT) * 100vh)));
     }
 }
+
+@mixin adapBoxShadow($v1, $v2, $v3, $v4, $color) {
+    box-shadow: 
+        min(calc(($v1/$MAX-WIDTH) * 100vw), calc(($v1/$MAX-HEIGHT) * 100vh))
+        min(calc(($v2/$MAX-WIDTH) * 100vw), calc(($v2/$MAX-HEIGHT) * 100vh))
+        min(calc(($v3/$MAX-WIDTH) * 100vw), calc(($v3/$MAX-HEIGHT) * 100vh))
+        min(calc(($v4/$MAX-WIDTH) * 100vw), calc(($v4/$MAX-HEIGHT) * 100vh))
+        $color;
+}
+
+@mixin adapTextShadow($v1, $v2, $v3, $color) {
+    text-shadow: 
+        min(calc(($v1/$MAX-WIDTH) * 100vw), calc(($v1/$MAX-HEIGHT) * 100vh))
+        min(calc(($v2/$MAX-WIDTH) * 100vw), calc(($v2/$MAX-HEIGHT) * 100vh))
+        min(calc(($v3/$MAX-WIDTH) * 100vw), calc(($v3/$MAX-HEIGHT) * 100vh))
+        $color;
+}
+
+@mixin adapDropShadow($v1, $v2, $v3, $color) {
+    filter: drop-shadow(
+        min(calc(($v1/$MAX-WIDTH) * 100vw), calc(($v1/$MAX-HEIGHT) * 100vh))
+        min(calc(($v2/$MAX-WIDTH) * 100vw), calc(($v2/$MAX-HEIGHT) * 100vh))
+        min(calc(($v3/$MAX-WIDTH) * 100vw), calc(($v3/$MAX-HEIGHT) * 100vh))
+        $color);
+}

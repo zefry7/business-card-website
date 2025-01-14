@@ -11,7 +11,7 @@ export default function Contact() {
     const refTimeout = useRef()
 
     useEffect(() => {
-        if (page == 4) {
+        if (page === 4) {
             setActive(page);
         } else {
             refTimeout.current = setTimeout(() => {
@@ -52,7 +52,7 @@ export default function Contact() {
 
     const changeInputName = useCallback((e) => {
         const reg = new RegExp("[a-zа-я]", "ig");
-        if (e.target.value.length == 1) {
+        if (e.target.value.length === 1) {
             e.target.value = e.target.value.toUpperCase();
         }
         if (e.target.value && !e.target.value[e.target.value.length - 1].match(reg)) {
@@ -70,7 +70,7 @@ export default function Contact() {
     }, []);
 
     return (
-        <section className={"contact" + (active == 4 ? " contact_active" : "")} id="contact" style={{ "--page": page }}>
+        <section className={"contact" + (active === 4 ? " contact_active" : "")} id="contact" style={{ "--page": page }}>
             <div className="contact__content">
                 <h2 className="contact__title">Контакты</h2>
                 <p className="contact__description">Если у Вас есть предложения или вопросы, то Вы можете оставить своё сообщение.</p>
@@ -82,7 +82,6 @@ export default function Contact() {
                             className="contact__form-name"
                             placeholder="Ваше имя..."
                             onChange={changeInputName}
-                            aria-description="Для имени"
                             required
                         />
                         <input
@@ -90,17 +89,15 @@ export default function Contact() {
                             name="email"
                             className="contact__form-email"
                             placeholder="Ваша почта..."
-                            aria-description="Для почты"
                             required
                         />
                         <textarea
                             name="description"
                             className="contact__form-description"
                             placeholder="Ваше сообщение..."
-                            aria-description="Для сообщения"
                             required
                         ></textarea>
-                        <p className="contact__error">{error == true && "*Неправильно указана почта"}</p>
+                        <p className="contact__error">{error === true && "*Неправильно указана почта"}</p>
                         <button type="submit" className="contact__form-submit" ref={buttonSubmit}>
                             Отправить
                         </button>
