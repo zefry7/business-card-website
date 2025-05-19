@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 
-function WrapperSwiper({ children, handleNextPage }) {
+export default function WrapperSwiper({ children }) {
     const page = useSelector((state) => state.globalReducer.page);
+    const dispath = useDispatch();
     const [active, setActive] = useState(false);
+
 
     const handleClickArrow = (typeName) => {
         setActive(true)
-        handleNextPage(typeName)
+        
+        dispath({ type: typeName });
+
         setTimeout(() => {
             setActive(false)
         }, 500)
@@ -30,13 +34,14 @@ function WrapperSwiper({ children, handleNextPage }) {
     
 
     return (
-        <main className="wrapper-swiper">
+        <main className="wrapper-swiper" data-testid="main">
             <div
                 className={
                     "wrapper-swiper__arrow-prev" +
                     (active === true ? " wrapper-swiper__arrow_move" : "") +
                     (page === 1 ? " wrapper-swiper__arrow_disibled" : "")
                 }
+                data-testid="left-arrow"
                 onClick={() => handleClickArrow("prev-page")}
             >
                 <img src="./img/double-arrow.svg" alt="" />
@@ -48,6 +53,7 @@ function WrapperSwiper({ children, handleNextPage }) {
                     (active === true ? " wrapper-swiper__arrow_move" : "") +
                     (page === 4 ? " wrapper-swiper__arrow_disibled" : "")
                 }
+                data-testid="right-arrow"
                 onClick={() => handleClickArrow("next-page")}
             >
                 <img src="./img/double-arrow.svg" alt="" />
@@ -56,4 +62,3 @@ function WrapperSwiper({ children, handleNextPage }) {
     );
 }
 
-export default WrapperSwiper;
