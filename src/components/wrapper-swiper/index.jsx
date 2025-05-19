@@ -1,37 +1,34 @@
-import React, { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 
 export default function WrapperSwiper({ children }) {
     const page = useSelector((state) => state.globalReducer.page);
     const dispath = useDispatch();
     const [active, setActive] = useState(false);
 
+    const handleClickArrow = useCallback((typeName) => {
+        setActive(true);
 
-    const handleClickArrow = (typeName) => {
-        setActive(true)
-        
         dispath({ type: typeName });
 
         setTimeout(() => {
-            setActive(false)
-        }, 500)
-    }
+            setActive(false);
+        }, 500);
+    }, [dispath]);
+
+    const handleKeyDown = useCallback((e) => {
+        if ((e.keyCode === 37 || e.keyCode === 65) && document.activeElement === document.body) {
+            handleClickArrow("prev-page");
+        } else if ((e.keyCode === 39 || e.keyCode === 68) && document.activeElement === document.body) {
+            handleClickArrow("next-page");
+        }
+    }, [handleClickArrow]);
 
     useEffect(() => {
-        const handleKeyDown = (e) => {
-            if((e.keyCode === 37 || e.keyCode === 65) && document.activeElement === document.body) {
-                handleClickArrow("prev-page")
-            }else if((e.keyCode === 39 || e.keyCode === 68) && document.activeElement === document.body) {
-                handleClickArrow("next-page")
-            }
-        }
-        
-        window.addEventListener("keydown", handleKeyDown)
+        window.addEventListener("keydown", handleKeyDown);
 
-        return () => window.removeEventListener("keydown", handleKeyDown)
-    }, [page])
-    
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [handleKeyDown]);
 
     return (
         <main className="wrapper-swiper" data-testid="main">
@@ -44,7 +41,7 @@ export default function WrapperSwiper({ children }) {
                 data-testid="left-arrow"
                 onClick={() => handleClickArrow("prev-page")}
             >
-                <img src="./img/double-arrow.svg" alt="" />
+                <img src="./img/double-arrow.svg" alt="Стрелочка влево" />
             </div>
             <div className="wrapper-swiper__content">{children}</div>
             <div
@@ -56,9 +53,8 @@ export default function WrapperSwiper({ children }) {
                 data-testid="right-arrow"
                 onClick={() => handleClickArrow("next-page")}
             >
-                <img src="./img/double-arrow.svg" alt="" />
+                <img src="./img/double-arrow.svg" alt="Стрелочка вправо" />
             </div>
         </main>
     );
 }
-
