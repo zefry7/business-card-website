@@ -4,37 +4,44 @@ import WrapperSwipper from ".";
 import configureStore from "redux-mock-store";
 import { Provider } from 'react-redux';
 import '@testing-library/jest-dom';
+import React from "react";
 
+const mockStore = configureStore([]);
 
+const funcRender = (data) => {
+    const store = mockStore(data == undefined ? { globalReducer: { page: 1 } } : data)
+
+    return render(
+        <Provider store={store}>
+            <WrapperSwipper />
+        </Provider>
+    )
+}
+
+jest.mock("react", () => ({
+    ...jest.requireActual('react'),
+    useState: jest.fn(),
+}))
 
 describe("Основная обёртка сайта:", () => {
     let renderer
-    const mockStore = configureStore([]);
+    const setActiveMock = jest.fn();
 
-    it("рендер содержания", async () => {
-        const store = mockStore({ globalReducer: { page: 1 } })
+    beforeEach(() => {
+        jest.restoreAllMocks();
+        React.useState.mockImplementation(init => [init, setActiveMock]);
+    })
 
-        renderer = render(
-            <Provider store={store}>
-                <WrapperSwipper />
-            </Provider>
-        )
+    it("рендер компонента", async () => {
+        renderer = funcRender()
 
-        await screen.findByTestId("main");
-
-        expect(screen.findByTestId("main")).toBeDefined();
+        expect(renderer.container).toMatchSnapshot();
     })
 
     it("исчезновение кнопок при клике", async () => {
         expect.assertions(4);
         jest.useFakeTimers();
-        const store = mockStore({ globalReducer: { page: 1 } })
-
-        renderer = render(
-            <Provider store={store}>
-                <WrapperSwipper />
-            </Provider>
-        )
+        funcRender()
 
         const leftArrow = await screen.findByTestId("left-arrow");
         const rightArrow = await screen.findByTestId("right-arrow");
@@ -45,34 +52,36 @@ describe("Основная обёртка сайта:", () => {
                 userEvent.click(elem);
             })
 
-            expect(elem).toHaveClass("wrapper-swiper__arrow_move");
+            expect(setActiveMock).toHaveBeenCalledWith(true);
 
             act(() => {
                 jest.advanceTimersByTime(500);
             });
 
-            expect(elem).not.toHaveClass("wrapper-swiper__arrow_move");
+            expect(setActiveMock).toHaveBeenCalledWith(false);
         }
 
         jest.useRealTimers();
     })
 
-    it("появление левой кнопки на страницах кроме первой", async () => {
-        expect.assertions(7);
-        let store = mockStore({ globalReducer: { page: 1 } });
-
-        renderer = render(
-            <Provider store={store}>
-                <WrapperSwipper />
-            </Provider>
-        );
+    it("отсутствие левой кнопки на первой странице", async () => {
+        expect.assertions(1);
+        funcRender();
 
         let leftArrow = await screen.findByTestId("left-arrow");
 
         expect(leftArrow).toHaveClass("wrapper-swiper__arrow_disibled");
+    })
+
+    it("появление левой кнопки на страницах кроме первой", async () => {
+        expect.assertions(6);
+        renderer = funcRender()
+
+        let leftArrow = await screen.findByTestId("left-arrow");
 
         for (let i = 2; i <= 4; ++i) {
-            store = mockStore({ globalReducer: { page: i } });
+            let store = mockStore({ globalReducer: { page: i } });
+
             render(
                 <Provider store={store}>
                     <WrapperSwipper />
@@ -85,22 +94,24 @@ describe("Основная обёртка сайта:", () => {
         }
     })
 
-    it("появление правой кнопки на страницах кроме последней", async () => {
-        expect.assertions(7);
-        let store = mockStore({ globalReducer: { page: 4 } });
-
-        renderer = render(
-            <Provider store={store}>
-                <WrapperSwipper />
-            </Provider>
-        );
+    it("отсутствие правой кнопки на четвёртой странице", async () => {
+        expect.assertions(1);
+        funcRender({ globalReducer: { page: 4 } });
 
         let rightArrow = await screen.findByTestId("right-arrow");
 
         expect(rightArrow).toHaveClass("wrapper-swiper__arrow_disibled");
+    })
+
+    it("появление правой кнопки на страницах кроме последней", async () => {
+        expect.assertions(6);
+        let renderer = funcRender();
+
+        let rightArrow = await screen.findByTestId("right-arrow");
 
         for (let i = 1; i <= 3; ++i) {
-            store = mockStore({ globalReducer: { page: i } });
+            let store = mockStore({ globalReducer: { page: i } });
+
             render(
                 <Provider store={store}>
                     <WrapperSwipper />
@@ -111,5 +122,51 @@ describe("Основная обёртка сайта:", () => {
             expect(rightArrow).not.toHaveClass("wrapper-swiper__arrow_disibled");
             expect(store.getState().globalReducer.page).toEqual(i);
         }
+    })
+
+    it("добавление события нажатия для перехода между страницами", () => {
+        jest.spyOn(window, "addEventListener")
+
+        funcRender();
+
+        expect(window.addEventListener).toHaveBeenCalledWith("keydown", expect.any(Function))
+    })
+
+    it("очистка события нажатия для перехода между страницами", () => {
+        jest.spyOn(window, "removeEventListener")
+
+        renderer = funcRender();
+
+        renderer.unmount()
+
+        expect(window.removeEventListener).toHaveBeenCalledWith("keydown", expect.any(Function))
+    })
+
+    it("переход на страницы влево при нажатии на А и Левую стрелочку", () => {
+        funcRender();
+
+        act(() => {
+            const leftArrowEvent = new KeyboardEvent('keydown', { keyCode: 37 });
+            const AKeyEvent = new KeyboardEvent('keydown', { keyCode: 65 });
+            window.dispatchEvent(leftArrowEvent);
+            window.dispatchEvent(AKeyEvent);
+        });
+
+        expect(setActiveMock).toHaveBeenCalledTimes(2);
+        expect(setActiveMock).toHaveBeenCalledWith(true)
+    })
+
+    it("переход на страницы влево при нажатии на D и Правую стрелочку", () => {
+        funcRender();
+
+        act(() => {
+            const rightArrowEvent = new KeyboardEvent('keydown', { keyCode: 39});
+            const DKeyEvent = new KeyboardEvent('keydown', { keyCode: 68 });
+            window.dispatchEvent(rightArrowEvent);
+            window.dispatchEvent(DKeyEvent);
+        });
+
+        expect(setActiveMock).toHaveBeenCalledTimes(2);
+        expect(setActiveMock).toHaveBeenCalledWith(true)
     })
 })

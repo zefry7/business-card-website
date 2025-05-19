@@ -1,37 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-
 export default function WrapperSwiper({ children }) {
     const page = useSelector((state) => state.globalReducer.page);
     const dispath = useDispatch();
     const [active, setActive] = useState(false);
 
-
     const handleClickArrow = (typeName) => {
-        setActive(true)
-        
+        setActive(true);
+
         dispath({ type: typeName });
 
         setTimeout(() => {
-            setActive(false)
-        }, 500)
-    }
+            setActive(false);
+        }, 500);
+    };
+
+    const handleKeyDown = (e) => {
+        if ((e.keyCode === 37 || e.keyCode === 65) && document.activeElement === document.body) {
+            handleClickArrow("prev-page");
+        } else if ((e.keyCode === 39 || e.keyCode === 68) && document.activeElement === document.body) {
+            handleClickArrow("next-page");
+        }
+    };
 
     useEffect(() => {
-        const handleKeyDown = (e) => {
-            if((e.keyCode === 37 || e.keyCode === 65) && document.activeElement === document.body) {
-                handleClickArrow("prev-page")
-            }else if((e.keyCode === 39 || e.keyCode === 68) && document.activeElement === document.body) {
-                handleClickArrow("next-page")
-            }
-        }
-        
-        window.addEventListener("keydown", handleKeyDown)
+        window.addEventListener("keydown", handleKeyDown);
 
-        return () => window.removeEventListener("keydown", handleKeyDown)
-    }, [page])
-    
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [page]);
 
     return (
         <main className="wrapper-swiper" data-testid="main">
@@ -61,4 +58,3 @@ export default function WrapperSwiper({ children }) {
         </main>
     );
 }
-

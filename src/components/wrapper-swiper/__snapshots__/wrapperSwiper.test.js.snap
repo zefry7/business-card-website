@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Основная обёртка сайта: рендер компонента 1`] = `
+<div>
+  <main
+    class="wrapper-swiper"
+    data-testid="main"
+  >
+    <div
+      class="wrapper-swiper__arrow-prev wrapper-swiper__arrow_disibled"
+      data-testid="left-arrow"
+    >
+      <img
+        alt=""
+        src="./img/double-arrow.svg"
+      />
+    </div>
+    <div
+      class="wrapper-swiper__content"
+    />
+    <div
+      class="wrapper-swiper__arrow-next"
+      data-testid="right-arrow"
+    >
+      <img
+        alt=""
+        src="./img/double-arrow.svg"
+      />
+    </div>
+  </main>
+</div>
+`;
