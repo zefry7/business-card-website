@@ -1,0 +1,234 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Страница Навыки: рендер компонента 1`] = `
+<div>
+  <section
+    class="skills skills_active"
+    id="skills"
+    style="--page: 2;"
+  >
+    <div
+      class="skills__content"
+    >
+      <div
+        class="skills__banner skills__banner_active"
+      >
+        <h2
+          class="skills__title"
+        >
+          Навыки
+        </h2>
+      </div>
+      <div
+        class="skills__block skills__block_left"
+      >
+        <div
+          class="skills__column"
+        >
+          <div
+            class="skills__wrapper-item"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                HTML
+              </span>
+            </div>
+          </div>
+          <div
+            class="skills__wrapper-item"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                CSS
+              </span>
+            </div>
+          </div>
+          <div
+            class="skills__wrapper-item"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                Tailwind
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="skills__column"
+        >
+          <div
+            class="skills__wrapper-item scale-9"
+          >
+            <div
+              class="skills__wrapper-item-top"
+            />
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                JavaScript
+              </span>
+            </div>
+          </div>
+          <div
+            class="skills__wrapper-item scale-9"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                Redux
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="skills__column"
+        >
+          <div
+            class="skills__wrapper-item scale-8"
+          >
+            <div
+              class="skills__wrapper-item-top"
+            />
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                React
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="skills__block skills__block_right"
+      >
+        <div
+          class="skills__column"
+        >
+          <div
+            class="skills__wrapper-item"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                SASS
+              </span>
+            </div>
+          </div>
+          <div
+            class="skills__wrapper-item scale-9"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                TypeScript
+              </span>
+            </div>
+          </div>
+          <div
+            class="skills__wrapper-item scale-8"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                Webpack
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="skills__column"
+        >
+          <div
+            class="skills__wrapper-item"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                Git
+              </span>
+            </div>
+          </div>
+          <div
+            class="skills__wrapper-item scale-9"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                REST API
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="skills__column"
+        >
+          <div
+            class="skills__wrapper-item"
+          >
+            <div
+              class="skills__item"
+            >
+              <span
+                class="skills__item-text"
+              >
+                Prettier
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="skills__line skills__line-1"
+    />
+    <div
+      class="skills__line skills__line-2"
+    />
+    <div
+      class="skills__line skills__line-3"
+    />
+    <div
+      class="skills__line skills__line-4"
+    />
+    <div
+      class="skills__line skills__line-5"
+    />
+  </section>
+</div>
+`;

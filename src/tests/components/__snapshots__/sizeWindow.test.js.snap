@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Заглушка для маленьких экранов рендер компонента 1`] = `
+<div>
+  <section
+    class="size-window"
+  >
+    <p
+      class="size-window__text"
+    >
+      Сайт не поддерживает разрешение экрана вашего устройства.
+    </p>
+  </section>
+</div>
+`;

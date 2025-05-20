@@ -1,6 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import WrapperSwipper from ".";
+import WrapperSwipper from "../../components/wrapper-swiper";
 import configureStore from "redux-mock-store";
 import { Provider } from 'react-redux';
 import '@testing-library/jest-dom';
@@ -28,8 +28,11 @@ describe("Основная обёртка сайта:", () => {
     const setActiveMock = jest.fn();
 
     beforeEach(() => {
-        jest.restoreAllMocks();
         React.useState.mockImplementation(init => [init, setActiveMock]);
+    })
+
+    afterEach(() => {
+        jest.restoreAllMocks();
     })
 
     it("рендер компонента", async () => {

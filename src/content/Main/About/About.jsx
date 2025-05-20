@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const links = [
@@ -48,16 +48,15 @@ export default function About() {
                 setActive(page);
             }, 300);
         }
-
         return () => clearTimeout(refTimeout.current);
     }, [page]);
 
-    const handleHoverAuth = (value) => {
+    const handleHoverAuth = useCallback((value) => {
         setHoverAuth(value);
-    };
+    }, []);
 
     return (
-        <section className={"about" + (active === 1 ? " about_active" : "")} style={{ "--page": page }}>
+        <section className={"about" + (active === 1 ? " about_active" : "")} style={{ "--page": page }} data-testid="about">
             <div className="about__content">
                 <h1 className="about__name">
                     Frontend <span>разработчик</span>
@@ -67,6 +66,7 @@ export default function About() {
                         className={`about__auth about__auth_${hoverAuth}`}
                         onMouseEnter={() => handleHoverAuth("active")}
                         onMouseLeave={() => handleHoverAuth("inactive")}
+                        data-testid={"auth"}
                     >
                         <div className="about__auth-img">
                             <img src="./img/About/auth-2.jpg" alt="Фотография" />

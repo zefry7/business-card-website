@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Страница О себе: рендер компонента 1`] = `
+<div>
+  <section
+    class="about"
+    data-testid="about"
+    style="--page: 1;"
+  >
+    <div
+      class="about__content"
+    >
+      <h1
+        class="about__name"
+      >
+        Frontend 
+        <span>
+          разработчик
+        </span>
+      </h1>
+      <div
+        class="about__column"
+      >
+        <div
+          class="about__auth about__auth_inactive"
+          data-testid="auth"
+        >
+          <div
+            class="about__auth-img"
+          >
+            <img
+              alt="Фотография"
+              src="./img/About/auth-2.jpg"
+            />
+          </div>
+          <div
+            class="about__auth-info"
+          >
+            <span>
+              22 года
+            </span>
+            <span>
+              г. Ярославль
+            </span>
+          </div>
+        </div>
+        <div
+          class="about__auth-cloud"
+        />
+        <h2
+          class="about__title"
+        >
+          О себе
+        </h2>
+      </div>
+      <div
+        class="about__column"
+      >
+        <ul
+          class="about__links"
+        >
+          <li
+            class="about__social"
+          >
+            <a
+              href="https://github.com/zefry7"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="Ссылка на мой GitHub"
+                src="./img/Footer/github.svg"
+              />
+            </a>
+          </li>
+          <li
+            class="about__social"
+          >
+            <a
+              href="https://leetcode.com/u/zefry7/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="Ссылка на мой LeetCode"
+                src="./img/Footer/leetcode.svg"
+              />
+            </a>
+          </li>
+          <li
+            class="about__social"
+          >
+            <a
+              href="https://t.me/petrov_71"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="Ссылка на мой Telegram"
+                src="./img/Footer/tg.svg"
+              />
+            </a>
+          </li>
+        </ul>
+        <div
+          class="about__info"
+        >
+          <div
+            class="about__descr"
+          >
+            <h3
+              class="about__descr-title"
+            >
+              Кто? Что? Почему?
+            </h3>
+            <div
+              class="about__descr-list"
+            >
+              <p
+                class="about__descr-text"
+              >
+                Я – веб-разработчик, который ценит командную работу и стремится создавать качественные, адаптивные и интуитивно понятные продукты.
+              </p>
+              <p
+                class="about__descr-text"
+              >
+                Специализируюсь на React и на всём, что с ним связано, так как он для меня удобен и понятен с точки зрения разработки.
+              </p>
+              <p
+                class="about__descr-text"
+              >
+                Мне нравится создавать проекты с индивидуальным и креативным подходом, а также писать код, выполнение которого моментально отображается на экране, позволяя мне видеть результат своей работы.
+              </p>
+            </div>
+          </div>
+          <div
+            class="about__achiev"
+          >
+            <h3
+              class="about__achiev-title"
+            >
+              Достижения
+            </h3>
+            <ul
+              class="about__achiev-list"
+            >
+              <li
+                class="about__achiev-text"
+              >
+                Самостоятельно обучился веб-разработке и её аспектам.
+              </li>
+              <li
+                class="about__achiev-text"
+              >
+                Участвовал во всероссийском акселераторе “Цифра” и занял с командой 3 место в рамках хакатона.
+              </li>
+              <li
+                class="about__achiev-text"
+              >
+                Успешно прошёл интенсив по React от компании YLab Development.
+              </li>
+              <li
+                class="about__achiev-text"
+              >
+                Решил более 700 задач различной сложности на LeetCode.
+              </li>
+              <li
+                class="about__achiev-text"
+              >
+                Работал с различными бэкенд-разработчиками и дизайнерами.
+              </li>
+              <li
+                class="about__achiev-text"
+              >
+                Работал по методологии Kanban.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
