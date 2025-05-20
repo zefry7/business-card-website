@@ -8,6 +8,7 @@ export default function Skills() {
     const [active, setActive] = useState(page)
     const refTimeout = useRef()
 
+
     useEffect(() => {
         if (page === 2) {
             setActive(page);
