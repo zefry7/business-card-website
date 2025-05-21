@@ -122,7 +122,7 @@ function Portfolio() {
     }, [page]);
 
     return (
-        <section className={"portfolio" + (active === 3 ? " portfolio_active" : "")} id="portfolio" style={{ "--page": page }}>
+        <section className={"portfolio" + (active === 3 ? " portfolio_active" : "")} id="portfolio" style={{ "--page": page }} data-testid="portfolio">
             <div className="portfolio__content">
                 <div className="portfolio__column">
                     <div className="portfolio__row">
@@ -131,6 +131,7 @@ function Portfolio() {
                                 className={activeProject === i ? "portfolio__name portfolio__name_active" : "portfolio__name"}
                                 key={i}
                                 onClick={() => setActiveProject(i)}
+                                data-testid={"project_" + i}
                             >
                                 {v.name}
                             </span>
@@ -148,7 +149,7 @@ function Portfolio() {
                                     </span>
                                 ))}
                             </div>
-                            <h2 className="portfolio__project-name">{items[activeProject].name}</h2>
+                            <h2 className="portfolio__project-name" data-testid="project_name">{items[activeProject].name}</h2>
                             <p className="portfolio__project-descr">{items[activeProject].description}</p>
                         </div>
                     </div>

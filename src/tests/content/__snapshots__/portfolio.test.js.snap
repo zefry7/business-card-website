@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Страница с Портфолио: рендер компонента 1`] = `
+<div>
+  <section
+    class="portfolio portfolio_active"
+    data-testid="portfolio"
+    id="portfolio"
+    style="--page: 3;"
+  >
+    <div
+      class="portfolio__content"
+    >
+      <div
+        class="portfolio__column"
+      >
+        <div
+          class="portfolio__row"
+        >
+          <span
+            class="portfolio__name portfolio__name_active"
+            data-testid="project_0"
+          >
+            Лаборатория
+          </span>
+          <span
+            class="portfolio__name"
+            data-testid="project_1"
+          >
+            Digital Project
+          </span>
+          <span
+            class="portfolio__name"
+            data-testid="project_2"
+          >
+            Столярная мастерская
+          </span>
+          <span
+            class="portfolio__name"
+            data-testid="project_3"
+          >
+            Chef Kitchen
+          </span>
+          <span
+            class="portfolio__name"
+            data-testid="project_4"
+          >
+            Interior Design
+          </span>
+        </div>
+        <div
+          class="portfolio__project"
+        >
+          <div
+            class="portfolio__project-img"
+          >
+            <img
+              alt=""
+              src="./img/Portfolio/laboratory.png"
+            />
+          </div>
+          <div
+            class="portfolio__project-info"
+          >
+            <div
+              class="portfolio__project-tag-row"
+            >
+              <span
+                class="portfolio__project-tag"
+              >
+                React
+              </span>
+              <span
+                class="portfolio__project-tag"
+              >
+                ts
+              </span>
+              <span
+                class="portfolio__project-tag"
+              >
+                redux
+              </span>
+              <span
+                class="portfolio__project-tag"
+              >
+                Tailwind
+              </span>
+            </div>
+            <h2
+              class="portfolio__project-name"
+              data-testid="project_name"
+            >
+              Лаборатория
+            </h2>
+            <p
+              class="portfolio__project-descr"
+            >
+              Сайт-лаборатория с личными разработками различных идей и задумок.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="portfolio__column"
+      >
+        <div
+          class="portfolio__info"
+        >
+          <h3
+            class="portfolio__info-title"
+          >
+            Описание
+          </h3>
+          <ul
+            class="portfolio__info-list"
+          >
+            <li
+              class="portfolio__info-line"
+            >
+              Одностраничный сайт
+            </li>
+            <li
+              class="portfolio__info-line"
+            >
+              Работа с Canvas
+            </li>
+            <li
+              class="portfolio__info-line"
+            >
+              Добавлен Prettier для единого стиля кода
+            </li>
+            <li
+              class="portfolio__info-line"
+            >
+              Добавлен Autoprefixer для стилей CSS
+            </li>
+            <li
+              class="portfolio__info-line"
+            >
+              Анимации отображения элементов
+            </li>
+          </ul>
+          <a
+            class="portfolio__info-button"
+            href="https://laboratory-sigma.vercel.app/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Открыть сайт
+          </a>
+        </div>
+        <h2
+          class="portfolio__title"
+        >
+          Портфолио
+        </h2>
+      </div>
+    </div>
+  </section>
+</div>
+`;
