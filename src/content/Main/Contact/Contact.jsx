@@ -8,7 +8,7 @@ export default function Contact() {
     const [error, setError] = useState(false);
     const buttonSubmit = useRef();
     const [active, setActive] = useState(page);
-    const refTimeout = useRef()
+    const refTimeout = useRef();
 
     useEffect(() => {
         if (page === 4) {
@@ -19,7 +19,7 @@ export default function Contact() {
             }, 300);
         }
 
-        return () => clearTimeout(refTimeout.current)
+        return () => clearTimeout(refTimeout.current);
     }, [page]);
 
     const sendingEmail = async (event) => {
@@ -32,21 +32,24 @@ export default function Contact() {
 
             const object = Object.fromEntries(formData);
 
-            await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-                body: JSON.stringify(object),
-            })
-                .then(() => {
-                    alert("Сообщение отправлено!");
-                    event.target.reset();
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                    },
+                    body: JSON.stringify(object),
                 })
-                .catch(() => {
-                    alert("Возникла ошибка!");
-                });
+                  
+                if(!response.ok) throw new Error('HTTP error')
+
+                alert("Сообщение отправлено!");   
+                event.target.reset();
+
+            } catch (error) {
+                alert("Возникла ошибка!");
+            }
         }
     };
 
@@ -55,6 +58,7 @@ export default function Contact() {
         if (e.target.value.length === 1) {
             e.target.value = e.target.value.toUpperCase();
         }
+
         if (e.target.value && !e.target.value[e.target.value.length - 1].match(reg)) {
             e.target.value = e.target.value.slice(0, e.target.value.length - 1);
         }
@@ -70,12 +74,17 @@ export default function Contact() {
     }, []);
 
     return (
-        <section className={"contact" + (active === 4 ? " contact_active" : "")} id="contact" style={{ "--page": page }}>
+        <section
+            className={"contact" + (active === 4 ? " contact_active" : "")}
+            id="contact"
+            style={{ "--page": page }}
+            data-testid="contact"
+        >
             <div className="contact__content">
                 <h2 className="contact__title">Контакты</h2>
                 <p className="contact__description">Если у Вас есть предложения или вопросы, то Вы можете оставить своё сообщение.</p>
                 <div className="contact__wrapper-form">
-                    <form className="contact__form" onSubmit={sendingEmail}>
+                    <form className="contact__form" onSubmit={sendingEmail} data-testid="form">
                         <input
                             type="text"
                             name="name"
@@ -83,6 +92,7 @@ export default function Contact() {
                             placeholder="Ваше имя..."
                             onChange={changeInputName}
                             required
+                            data-testid="inputName"
                         />
                         <input
                             type="email"
@@ -90,6 +100,7 @@ export default function Contact() {
                             className="contact__form-email"
                             placeholder="Ваша почта..."
                             required
+                            data-testid="inputEmail"
                         />
                         <textarea
                             name="description"
@@ -98,7 +109,7 @@ export default function Contact() {
                             required
                         ></textarea>
                         <p className="contact__error">{error === true && "*Неправильно указана почта"}</p>
-                        <button type="submit" className="contact__form-submit" ref={buttonSubmit}>
+                        <button type="submit" className="contact__form-submit" ref={buttonSubmit} data-testid="submit">
                             Отправить
                         </button>
                     </form>
