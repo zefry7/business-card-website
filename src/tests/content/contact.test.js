@@ -1,11 +1,10 @@
 import { Provider } from "react-redux"
 import configureStore from "redux-mock-store"
 import Contact from "../../content/Main/Contact/Contact"
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { test } from "@jest/globals"
 import "@testing-library/jest-dom"
-import { act } from "react-dom/test-utils"
 
 
 const funcRender = (page) => {
@@ -21,17 +20,19 @@ const funcRender = (page) => {
 describe("Компонент Contact:", () => {
 
     beforeEach(() => {
+        jest.useFakeTimers()
         global.fetch = jest.fn();
         global.alert = jest.fn();
     })
 
     afterEach(() => {
+        jest.useRealTimers()
         jest.resetAllMocks()
     })
 
-    // it("рендер", () => {
-    //     expect(funcRender().container).toMatchSnapshot();
-    // })
+    it("рендер", () => {
+        expect(funcRender().container).toMatchSnapshot();
+    })
 
     it("параметр page равен 4", async () => {
         expect.assertions(1)
@@ -43,15 +44,15 @@ describe("Компонент Contact:", () => {
     })
 
     it("параметр page не равен 4", async () => {
-        expect.assertions(1)
-        jest.useFakeTimers()
-        funcRender()
+        expect.assertions(2)
+        funcRender(3)
 
-        jest.advanceTimersByTime(300)
+        jest.runAllTimers()
 
         let mainElement = await screen.findByTestId("contact")
 
-        expect(mainElement.style._values).toEqual({ "--page": "1" })
+        expect(mainElement.classList).not.toContain("contact_active")
+        expect(mainElement.style._values).toEqual({ "--page": "3" })
     })
 
     describe("ввод в поле 'Ваше имя'", () => {
@@ -118,7 +119,7 @@ describe("Компонент Contact:", () => {
     })
 
     it("сообщение об успешной отправке письма", async () => {
-        global.fetch.mockImplementation(() => Promise.resolve({ ok: true}))
+        global.fetch.mockImplementation(() => Promise.resolve({ ok: true }))
         funcRender()
 
         let inputEmail = await screen.findByTestId("inputEmail")
@@ -130,7 +131,7 @@ describe("Компонент Contact:", () => {
     })
 
     it("сообщение об ошибке при отправке письма", async () => {
-        global.fetch.mockImplementation(() => Promise.resolve({ ok: false}))
+        global.fetch.mockImplementation(() => Promise.resolve({ ok: false, error: 501 }))
         funcRender()
 
         let inputEmail = await screen.findByTestId("inputEmail")

@@ -31,6 +31,7 @@ describe("Страница О себе:", () => {
 
     afterEach(() => {
         jest.resetAllMocks()
+        jest.restoreAllMocks()
     })
 
     it("рендер компонента", () => {

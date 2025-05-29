@@ -8,7 +8,7 @@ import SizeWindow from "../../components/size-window";
 
 function MainPage() {
     const [lockContent, setLockContent] = useState(true);
-    const windowWidth = window.matchMedia("(max-width: 1024px) or (max-height: 860px)");
+    const windowWidth = matchMedia("(max-width: 1024px) or (max-height: 860px)");
 
     useEffect(() => {
         windowWidth.addEventListener("change", (e) => {

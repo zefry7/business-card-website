@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const items = [
@@ -105,8 +105,8 @@ const items = [
 
 function Portfolio() {
     const page = useSelector((state) => state.globalReducer.page);
-    const [activeProject, setActiveProject] = useState(0);
     const [active, setActive] = useState();
+    const [activeProject, setActiveProject] = useState(0);
     const refTimeout = useRef();
 
     useEffect(() => {
@@ -122,7 +122,12 @@ function Portfolio() {
     }, [page]);
 
     return (
-        <section className={"portfolio" + (active === 3 ? " portfolio_active" : "")} id="portfolio" style={{ "--page": page }} data-testid="portfolio">
+        <section
+            className={"portfolio" + (active === 3 ? " portfolio_active" : "")}
+            id="portfolio"
+            style={{ "--page": page }}
+            data-testid="portfolio"
+        >
             <div className="portfolio__content">
                 <div className="portfolio__column">
                     <div className="portfolio__row">
@@ -149,7 +154,9 @@ function Portfolio() {
                                     </span>
                                 ))}
                             </div>
-                            <h2 className="portfolio__project-name" data-testid="project_name">{items[activeProject].name}</h2>
+                            <h2 className="portfolio__project-name" data-testid="project_name">
+                                {items[activeProject].name}
+                            </h2>
                             <p className="portfolio__project-descr">{items[activeProject].description}</p>
                         </div>
                     </div>

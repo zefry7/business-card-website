@@ -1,133 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Компонент Contact:  1`] = `
-<div>
-  <section
-    class="contact"
-    id="contact"
-    style="--page: 1;"
-  >
-    <div
-      class="contact__content"
-    >
-      <h2
-        class="contact__title"
-      >
-        Контакты
-      </h2>
-      <p
-        class="contact__description"
-      >
-        Если у Вас есть предложения или вопросы, то Вы можете оставить своё сообщение.
-      </p>
-      <div
-        class="contact__wrapper-form"
-      >
-        <form
-          class="contact__form"
-        >
-          <input
-            class="contact__form-name"
-            name="name"
-            placeholder="Ваше имя..."
-            required=""
-            type="text"
-          />
-          <input
-            class="contact__form-email"
-            name="email"
-            placeholder="Ваша почта..."
-            required=""
-            type="email"
-          />
-          <textarea
-            class="contact__form-description"
-            name="description"
-            placeholder="Ваше сообщение..."
-            required=""
-          />
-          <p
-            class="contact__error"
-          />
-          <button
-            class="contact__form-submit"
-            type="submit"
-          >
-            Отправить
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-</div>
-`;
-
-exports[`Компонент Contact: Рендер  1`] = `
-<div>
-  <section
-    class="contact"
-    id="contact"
-    style="--page: 1;"
-  >
-    <div
-      class="contact__content"
-    >
-      <h2
-        class="contact__title"
-      >
-        Контакты
-      </h2>
-      <p
-        class="contact__description"
-      >
-        Если у Вас есть предложения или вопросы, то Вы можете оставить своё сообщение.
-      </p>
-      <div
-        class="contact__wrapper-form"
-      >
-        <form
-          class="contact__form"
-        >
-          <input
-            class="contact__form-name"
-            name="name"
-            placeholder="Ваше имя..."
-            required=""
-            type="text"
-          />
-          <input
-            class="contact__form-email"
-            name="email"
-            placeholder="Ваша почта..."
-            required=""
-            type="email"
-          />
-          <textarea
-            class="contact__form-description"
-            name="description"
-            placeholder="Ваше сообщение..."
-            required=""
-          />
-          <p
-            class="contact__error"
-          />
-          <button
-            class="contact__form-submit"
-            type="submit"
-          >
-            Отправить
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-</div>
-`;
-
 exports[`Компонент Contact: рендер 1`] = `
 <div>
   <section
     class="contact"
+    data-testid="contact"
     id="contact"
     style="--page: 1;"
   >
@@ -149,9 +26,11 @@ exports[`Компонент Contact: рендер 1`] = `
       >
         <form
           class="contact__form"
+          data-testid="form"
         >
           <input
             class="contact__form-name"
+            data-testid="inputName"
             name="name"
             placeholder="Ваше имя..."
             required=""
@@ -159,6 +38,7 @@ exports[`Компонент Contact: рендер 1`] = `
           />
           <input
             class="contact__form-email"
+            data-testid="inputEmail"
             name="email"
             placeholder="Ваша почта..."
             required=""
@@ -175,68 +55,7 @@ exports[`Компонент Contact: рендер 1`] = `
           />
           <button
             class="contact__form-submit"
-            type="submit"
-          >
-            Отправить
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-</div>
-`;
-
-exports[`Компонент Contact: рендер ком 1`] = `
-<div>
-  <section
-    class="contact"
-    id="contact"
-    style="--page: 1;"
-  >
-    <div
-      class="contact__content"
-    >
-      <h2
-        class="contact__title"
-      >
-        Контакты
-      </h2>
-      <p
-        class="contact__description"
-      >
-        Если у Вас есть предложения или вопросы, то Вы можете оставить своё сообщение.
-      </p>
-      <div
-        class="contact__wrapper-form"
-      >
-        <form
-          class="contact__form"
-        >
-          <input
-            class="contact__form-name"
-            name="name"
-            placeholder="Ваше имя..."
-            required=""
-            type="text"
-          />
-          <input
-            class="contact__form-email"
-            name="email"
-            placeholder="Ваша почта..."
-            required=""
-            type="email"
-          />
-          <textarea
-            class="contact__form-description"
-            name="description"
-            placeholder="Ваше сообщение..."
-            required=""
-          />
-          <p
-            class="contact__error"
-          />
-          <button
-            class="contact__form-submit"
+            data-testid="submit"
             type="submit"
           >
             Отправить

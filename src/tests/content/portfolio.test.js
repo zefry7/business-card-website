@@ -1,8 +1,8 @@
 import configureStore from "redux-mock-store"
 import Portfolio from "../../content/Main/Portfolio/Portfolio"
 import { Provider } from "react-redux"
-import { render, screen } from "@testing-library/react"
-import { act } from "react"
+import { act, render, screen } from "@testing-library/react"
+import React from "react"
 import userEvent from "@testing-library/user-event"
 
 
@@ -17,9 +17,11 @@ const funcRender = (data) => {
 
 describe("Страница с Портфолио:", () => {
     let renderer
+    let mockUseState = jest.fn()
 
-    beforeEach(() => {
+    afterEach(() => {
         jest.resetAllMocks()
+        jest.restoreAllMocks()
     })
 
     it("рендер компонента", () => {
@@ -41,16 +43,12 @@ describe("Страница с Портфолио:", () => {
     it("при page равном другому значению", async () => {
         expect.assertions(1)
         jest.useFakeTimers()
+        jest.spyOn(React, "useState").mockImplementation(init => [init, mockUseState])
 
         funcRender({ globalReducer: { page: 2 } })
+        jest.runAllTimers()
 
-        act(() => {
-            jest.advanceTimersByTime(300)
-        })
-
-        let wrapper = await screen.findByTestId("portfolio")
-
-        expect(wrapper.classList).not.toContain("portfolio_active")
+        expect(mockUseState).toHaveBeenCalledWith(2)
 
         jest.useRealTimers()
     })
@@ -65,7 +63,6 @@ describe("Страница с Портфолио:", () => {
         act(() => {
             userEvent.click(elemProject)
         })
-
 
         let wrapper = await screen.findByTestId("project_name")
 
