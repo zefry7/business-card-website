@@ -1,10 +1,7 @@
-import { render, screen } from "@testing-library/react"
-import { Provider } from "react-redux"
-import configureStore from "redux-mock-store"
+import { screen } from "@testing-library/react"
 import MainPage from "../content/Main/MainPage"
 import "@testing-library/jest-dom"
-
-const mockStore = configureStore()
+import { renderComponent } from "./helperTest/renderComponent.js"
 
 describe("Файл Index", () => {
     beforeEach(() => {
@@ -27,14 +24,9 @@ describe("Файл Index", () => {
 
     it("рендер", async () => {
         expect.assertions(1)
+        renderComponent(<MainPage />)
 
-        render(<Provider store={mockStore({ globalReducer: { page: 1 } })}>
-            <MainPage />
-        </Provider>)
-
-        const element = await screen.findByText("Frontend")
-
-        expect(element).toBeInTheDocument()
+        expect(await screen.findByText("Frontend")).toBeInTheDocument()
     })
 
     it("создание root элемента", () => {

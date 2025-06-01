@@ -3,10 +3,10 @@
 exports[`Страница с Портфолио: рендер компонента 1`] = `
 <div>
   <section
-    class="portfolio portfolio_active"
+    class="portfolio"
     data-testid="portfolio"
     id="portfolio"
-    style="--page: 3;"
+    style="--page: 1;"
   >
     <div
       class="portfolio__content"

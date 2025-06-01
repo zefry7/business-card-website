@@ -7,7 +7,7 @@ export default function Contact() {
     const page = useSelector((state) => state.globalReducer.page);
     const [error, setError] = useState(false);
     const buttonSubmit = useRef();
-    const [active, setActive] = useState(page);
+    const [active, setActive] = useState();
     const refTimeout = useRef();
 
     useEffect(() => {

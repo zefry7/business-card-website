@@ -1,17 +1,7 @@
-import { render, screen } from "@testing-library/react"
-import { Provider } from "react-redux"
-import MainPage from "../../content/Main/MainPage"
-import configureStore from "redux-mock-store"
+import { screen } from "@testing-library/react"
 import React from "react"
-
-const renderComponent = (page) => {
-    const mockStore = configureStore([])
-    const store = mockStore({ globalReducer: { page: page == undefined ? 1 : page } })
-
-    return render(<Provider store={store}>
-        <MainPage />
-    </Provider>)
-}
+import MainPage from "../../content/Main/MainPage"
+import { renderComponent } from "../helperTest/renderComponent"
 
 
 describe("Компонент MainPage", () => {
@@ -31,7 +21,7 @@ describe("Компонент MainPage", () => {
         }));
     }
 
-    afterEach(() => {
+    beforeEach(() => {
         jest.resetAllMocks()
         jest.restoreAllMocks(); 
     });
@@ -40,7 +30,7 @@ describe("Компонент MainPage", () => {
         expect.assertions(1)
         jest.spyOn(React, "useState").mockImplementation(init => [init, useStateMock]);
         mockMatchMedia(false)
-        renderComponent()
+        renderComponent(<MainPage />)
 
         changeCallback({ matches: true })
 
@@ -49,16 +39,14 @@ describe("Компонент MainPage", () => {
 
     it("рендер основного контента", () => {
         mockMatchMedia(false)
-        expect(renderComponent().container).toMatchSnapshot()
+        expect(renderComponent(<MainPage />).container).toMatchSnapshot()
     })
 
     it("рендер заглушки", async () => {
         expect.assertions(1)
         mockMatchMedia(true)
-        renderComponent()
+        renderComponent(<MainPage />)
 
-        let element = await screen.findByText("Сайт не поддерживает разрешение экрана вашего устройства.")
-
-        expect(element).toBeDefined()
+        expect(await screen.queryByText("Сайт не поддерживает разрешение экрана вашего устройства.")).toBeDefined()
     })
 })

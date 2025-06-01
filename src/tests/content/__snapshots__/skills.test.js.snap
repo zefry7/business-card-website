@@ -3,15 +3,15 @@
 exports[`Страница Навыки: рендер компонента 1`] = `
 <div>
   <section
-    class="skills skills_active"
+    class="skills"
     id="skills"
-    style="--page: 2;"
+    style="--page: 1;"
   >
     <div
       class="skills__content"
     >
       <div
-        class="skills__banner skills__banner_active"
+        class="skills__banner"
       >
         <h2
           class="skills__title"

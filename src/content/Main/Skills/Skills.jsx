@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const list = ["HTML", "CSS", "Tailwind", "React", "Redux", "JavaScript", "SASS", "TypeScript", "Webpack", "Git", "REST API", "Prettier"];
 
 export default function Skills() {
     const page = useSelector((state) => state.globalReducer.page);
-    const [active, setActive] = useState(page)
+    const [active, setActive] = useState()
     const refTimeout = useRef()
-
 
     useEffect(() => {
         if (page === 2) {

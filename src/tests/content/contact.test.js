@@ -1,25 +1,15 @@
-import { Provider } from "react-redux"
-import configureStore from "redux-mock-store"
 import Contact from "../../content/Main/Contact/Contact"
-import { render, screen } from "@testing-library/react"
+import { screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { test } from "@jest/globals"
 import "@testing-library/jest-dom"
-
-
-const funcRender = (page) => {
-    const mockStore = configureStore([])
-    const store = mockStore({ globalReducer: { page: page == undefined ? 1 : page } })
-
-    return render(<Provider store={store}>
-        <Contact />
-    </Provider>)
-}
+import { renderComponent } from "../helperTest/renderComponent"
 
 
 describe("Компонент Contact:", () => {
-
     beforeEach(() => {
+        jest.restoreAllMocks()
+        jest.resetAllMocks()
         jest.useFakeTimers()
         global.fetch = jest.fn();
         global.alert = jest.fn();
@@ -27,28 +17,24 @@ describe("Компонент Contact:", () => {
 
     afterEach(() => {
         jest.useRealTimers()
-        jest.resetAllMocks()
     })
 
     it("рендер", () => {
-        expect(funcRender().container).toMatchSnapshot();
+        expect(renderComponent(<Contact />).container).toMatchSnapshot();
     })
 
     it("параметр page равен 4", async () => {
         expect.assertions(1)
-        funcRender(4)
+        renderComponent(<Contact />, { page: 4 })
 
-        let mainElement = await screen.findByTestId("contact")
-
-        expect(mainElement.classList).toContain("contact_active")
+        expect((await screen.findByTestId("contact")).classList).toContain("contact_active")
     })
 
     it("параметр page не равен 4", async () => {
         expect.assertions(2)
-        funcRender(3)
+        renderComponent(<Contact />, { page: 3 })
 
         jest.runAllTimers()
-
         let mainElement = await screen.findByTestId("contact")
 
         expect(mainElement.classList).not.toContain("contact_active")
@@ -60,7 +46,8 @@ describe("Компонент Contact:", () => {
             ["коля", "Коля"],
             ["КОЛЯ", "КОЛЯ"]
         ])("корректный", async (value, result) => {
-            funcRender()
+            expect.assertions(1)
+            renderComponent(<Contact />)
 
             let inputName = await screen.findByTestId("inputName")
             await userEvent.type(inputName, value)
@@ -76,7 +63,7 @@ describe("Компонент Contact:", () => {
             ["  ", ""]
         ])("некорректный", async (value, result) => {
             expect.assertions(1)
-            funcRender()
+            renderComponent(<Contact />)
 
             let inputName = await screen.findByTestId("inputName")
             await userEvent.type(inputName, value)
@@ -90,54 +77,42 @@ describe("Компонент Contact:", () => {
         it("корректный", async () => {
             expect.assertions(1)
             global.fetch.mockResolvedValueOnce({ ok: true });
-            funcRender()
+            renderComponent(<Contact />)
 
-            let inputEmail = await screen.findByTestId("inputEmail")
-            await userEvent.type(inputEmail, "email@email.ru")
-            let sumbit = await screen.findByTestId("submit")
-            await userEvent.click(sumbit)
+            await userEvent.type(await screen.findByTestId("inputEmail"), "email@email.ru")
+            await userEvent.click(await screen.findByTestId("submit"))
 
-            let errorElem = await screen.queryByText("*Неправильно указана почта")
-
-            expect(errorElem).not.toBeInTheDocument()
+            expect(await screen.queryByText("*Неправильно указана почта")).not.toBeInTheDocument()
         })
 
         it("некорректный", async () => {
             expect.assertions(1)
             global.fetch.mockResolvedValueOnce({ ok: true });
-            funcRender()
+            renderComponent(<Contact />)
 
-            let inputEmail = await screen.findByTestId("inputEmail")
-            await userEvent.type(inputEmail, ".ru")
-            let sumbit = await screen.findByTestId("submit")
-            await userEvent.click(sumbit)
+            await userEvent.type(await screen.findByTestId("inputEmail"), ".ru")
+            await userEvent.click(await screen.findByTestId("submit"))
 
-            let errorElem = await screen.queryByText("*Неправильно указана почта")
-
-            expect(errorElem).toBeInTheDocument()
+            expect(await screen.queryByText("*Неправильно указана почта")).toBeInTheDocument()
         })
     })
 
     it("сообщение об успешной отправке письма", async () => {
         global.fetch.mockImplementation(() => Promise.resolve({ ok: true }))
-        funcRender()
+        renderComponent(<Contact />)
 
-        let inputEmail = await screen.findByTestId("inputEmail")
-        await userEvent.type(inputEmail, "email@email.ru")
-        let sumbit = await screen.findByTestId("submit")
-        await userEvent.click(sumbit)
+        await userEvent.type(await screen.findByTestId("inputEmail"), "email@email.ru")
+        await userEvent.click(await screen.findByTestId("submit"))
 
         expect(global.alert).toHaveBeenCalledWith("Сообщение отправлено!")
     })
 
     it("сообщение об ошибке при отправке письма", async () => {
         global.fetch.mockImplementation(() => Promise.resolve({ ok: false, error: 501 }))
-        funcRender()
+        renderComponent(<Contact />)
 
-        let inputEmail = await screen.findByTestId("inputEmail")
-        await userEvent.type(inputEmail, "email@email.ru")
-        let sumbit = await screen.findByTestId("submit")
-        await userEvent.click(sumbit)
+        await userEvent.type(await screen.findByTestId("inputEmail"), "email@email.ru")
+        await userEvent.click(await screen.findByTestId("submit"))
 
         expect(global.alert).toHaveBeenCalledWith("Возникла ошибка!")
     })
