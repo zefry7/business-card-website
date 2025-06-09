@@ -5,8 +5,8 @@ const list = ["HTML", "CSS", "Tailwind", "React", "Redux", "JavaScript", "SASS",
 
 export default function Skills() {
     const page = useSelector((state) => state.globalReducer.page);
-    const [active, setActive] = useState()
-    const refTimeout = useRef()
+    const [active, setActive] = useState();
+    const refTimeout = useRef();
 
     useEffect(() => {
         if (page === 2) {
@@ -17,12 +17,17 @@ export default function Skills() {
             }, 300);
         }
 
-        return () => clearTimeout(refTimeout.current)
+        return () => clearTimeout(refTimeout.current);
     }, [page]);
 
-
     return (
-        <section className={"skills" + (active === 2 ? " skills_active" : "")} id="skills" style={{ "--page": page }}>
+        <section
+            className={"skills" + (active === 2 ? " skills_active" : "")}
+            id="skills"
+            style={{ "--page": page }}
+            aria-label="Страница с навыками автора"
+            tabIndex={active === 2 ? 0 : -1}
+        >
             <div className={"skills__content"}>
                 <div className={"skills__banner" + (active === 2 ? " skills__banner_active" : "")}>
                     <h2 className="skills__title">Навыки</h2>

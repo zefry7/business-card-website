@@ -26,6 +26,10 @@ img {
 #root {
     height: 100vh;
     min-width: 320px;
+
+    &::-webkit-scrollbar-track {
+        width: 0;
+    }
 }
 
 html {
@@ -38,11 +42,6 @@ body {
 
 .scroll-lock {
     overflow: hidden;
-}
-
-.padding-block {
-    // @include adap(padding-right, 80, 80, 80, 40, 20);
-    // @include adap(padding-left, 80, 80, 80, 40, 20);
 }
 
 .search {
@@ -83,24 +82,4 @@ section {
     overflow-x: hidden;
 }
 
-// .show-block {
-//     transform: translateX(0%) scale(1);
-//     opacity: 1;
-//     transition: opacity 0.4s ease-in 0.3s, transform 0.4s ease-in 0.3s;
-// }
-
-// .move-left {
-//     opacity: 0;
-//     transform: translateX(-30%);
-// }
-
-// .move-right {
-//     opacity: 0;
-//     transform: translateX(30%);
-// }
-
-// .move-scale {
-//     opacity: 0;
-//     transform: scale(0.001);
-// }
 

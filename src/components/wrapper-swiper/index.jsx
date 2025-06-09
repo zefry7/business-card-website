@@ -6,23 +6,29 @@ export default function WrapperSwiper({ children }) {
     const dispath = useDispatch();
     const [active, setActive] = useState(false);
 
-    const handleClickArrow = useCallback((typeName) => {
-        setActive(true);
+    const handleClickArrow = useCallback(
+        (typeName) => {
+            setActive(true);
 
-        dispath({ type: typeName });
+            dispath({ type: typeName });
 
-        setTimeout(() => {
-            setActive(false);
-        }, 500);
-    }, [dispath]);
+            setTimeout(() => {
+                setActive(false);
+            }, 500);
+        },
+        [dispath]
+    );
 
-    const handleKeyDown = useCallback((e) => {
-        if ((e.keyCode === 37 || e.keyCode === 65) && document.activeElement === document.body) {
-            handleClickArrow("prev-page");
-        } else if ((e.keyCode === 39 || e.keyCode === 68) && document.activeElement === document.body) {
-            handleClickArrow("next-page");
-        }
-    }, [handleClickArrow]);
+    const handleKeyDown = useCallback(
+        (e) => {
+            if ((e.keyCode === 37 || e.keyCode === 65) && document.activeElement === document.body) {
+                handleClickArrow("prev-page");
+            } else if ((e.keyCode === 39 || e.keyCode === 68) && document.activeElement === document.body) {
+                handleClickArrow("next-page");
+            }
+        },
+        [handleClickArrow]
+    );
 
     useEffect(() => {
         window.addEventListener("keydown", handleKeyDown);
@@ -32,7 +38,7 @@ export default function WrapperSwiper({ children }) {
 
     return (
         <main className="wrapper-swiper" data-testid="main">
-            <div
+            <button
                 className={
                     "wrapper-swiper__arrow-prev" +
                     (active === true ? " wrapper-swiper__arrow_move" : "") +
@@ -40,11 +46,13 @@ export default function WrapperSwiper({ children }) {
                 }
                 data-testid="left-arrow"
                 onClick={() => handleClickArrow("prev-page")}
+                tabIndex={page > 1 ? 0 : -1}
+                aria-label="Для перехода на предыдущую страницу"
             >
-                <img src="./img/double-arrow.svg" alt="Стрелочка влево" />
-            </div>
+                <img src="./img/double-arrow.svg" alt="Стрелка для перехода на предыдущую страницу" aria-hidden />
+            </button>
             <div className="wrapper-swiper__content">{children}</div>
-            <div
+            <button
                 className={
                     "wrapper-swiper__arrow-next" +
                     (active === true ? " wrapper-swiper__arrow_move" : "") +
@@ -52,9 +60,11 @@ export default function WrapperSwiper({ children }) {
                 }
                 data-testid="right-arrow"
                 onClick={() => handleClickArrow("next-page")}
+                tabIndex={page < 4 ? 0 : -1}
+                aria-label="Для перехода на следующую страницу"
             >
-                <img src="./img/double-arrow.svg" alt="Стрелочка вправо" />
-            </div>
+                <img src="./img/double-arrow.svg" alt="Стрелка для перехода на следующую страницу" aria-hidden />
+            </button>
         </main>
     );
 }

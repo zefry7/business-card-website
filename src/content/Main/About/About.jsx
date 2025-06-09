@@ -56,7 +56,13 @@ export default function About() {
     }, []);
 
     return (
-        <section className={"about" + (active === 1 ? " about_active" : "")} style={{ "--page": page }} data-testid="about">
+        <section
+            className={"about" + (active === 1 ? " about_active" : "")}
+            style={{ "--page": page }}
+            data-testid="about"
+            aria-label="Страница о себе"
+            tabIndex={active === 1 ? 0 : -1}
+        >
             <div className="about__content">
                 <h1 className="about__name">
                     Frontend <span>разработчик</span>
@@ -69,21 +75,24 @@ export default function About() {
                         data-testid={"auth"}
                     >
                         <div className="about__auth-img">
-                            <img src="./img/About/auth-2.jpg" alt="Фотография" />
+                            <img src="./img/About/auth-2.jpg" alt="Фотография автора" />
                         </div>
                         <div className="about__auth-info">
                             <span>22 года</span>
                             <span>г. Ярославль</span>
                         </div>
                     </div>
-                    <div className="about__auth-cloud"></div>
+                    <div className="about__auth-cloud" aria-hidden={true}>
+                        <span className="about__auth-label">«Кнопки сами себя не спроектируют!»</span>
+                        <img src="./img/cloud.png" alt="Элемент оформления" />
+                    </div>
                     <h2 className="about__title">О себе</h2>
                 </div>
                 <div className="about__column">
                     <ul className="about__links">
                         {links?.map((v, i) => (
                             <li className="about__social" key={i}>
-                                <a href={v?.url} target="_blank" rel="noreferrer">
+                                <a href={v?.url} target="_blank" rel="noreferrer" tabIndex={active === 1 ? 0 : -1}>
                                     <img src={v?.img?.src} alt={v?.img?.alt} />
                                 </a>
                             </li>

@@ -32,12 +32,10 @@
     }
 
     .about__auth-cloud {
-      &::after {
         animation: fly 3s linear 0.8s infinite;
         transform: scale(1);
         opacity: 1;
         transition: transform 0.5s ease-out 0.3s, opacity 0.5s ease-out 0.3s;
-      }
     }
 
     .about__descr {
@@ -128,25 +126,30 @@
     }
 
     &-cloud {
+      @include adapPage(height, 200);
+      @include adapPage(width, 370);
+      position: absolute;
+      @include adapPage(bottom, 430);
+      @include adapPage(right, -60);
+      transform: scale(0.001);
+      opacity: 0;
 
-      &::after {
-        content: "«Кнопки сами себя не спроектируют!»";
-        display: inline-block;
-        @include adapPage(height, 200);
-        @include adapPage(width, 370);
-        position: absolute;
-        @include adapPage(top, 180);
-        @include adapPage(right, -60);
-        z-index: 3;
-        background: url("/public/img/cloud.png") center/ 100% 100% no-repeat;
-        @include adapPage(padding-top, 30);
-        @include adapPage(padding-right, 30);
-        @include adapPage(padding-left, 50);
+      img {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+
+    &-label {
         @include adapPage(font-size, 27);
         line-height: 130%;
-        transform: scale(0.001);
-        opacity: 0;
-      }
+        position: absolute;
+        @include adapPage(top, 30);
+        @include adapPage(left, 30);
+        @include adapPage(right, 30);
+        text-align: center;
     }
 
     &-img {

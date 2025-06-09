@@ -40,13 +40,12 @@ export default function Contact() {
                         Accept: "application/json",
                     },
                     body: JSON.stringify(object),
-                })
-                  
-                if(!response.ok) throw new Error('HTTP error')
+                });
 
-                alert("Сообщение отправлено!");   
+                if (!response.ok) throw new Error("HTTP error");
+
+                alert("Сообщение отправлено!");
                 event.target.reset();
-
             } catch (error) {
                 alert("Возникла ошибка!");
             }
@@ -79,6 +78,8 @@ export default function Contact() {
             id="contact"
             style={{ "--page": page }}
             data-testid="contact"
+            aria-label="Страница для возможжности оставить контакты"
+            tabIndex={active === 4 ? 0 : -1}
         >
             <div className="contact__content">
                 <h2 className="contact__title">Контакты</h2>
@@ -93,6 +94,7 @@ export default function Contact() {
                             onChange={changeInputName}
                             required
                             data-testid="inputName"
+                            tabIndex={active === 4 ? 0 : -1}
                         />
                         <input
                             type="email"
@@ -101,15 +103,23 @@ export default function Contact() {
                             placeholder="Ваша почта..."
                             required
                             data-testid="inputEmail"
+                            tabIndex={active === 4 ? 0 : -1}
                         />
                         <textarea
                             name="description"
                             className="contact__form-description"
                             placeholder="Ваше сообщение..."
+                            tabIndex={active === 4 ? 0 : -1}
                             required
                         ></textarea>
                         <p className="contact__error">{error === true && "*Неправильно указана почта"}</p>
-                        <button type="submit" className="contact__form-submit" ref={buttonSubmit} data-testid="submit">
+                        <button
+                            type="submit"
+                            className="contact__form-submit"
+                            ref={buttonSubmit}
+                            data-testid="submit"
+                            tabIndex={active === 4 ? 0 : -1}
+                        >
                             Отправить
                         </button>
                     </form>

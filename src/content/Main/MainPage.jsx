@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from "react";
-import About from "./About/About";
-import Skills from "./Skills/Skills";
+import { lazy, useEffect, useState } from "react";
 import WrapperSwiper from "../../components/wrapper-swiper";
-import Portfolio from "./Portfolio/Portfolio";
-import Contact from "./Contact/Contact";
 import SizeWindow from "../../components/size-window";
+import { useSelector } from "react-redux";
+
+const About = lazy(() => import("./About/About"));
+const Skills = lazy(() => import("./Skills/Skills"));
+const Portfolio = lazy(() => import("./Portfolio/Portfolio"));
+const Contact = lazy(() => import("./Contact/Contact"));
 
 function MainPage() {
     const [lockContent, setLockContent] = useState(true);
-    const windowWidth = matchMedia("(max-width: 1024px) or (max-height: 860px)");
+    const page = useSelector((state) => state.globalReducer.page);
+    const windowWidth = matchMedia("(max-width: 1024px) or (max-height: 719px)");
 
     useEffect(() => {
         windowWidth.addEventListener("change", (e) => {
             setLockContent(e.matches);
         });
 
-        setLockContent(windowWidth.matches) 
+        setLockContent(windowWidth.matches);
     }, []);
 
     return (

@@ -127,6 +127,8 @@ function Portfolio() {
             id="portfolio"
             style={{ "--page": page }}
             data-testid="portfolio"
+            aria-label="Страница с примерами сайтов из портфолио"
+            tabIndex={active === 3 ? 0 : -1}
         >
             <div className="portfolio__content">
                 <div className="portfolio__column">
@@ -144,7 +146,7 @@ function Portfolio() {
                     </div>
                     <div className="portfolio__project">
                         <div className="portfolio__project-img">
-                            <img src={items[activeProject].img.src} alt="" />
+                            <img src={items[activeProject].img.src} alt="Пример сайта" />
                         </div>
                         <div className="portfolio__project-info">
                             <div className="portfolio__project-tag-row">
@@ -171,7 +173,12 @@ function Portfolio() {
                                 </li>
                             ))}
                         </ul>
-                        <a href={items[activeProject].link} target="_blank" rel="noreferrer" className="portfolio__info-button">
+                        <a
+                            href={items[activeProject].link}
+                            target="_blank"
+                            className="portfolio__info-button"
+                            tabIndex={active === 3 ? 0 : -1}
+                        >
                             Открыть сайт
                         </a>
                     </div>
