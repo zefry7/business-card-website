@@ -110,12 +110,12 @@ export default function Skills() {
                         </div>
                     </div>
                 </div>
+                <div className="skills__line skills__line-1"></div>
+                <div className="skills__line skills__line-2"></div>
+                <div className="skills__line skills__line-3"></div>
+                <div className="skills__line skills__line-4"></div>
+                <div className="skills__line skills__line-5"></div>
             </div>
-            <div className="skills__line skills__line-1"></div>
-            <div className="skills__line skills__line-2"></div>
-            <div className="skills__line skills__line-3"></div>
-            <div className="skills__line skills__line-4"></div>
-            <div className="skills__line skills__line-5"></div>
         </section>
     );
 }

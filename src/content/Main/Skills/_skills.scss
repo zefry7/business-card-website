@@ -80,7 +80,7 @@
             background-color: var(--black);
             position: absolute;
             z-index: -1;
-            @include adapPage(top, -160);
+            @include adapPage(bottom, 160);
             @include adapPage(left, 100);
         }
         
@@ -91,7 +91,7 @@
             background-color: var(--black);
             position: absolute;
             z-index: -1;
-            @include adapPage(top, -160);
+            @include adapPage(bottom, 160);
             @include adapPage(right, 100);
         }
     }
@@ -238,36 +238,36 @@
         @include adapPage(height, 5);
         @include adapPage(width, 205);
         bottom: 0;
-        left: 0;
-        transform-origin: left center;
-        transform: rotateZ(-45deg);
+        @include adapPage(right, 1582);
+        transform-origin: right center;
+        transform: rotateZ(135deg);
     }
 
     &__line-2 {
         @include adapPage(height, 5);
         @include adapPage(width, 205);
         bottom: 0;
-        @include adapPage(right, 15);
-        transform-origin: right center;
-        transform: rotateZ(45deg);
+        @include adapPage(left, 1582);
+        transform-origin: left center;
+        transform: rotateZ(-135deg);
     }
     &__line-3 {
         @include adapPage(height, 1440);
         @include adapPage(width, 5);
         @include adapPage(bottom, 145);
-        @include adapPage(right, 155);
+        @include adapPage(right, 0);
     }
     &__line-4 {
         @include adapPage(height, 1440);
         @include adapPage(width, 5);
         @include adapPage(bottom, 145);
-        @include adapPage(left, 140);
+        @include adapPage(left, 0);
     }
     &__line-5 {
         @include adapPage(height, 5);
-        width: calc((1620/1920) * 100vw);
+        @include adapPage(width, 1440);
         @include adapPage(bottom, 145);
-        @include adapPage(left, 140);
+        @include adapPage(left, 0);
     }
 }
 

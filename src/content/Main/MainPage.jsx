@@ -9,17 +9,11 @@ const Portfolio = lazy(() => import("./Portfolio/Portfolio"));
 const Contact = lazy(() => import("./Contact/Contact"));
 
 function MainPage() {
-    const [lockContent, setLockContent] = useState(true);
-    const page = useSelector((state) => state.globalReducer.page);
-    const windowWidth = matchMedia("(max-width: 1024px) or (max-height: 719px)");
+    const [lockContent, _] = useState(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent));
 
     useEffect(() => {
-        windowWidth.addEventListener("change", (e) => {
-            setLockContent(e.matches);
-        });
-
-        setLockContent(windowWidth.matches);
-    }, []);
+        console.log(navigator.userAgent)
+    }, [])
 
     return (
         <>
